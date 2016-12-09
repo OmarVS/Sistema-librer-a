@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :purchases
   resources :tickets
   resources :sales
+  resources :genre
   get 'welcome/index'
 
   get 'welcome/about'
