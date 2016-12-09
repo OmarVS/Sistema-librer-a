@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
 	belongs_to :genre
+	belongs_to :product
 	validates :genre, presence: true
 	validate :book_not_registered
 end
