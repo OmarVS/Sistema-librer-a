@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
+<h1>Usuarios</h1>
 
-<h1>Listing Users</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Password</th>
-      <th>Phone</th>
+      <th>Nombre</th>
+      <th>Contraseña</th>
+      <th>Telefono</th>
       <th>Email</th>
       <th colspan="3"></th>
     </tr>
@@ -20,14 +19,12 @@
         <td><%= user.password %></td>
         <td><%= user.phone %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New User', new_user_path %>
