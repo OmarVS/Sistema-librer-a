@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nombre:</strong>
-  <%= @book.name %>
+  <h2><%= @book.name %></h2>
+</p>
+
+<p>
+  <%= image_tag(@book.avatar.url(:medium)) %>
 </p>
 
 <p>
   <strong>Precio:</strong>
-  <%= @book.price %>
+  <%= '$' %><%= @book.price %>
 </p>
 
 <p>
@@ -22,7 +25,7 @@
 
 <p>
   <strong>Genero:</strong>
-  <%= @book.genre %>
+  <%= @book.genre.name %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

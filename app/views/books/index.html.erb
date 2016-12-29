@@ -5,6 +5,7 @@
 <table class="table table-condensed">
   <thead>
     <tr>
+      <th>Imagen</th>
       <th>Nombre</th>
       <th>Precio</th>
       <th>Autor</th>
@@ -17,11 +18,12 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
+        <td><%= image_tag(book.avatar.url(:thumb)) %></td>
         <td><%= book.name %></td>
-        <td><%= book.price %></td>
+        <td><%= '$' %><%= book.price %></td>
         <td><%= book.writer %></td>
         <td><%= book.editorial %></td>
-        <td><%= book.genre %></td>
+        <td><%= book.genre.name %></td>
         <td><%= link_to 'Mostrar', book %></td>
         <td><%= link_to 'Editar', edit_book_path(book) %></td>
         <td><%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

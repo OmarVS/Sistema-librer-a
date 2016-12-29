@@ -3,8 +3,8 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :name
       t.integer :price
-      t.text :Description
-
+      t.string :trademark
+      
       t.timestamps null: false
     end
   end
