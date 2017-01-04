@@ -1,0 +1,1 @@
+json.array! @genres, partial: 'genress/genre', as: :genre

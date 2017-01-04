@@ -27667,3 +27667,1272 @@ Processing by BooksController#index as HTML
   [1m[35mBook Load (0.7ms)[0m  SELECT "books".* FROM "books"
   Rendered books/index.html.erb within layouts/application (6.4ms)
 Completed 200 OK in 124ms (Views: 122.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-04 11:25:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (34.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 1077ms (Views: 1045.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admins.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/books.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/clients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/custom.self-3d370d1418b03eafdf96fcbf8d0ccbe65bb226fbc78622365e53b8659c9777d7.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/providers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/purchases.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/sales.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/scaffolds.self-aa7a587ca4cf75faf11cd2f845e1dea9e415c62441bd128adc9e9858aafce4fe.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/sellers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/tickets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/application.self-c12c099ae40b6b7578dc857c3e85d85f02443024f759d2daef2a6d4daeffd8e4.css?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/books.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/admins.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/clients.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/providers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/purchases.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/sales.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/sellers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/tickets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2017-01-04 11:25:21 -0300
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 11:25:25 -0300
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (38.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (143.2ms)
+Completed 200 OK in 309ms (Views: 170.4ms | ActiveRecord: 115.6ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:25:27 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (52.7ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (58.3ms)
+Completed 200 OK in 221ms (Views: 125.3ms | ActiveRecord: 54.1ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-01-04 11:25:29 -0300
+Processing by BooksController#new as HTML
+  [1m[35mGenre Load (2.4ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (192.1ms)
+  Rendered books/new.html.erb within layouts/application (228.6ms)
+Completed 200 OK in 400ms (Views: 378.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:26:50 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (4.6ms)
+  Rendered genres/new.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 140ms (Views: 132.8ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2017-01-04 11:27:01 -0300
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b6UpbXRrWUCb36r8VF/6XUxCJ36WL8PLmvLO00XDhdgZuFhrvhLQPV2UFOVnT0xkt03AbPNAx9grwbZi3Cm9NQ==", "genre"=>{"name"=>"Fantasía"}, "commit"=>"Create Genre"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (30.6ms)[0m  INSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Fantasía"], ["created_at", "2017-01-04 14:27:01.777540"], ["updated_at", "2017-01-04 14:27:01.777540"]]
+  [1m[36m (60.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/genres/1
+Completed 302 Found in 145ms (ActiveRecord: 91.8ms)
+
+
+Started GET "/genres/1" for 127.0.0.1 at 2017-01-04 11:27:01 -0300
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGenre Load (0.4ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered genres/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 157ms (Views: 125.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 11:27:04 -0300
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 127ms (Views: 126.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:27:07 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (1.8ms)
+  Rendered genres/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 122ms (Views: 121.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2017-01-04 11:27:14 -0300
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R35R3WnlsAvqmvfRv+hAaGmlEs+wu77drLCB3jgEeIkxYyDbo5w5dizRSciM+PZRkqr13dXUus4dg/lvoe5AZA==", "genre"=>{"name"=>"Terror"}, "commit"=>"Create Genre"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Terror"], ["created_at", "2017-01-04 14:27:14.632923"], ["updated_at", "2017-01-04 14:27:14.632923"]]
+  [1m[35m (41.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/genres/2
+Completed 302 Found in 49ms (ActiveRecord: 41.8ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2017-01-04 11:27:14 -0300
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 124ms (Views: 122.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 11:27:17 -0300
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (1.5ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 127ms (Views: 124.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:27:19 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (1.8ms)
+  Rendered genres/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 125ms (Views: 124.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2017-01-04 11:27:25 -0300
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bd5TUuJhcaKrmvD81sddb0R4IGcBhi+5HqJmrF9vLUpzwyJUKBj4323RTuXl1+tWv3fHdWTpK6qvkR4dxoUVpw==", "genre"=>{"name"=>"Misterio"}, "commit"=>"Create Genre"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Misterio"], ["created_at", "2017-01-04 14:27:25.090880"], ["updated_at", "2017-01-04 14:27:25.090880"]]
+  [1m[36m (59.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/genres/3
+Completed 302 Found in 65ms (ActiveRecord: 59.7ms)
+
+
+Started GET "/genres/3" for 127.0.0.1 at 2017-01-04 11:27:25 -0300
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mGenre Load (0.7ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered genres/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 111ms (Views: 108.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 11:27:26 -0300
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (3.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 153ms (Views: 148.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:27:28 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (1.9ms)
+  Rendered genres/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 154ms (Views: 153.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2017-01-04 11:27:30 -0300
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RZIkChoEfPVWiWRqF564a2gxJC7U7l2QmilKFrirQW4zj1UM0H31iJDC2nMkjg5Skz7DPLGBWYMrGjKnIUF5gw==", "genre"=>{"name"=>"Aventura"}, "commit"=>"Create Genre"}
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Aventura"], ["created_at", "2017-01-04 14:27:30.854908"], ["updated_at", "2017-01-04 14:27:30.854908"]]
+  [1m[35m (42.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/genres/4
+Completed 302 Found in 50ms (ActiveRecord: 43.8ms)
+
+
+Started GET "/genres/4" for 127.0.0.1 at 2017-01-04 11:27:30 -0300
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 134ms (Views: 131.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 11:27:42 -0300
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (0.5ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 161ms (Views: 159.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:27:43 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (1.7ms)
+  Rendered genres/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 141ms (Views: 133.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2017-01-04 11:28:01 -0300
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XC61fZJF9N2eP4x2Hw0sSGLDd0ugnwyGnKX4adOQgGQqM8R7WDx9oFh0Mm8sHZpxmcyQWcXwCJUtloDYSnq4iQ==", "genre"=>{"name"=>"Ciencia ficción"}, "commit"=>"Create Genre"}
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Ciencia ficción"], ["created_at", "2017-01-04 14:28:01.200798"], ["updated_at", "2017-01-04 14:28:01.200798"]]
+  [1m[36m (40.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/genres/5
+Completed 302 Found in 52ms (ActiveRecord: 45.7ms)
+
+
+Started GET "/genres/5" for 127.0.0.1 at 2017-01-04 11:28:01 -0300
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mGenre Load (0.4ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 134ms (Views: 132.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 11:28:03 -0300
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 127ms (Views: 126.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:28:05 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (2.0ms)
+  Rendered genres/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 142ms (Views: 140.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2017-01-04 11:28:07 -0300
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uqvuR7o1YEqDXN6axiqLzPiY5zBeImHyCLhahBitbtTMtp9BcEzpN0UXYIP1Oj31A5cAIjtNZeG5iyI1gUdWOQ==", "genre"=>{"name"=>"Comedia"}, "commit"=>"Create Genre"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Comedia"], ["created_at", "2017-01-04 14:28:07.429119"], ["updated_at", "2017-01-04 14:28:07.429119"]]
+  [1m[35m (30.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/genres/6
+Completed 302 Found in 36ms (ActiveRecord: 31.5ms)
+
+
+Started GET "/genres/6" for 127.0.0.1 at 2017-01-04 11:28:07 -0300
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered genres/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 120ms (Views: 116.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 11:28:09 -0300
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (3.3ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 135ms (Views: 130.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2017-01-04 11:28:11 -0300
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (4.0ms)
+  Rendered genres/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 124ms (Views: 123.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:28:24 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (5.7ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 130ms (Views: 123.2ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-01-04 11:28:26 -0300
+Processing by BooksController#new as HTML
+  [1m[35mGenre Load (0.5ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (5.5ms)
+  Rendered books/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 138ms (Views: 135.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:39:42 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (6.1ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 118ms (Views: 111.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-01-04 11:39:45 -0300
+Processing by BooksController#new as HTML
+  [1m[35mGenre Load (0.5ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (7.9ms)
+  Rendered books/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 132ms (Views: 130.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2017-01-04 11:40:53 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9fobod3IoZhMo99ZuRklhUYP0p/ebI7EXaffnZE8uBGD52qnF7Eo5YroYUCKCZO8vQA1jbsDitfslKcsCNaA/A==", "book"=>{"name"=>"Harry Potter y la piedra filosofal", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1"}, "commit"=>"Create Book"}
+  [1m[36m (2.7ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (21.9ms)[0m  INSERT INTO "books" ("name", "price", "writer", "editorial", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["name", "Harry Potter y la piedra filosofal"], ["price", 39990], ["writer", "J.K. Rowling"], ["editorial", "Salamandra"], ["genre_id", 1], ["created_at", "2017-01-04 14:40:53.323247"], ["updated_at", "2017-01-04 14:40:53.323247"]]
+  [1m[36m (36.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 72ms (ActiveRecord: 60.8ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2017-01-04 11:40:53 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 190ms (Views: 186.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:41:02 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 154ms (Views: 152.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:41:11 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (1.3ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 133ms (Views: 130.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:41:13 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (1.3ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 147ms (Views: 144.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2017-01-04 11:41:17 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.7ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 148ms (Views: 144.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-01-04 11:46:30 -0300
+Processing by BooksController#new as HTML
+  [1m[35mGenre Load (2.8ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (7.2ms)
+  Rendered books/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 123ms (Views: 119.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2017-01-04 11:46:42 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/yHDlkULCpgl64R1kh9BXP9QPrqj4W3CkLnkdwMBgpl4fYIk22lV6bcEAjlWMs8iPKn6I/ggaS7cZ8gReY+5w==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1"}, "commit"=>"Create Book"}
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "books" ("name", "price", "writer", "editorial", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["name", "Harry Potter y la cámara secreta"], ["price", 39990], ["writer", "J.K. Rowling"], ["editorial", "Salamandra"], ["genre_id", 1], ["created_at", "2017-01-04 14:46:42.477362"], ["updated_at", "2017-01-04 14:46:42.477362"]]
+  [1m[36m (32.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 44ms (ActiveRecord: 37.4ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 11:46:42 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (4.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 133ms (Views: 126.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:46:46 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (1.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 128ms (Views: 125.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-01-04 11:46:48 -0300
+Processing by BooksController#new as HTML
+  [1m[36mGenre Load (1.9ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (9.0ms)
+  Rendered books/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 137ms (Views: 133.9ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2017-01-04 11:47:11 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9C91USJ10v90b940RR2VKVIn+KmnG3P6weQn/fmDlZSCMgRX6AxbgrIkYC12DSMQqSgfu8J0d+lw119MYGmteQ==", "book"=>{"name"=>"Papelucho en la clínica", "price"=>"9990", "writer"=>"Marcela Paz", "editorial"=>"El barco de vapor", "genre_id"=>"4"}, "commit"=>"Create Book"}
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "books" ("name", "price", "writer", "editorial", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Papelucho en la clínica"], ["price", 9990], ["writer", "Marcela Paz"], ["editorial", "El barco de vapor"], ["genre_id", 4], ["created_at", "2017-01-04 14:47:11.146182"], ["updated_at", "2017-01-04 14:47:11.146182"]]
+  [1m[35m (43.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 57ms (ActiveRecord: 44.4ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-01-04 11:47:11 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.4ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mGenre Load (4.7ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered books/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 135ms (Views: 128.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 11:47:12 -0300
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 128ms (Views: 126.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 11:47:14 -0300
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (3.9ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 129ms (Views: 124.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:47:19 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.4ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  [1m[35mGenre Load (0.8ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (0.5ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered books/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 130ms (Views: 127.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 11:47:20 -0300
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (4.0ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 142ms (Views: 136.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:47:21 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (5.6ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered books/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 153ms (Views: 145.2ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-01-04 11:51:58 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (3.9ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.8ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (5.4ms)
+  Rendered books/edit.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 126ms (Views: 119.6ms | ActiveRecord: 4.7ms)
+
+
+Started PATCH "/books/1" for 127.0.0.1 at 2017-01-04 11:53:07 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"POZQlN0qm7o4MV6rr7xAUISfkHys2JXrGlimkSClayFK+yGSF1MSx/564LKcrPZpf5B3bsm3kfira94guU9TzA==", "book"=>{"name"=>"Harry Potter y la piedra filosofal", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f5394f30158 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-c6eihn.jpg>, @original_filename="harry-potter-y-la-piedra-filosofal-poster.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"harry-potter-y-la-piedra-filosofal-poster.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1ybtel7.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1wgsr40.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1wgsr40.jpg[0]'
+Command :: convert '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1wgsr40.jpg[0]' -auto-orient -resize "200x200#" '/tmp/64dff611fdb805562d94213353fd0d7920170104-3150-cqygdg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1wgsr40.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1wgsr40.jpg[0]'
+Command :: convert '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1wgsr40.jpg[0]' -auto-orient -resize "100x" -crop "100x100+0+29" +repage '/tmp/64dff611fdb805562d94213353fd0d7920170104-3150-1h969sw'
+Command :: file -b --mime '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1w8dz4t.jpg'
+  [1m[35mSQL (0.6ms)[0m  UPDATE "books" SET "avatar_file_name" = $1, "avatar_content_type" = $2, "avatar_file_size" = $3, "avatar_updated_at" = $4, "updated_at" = $5 WHERE "books"."id" = $6  [["avatar_file_name", "harry-potter-y-la-piedra-filosofal-poster.jpg"], ["avatar_content_type", "image/jpeg"], ["avatar_file_size", 1689654], ["avatar_updated_at", "2017-01-04 14:53:07.116333"], ["updated_at", "2017-01-04 14:53:08.737864"], ["id", 1]]
+  [1m[36m (113.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 1773ms (ActiveRecord: 114.6ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2017-01-04 11:53:08 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 107ms (Views: 104.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:53:19 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (1.1ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 154ms (Views: 150.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-01-04 11:53:22 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (1.2ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (6.8ms)
+  Rendered books/edit.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 132ms (Views: 128.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 11:53:24 -0300
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 135ms (Views: 133.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:53:25 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (5.5ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  [1m[35mGenre Load (0.4ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (6.2ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 174ms (Views: 156.5ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2017-01-04 11:53:27 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 136ms (Views: 133.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 11:56:35 -0300
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (3.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 141ms (Views: 137.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2017-01-04 11:56:38 -0300
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProduct Load (0.7ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered products/show.html.erb within layouts/application (29.2ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+     5: </p>
+     6: 
+     7: <p>
+     8:   <%= image_tag(@book.avatar.url(:medium)) %>
+     9: </p>
+    10: 
+    11: <p>
+  app/views/products/show.html.erb:8:in `_app_views_products_show_html_erb___1078893369602588163_69998494514440'
+
+
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.4ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (45.6ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (30.3ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/omar/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (73.1ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2017-01-04 11:57:03 -0300
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered products/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 125ms (Views: 122.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 11:57:42 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (3.9ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (1.7ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 121ms (Views: 114.2ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/books/2/edit" for 127.0.0.1 at 2017-01-04 11:57:45 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.6ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (5.3ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (13.0ms)
+  Rendered books/edit.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 141ms (Views: 133.2ms | ActiveRecord: 5.9ms)
+
+
+Started PATCH "/books/2" for 127.0.0.1 at 2017-01-04 11:57:52 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PVwPQCLUh94LsjIKb+05Flth9PPiHjOAkwAII65FWPVLQX5G6K0Oo835jBNc/Y8voG4T4YdxN5MiM3CSN69gGA==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f5396f10680 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-t1tcaw.jpg>, @original_filename="camara.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"camara.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"2"}
+  [1m[35mBook Load (1.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (1.7ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1rq46sq.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1lagghm.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1lagghm.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1lagghm.jpg[0]' -auto-orient -resize "200x200#" '/tmp/3de58bd0de10c997952d8fe91d17ca1120170104-3150-w8tx1d'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1lagghm.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1lagghm.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1lagghm.jpg[0]' -auto-orient -resize "100x" -crop "100x100+0+29" +repage '/tmp/3de58bd0de10c997952d8fe91d17ca1120170104-3150-1d3mog8'
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1xflarc.jpg'
+  [1m[35mSQL (0.5ms)[0m  UPDATE "books" SET "avatar_file_name" = $1, "avatar_content_type" = $2, "avatar_file_size" = $3, "avatar_updated_at" = $4, "updated_at" = $5 WHERE "books"."id" = $6  [["avatar_file_name", "camara.jpg"], ["avatar_content_type", "image/jpeg"], ["avatar_file_size", 959756], ["avatar_updated_at", "2017-01-04 14:57:52.459822"], ["updated_at", "2017-01-04 14:57:54.146282"], ["id", 2]]
+  [1m[36m (93.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 1810ms (ActiveRecord: 97.5ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 11:57:54 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 122ms (Views: 119.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books/2/edit" for 127.0.0.1 at 2017-01-04 11:59:02 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (14.7ms)
+  Rendered books/edit.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 143ms (Views: 119.2ms | ActiveRecord: 6.0ms)
+
+
+Started PATCH "/books/2" for 127.0.0.1 at 2017-01-04 11:59:11 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZC1I2tonS6LEwJa4AFL1Fwg2iK0CG6RH3+jCk2fGU/cSMDncEF7C3wKLKKEzQkMu8zlvv2d0oFRu27oi/ixrGg==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f539c010008 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-igdw5g.jpg>, @original_filename="camara.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"camara.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"2"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-9r9viv.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-178xotf.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-178xotf.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-178xotf.jpg[0]' -auto-orient -resize "200x" -crop "200x200+0+59" +repage '/tmp/abb6c2607a12e51cdf37cd2410a5491820170104-3150-re9nr5'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-178xotf.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-178xotf.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-178xotf.jpg[0]' -auto-orient -resize "100x" -crop "100x100+0+29" +repage '/tmp/abb6c2607a12e51cdf37cd2410a5491820170104-3150-fi7whb'
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-uuhk4t.jpg'
+  [1m[35mSQL (0.5ms)[0m  UPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4  [["avatar_updated_at", "2017-01-04 14:59:11.769841"], ["avatar_file_name", "camara.jpg"], ["updated_at", "2017-01-04 14:59:13.371597"], ["id", 2]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/original/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/medium/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/thumb/camara.jpg
+  [1m[36m (23.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 1719ms (ActiveRecord: 24.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 11:59:13 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.6ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 103ms (Views: 100.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:00:04 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mGenre Load (0.4ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 151ms (Views: 139.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 12:00:07 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.7ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (6.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 149ms (Views: 139.8ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/books/2/edit" for 127.0.0.1 at 2017-01-04 12:00:09 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (4.9ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (11.7ms)
+  Rendered books/edit.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 145ms (Views: 137.2ms | ActiveRecord: 5.5ms)
+
+
+Started PATCH "/books/2" for 127.0.0.1 at 2017-01-04 12:00:14 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nY8bcTPEx8BxqwRqjNdFl/XJiqVTwjJbhKgObolZHu3rkmp3+b1OvbfgunO/x/OuDsZttzatNkg1m3bfELMmAA==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f53961a0978 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-165fbn6.jpg>, @original_filename="camara.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"camara.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"2"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-11l9cfj.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-tzdb8x.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-tzdb8x.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-tzdb8x.jpg[0]' -auto-orient -resize "400x" -crop "400x300+0+168" +repage '/tmp/81a5cf8d91249f81a623a424d953d4dc20170104-3150-w53j4c'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-tzdb8x.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-tzdb8x.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-tzdb8x.jpg[0]' -auto-orient -resize "100x" -crop "100x75+0+42" +repage '/tmp/81a5cf8d91249f81a623a424d953d4dc20170104-3150-1d8on5k'
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-17j6tqp.jpg'
+  [1m[35mSQL (1.5ms)[0m  UPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4  [["avatar_updated_at", "2017-01-04 15:00:14.610279"], ["avatar_file_name", "camara.jpg"], ["updated_at", "2017-01-04 15:00:16.214986"], ["id", 2]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/original/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/medium/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/thumb/camara.jpg
+  [1m[36m (16.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 1669ms (ActiveRecord: 18.2ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 12:00:16 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 121ms (Views: 119.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books/2/edit" for 127.0.0.1 at 2017-01-04 12:01:34 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (15.3ms)
+  Rendered books/edit.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 151ms (Views: 126.2ms | ActiveRecord: 5.8ms)
+
+
+Started PATCH "/books/2" for 127.0.0.1 at 2017-01-04 12:01:36 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T6ML5pxswGjrdjjK/sgIvt6wSvm3uzCB1B39HebzceE5vnrgVhVJFS09htPN2L6HJb+t69LUNJJlLoWsfxlJDA==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1"}, "commit"=>"Update Book", "id"=>"2"}
+  [1m[35mBook Load (2.8ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 11ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 12:01:36 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 123ms (Views: 120.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books/2/edit" for 127.0.0.1 at 2017-01-04 12:01:39 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mGenre Load (0.5ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (9.5ms)
+  Rendered books/edit.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 123ms (Views: 120.9ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/books/2" for 127.0.0.1 at 2017-01-04 12:01:50 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6tCzu443ar6pJjw7pan1+xaQqm0VwCS8nkGdjAdhW5SczcK9RE7jw29tgiKWuUPC7Z9Nf3CvIK8vcuU9notjeQ==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f53967a53f0 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-hb58xa.jpg>, @original_filename="camara.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"camara.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"2"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-p33h65.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1t2pbu5.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1t2pbu5.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1t2pbu5.jpg[0]' -auto-orient -resize "300x" -crop "300x400+0+39" +repage '/tmp/31e6217511ffad8f1ca20a5112d645dc20170104-3150-calh3c'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1t2pbu5.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1t2pbu5.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-1t2pbu5.jpg[0]' -auto-orient -resize "75x" -crop "75x100+0+9" +repage '/tmp/31e6217511ffad8f1ca20a5112d645dc20170104-3150-ul7sft'
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-m8hbfd.jpg'
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4[0m  [["avatar_updated_at", "2017-01-04 15:01:50.534643"], ["avatar_file_name", "camara.jpg"], ["updated_at", "2017-01-04 15:01:52.253517"], ["id", 2]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/original/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/medium/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/thumb/camara.jpg
+  [1m[35m (15.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 1791ms (ActiveRecord: 16.5ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 12:01:52 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBook Load (0.6ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 123ms (Views: 120.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:03:01 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.8ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  [1m[35mGenre Load (1.1ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 136ms (Views: 132.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-01-04 12:03:08 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.6ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (2.7ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (8.3ms)
+  Rendered books/edit.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 133ms (Views: 127.9ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/books/1" for 127.0.0.1 at 2017-01-04 12:03:14 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lEnDrez28cUrE4+R9EG800HSaSVEGnLiQgTLhHhePhDiVLKrJo94uO1YMYjHUQrqut2ONyF1dvHzN7M14bQG/Q==", "book"=>{"name"=>"Harry Potter y la piedra filosofal", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f5395984cf8 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-5i8lmw.jpg>, @original_filename="harry-potter-y-la-piedra-filosofal-poster.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"harry-potter-y-la-piedra-filosofal-poster.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-11bmouy.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-137o4l2.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-137o4l2.jpg[0]'
+Command :: convert '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-137o4l2.jpg[0]' -auto-orient -resize "300x" -crop "300x400+0+39" +repage '/tmp/6f0e9745d7769b7907cffa52837e5fe820170104-3150-44a4kj'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-137o4l2.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-137o4l2.jpg[0]'
+Command :: convert '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-137o4l2.jpg[0]' -auto-orient -resize "75x" -crop "75x100+0+9" +repage '/tmp/6f0e9745d7769b7907cffa52837e5fe820170104-3150-a2e2ua'
+Command :: file -b --mime '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1nskyw1.jpg'
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4[0m  [["avatar_updated_at", "2017-01-04 15:03:14.892602"], ["avatar_file_name", "harry-potter-y-la-piedra-filosofal-poster.jpg"], ["updated_at", "2017-01-04 15:03:15.925810"], ["id", 1]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/001/original/harry-potter-y-la-piedra-filosofal-poster.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/001/medium/harry-potter-y-la-piedra-filosofal-poster.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/001/thumb/harry-potter-y-la-piedra-filosofal-poster.jpg
+  [1m[35m (25.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 1098ms (ActiveRecord: 26.8ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2017-01-04 12:03:15 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 115ms (Views: 113.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:03:24 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.5ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mGenre Load (4.6ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 128ms (Views: 121.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/books/3/edit" for 127.0.0.1 at 2017-01-04 12:03:53 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.3ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mGenre Load (0.6ms)[0m  SELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC
+  Rendered books/_form.html.erb (14.9ms)
+  Rendered books/edit.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 132ms (Views: 108.7ms | ActiveRecord: 5.8ms)
+
+
+Started PATCH "/books/3" for 127.0.0.1 at 2017-01-04 12:03:55 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HzxqtdPjviUgOF21eWTdcuRcpF8tVSS7pBNt8V93BNhpIRuzGZo3WOZz46xKdGtLH1NDTUg6IKgVIBVAxp08NQ==", "book"=>{"name"=>"Papelucho en la clínica", "price"=>"9990", "writer"=>"Marcela Paz", "editorial"=>"El barco de vapor", "genre_id"=>"4"}, "commit"=>"Update Book", "id"=>"3"}
+  [1m[36mBook Load (1.5ms)[0m  [1mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.3ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 9ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-01-04 12:03:55 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.7ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered books/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 104ms (Views: 101.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/books/3/edit" for 127.0.0.1 at 2017-01-04 12:03:58 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (24.0ms)
+  Rendered books/edit.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 138ms (Views: 134.9ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/books/3" for 127.0.0.1 at 2017-01-04 12:04:04 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JlhHo82mNEjdCpfnWV/oFJ735K2qmrMLue1OgMCMzn5QRTalB9+9NRtBKf5qT14tZfgDv8/1txgI3jYxWWb2kw==", "book"=>{"name"=>"Papelucho en la clínica", "price"=>"9990", "writer"=>"Marcela Paz", "editorial"=>"El barco de vapor", "genre_id"=>"4", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f5396cf9428 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-1cllud1.jpg>, @original_filename="5_Tapa_papelucho_en_la_clinica.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"5_Tapa_papelucho_en_la_clinica.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"3"}
+  [1m[35mBook Load (4.2ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-bro6h9.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-aeg12s.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-aeg12s.jpg[0]'
+Command :: convert '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-aeg12s.jpg[0]' -auto-orient -resize "300x" -crop "300x400+0+37" +repage '/tmp/c4e4ca3419182c10c1609bc815c0422620170104-3150-1n8v62t'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-aeg12s.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-aeg12s.jpg[0]'
+Command :: convert '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-aeg12s.jpg[0]' -auto-orient -resize "75x" -crop "75x100+0+9" +repage '/tmp/c4e4ca3419182c10c1609bc815c0422620170104-3150-xlunwf'
+Command :: file -b --mime '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-yfo8pe.jpg'
+  [1m[35mSQL (0.5ms)[0m  UPDATE "books" SET "avatar_file_name" = $1, "avatar_content_type" = $2, "avatar_file_size" = $3, "avatar_updated_at" = $4, "updated_at" = $5 WHERE "books"."id" = $6  [["avatar_file_name", "5_Tapa_papelucho_en_la_clinica.jpg"], ["avatar_content_type", "image/jpeg"], ["avatar_file_size", 41114], ["avatar_updated_at", "2017-01-04 15:04:04.836633"], ["updated_at", "2017-01-04 15:04:04.956043"], ["id", 3]]
+  [1m[36m (37.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 185ms (ActiveRecord: 43.1ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-01-04 12:04:05 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered books/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 117ms (Views: 114.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books/3/edit" for 127.0.0.1 at 2017-01-04 12:04:41 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.8ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.8ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (15.6ms)
+  Rendered books/edit.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 153ms (Views: 127.4ms | ActiveRecord: 6.7ms)
+
+
+Started PATCH "/books/3" for 127.0.0.1 at 2017-01-04 12:04:46 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EOL+/u7nBOTOkZzeC9QItxhz8T2kY7WYGU8RlfyiUH9m/4/4JJ6NmQjaIsc4xL6O43wWL8EMsYuofGkkZUhokg==", "book"=>{"name"=>"Papelucho en la clínica", "price"=>"9990", "writer"=>"Marcela Paz", "editorial"=>"El barco de vapor", "genre_id"=>"4", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f5396638b20 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-rvaduo.jpg>, @original_filename="5_Tapa_papelucho_en_la_clinica.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"5_Tapa_papelucho_en_la_clinica.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"3"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19i2pig.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-ib5ovh.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-ib5ovh.jpg[0]'
+Command :: convert '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-ib5ovh.jpg[0]' -auto-orient -resize "300x" -crop "300x0+0+237" +repage '/tmp/58be897ade8ce097e48f2b7533e70d9f20170104-3150-1ullohk'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-ib5ovh.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-ib5ovh.jpg[0]'
+Command :: convert '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-ib5ovh.jpg[0]' -auto-orient -resize "75x" -crop "75x0+0+59" +repage '/tmp/58be897ade8ce097e48f2b7533e70d9f20170104-3150-pj9v6i'
+Command :: file -b --mime '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-8zebci.jpg'
+  [1m[35mSQL (0.5ms)[0m  UPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4  [["avatar_updated_at", "2017-01-04 15:04:46.942569"], ["avatar_file_name", "5_Tapa_papelucho_en_la_clinica.jpg"], ["updated_at", "2017-01-04 15:04:47.047952"], ["id", 3]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/003/original/5_Tapa_papelucho_en_la_clinica.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/003/medium/5_Tapa_papelucho_en_la_clinica.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/003/thumb/5_Tapa_papelucho_en_la_clinica.jpg
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 157ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-01-04 12:04:47 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered books/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 111ms (Views: 109.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books/3/edit" for 127.0.0.1 at 2017-01-04 12:05:15 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (14.5ms)
+  Rendered books/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 138ms (Views: 114.6ms | ActiveRecord: 5.8ms)
+
+
+Started PATCH "/books/3" for 127.0.0.1 at 2017-01-04 12:05:20 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jkAAwhoIGiBetQsh3delpjYaq3on+fSGwsZurud65zH4XXHE0HGTXZj+tTjuxxOfzRVMaEKW8JVz9RYffpDf3A==", "book"=>{"name"=>"Papelucho en la clínica", "price"=>"9990", "writer"=>"Marcela Paz", "editorial"=>"El barco de vapor", "genre_id"=>"4", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f53954322f0 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-phkpgc.jpg>, @original_filename="5_Tapa_papelucho_en_la_clinica.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"5_Tapa_papelucho_en_la_clinica.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"3"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (1.4ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-y2wms3.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19xz1l3.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19xz1l3.jpg[0]'
+Command :: convert '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19xz1l3.jpg[0]' -auto-orient -resize "x500" -crop "300x500+7+0" +repage '/tmp/68e1e93c73e9019c3751b3901ca5afd520170104-3150-cgdzfn'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19xz1l3.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19xz1l3.jpg[0]'
+Command :: convert '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-19xz1l3.jpg[0]' -auto-orient -resize "x125" -crop "75x125+1+0" +repage '/tmp/68e1e93c73e9019c3751b3901ca5afd520170104-3150-1ovwlpd'
+Command :: file -b --mime '/tmp/3a53adf32eafcf588c179c5f6edf4ee320170104-3150-12s7nqv.jpg'
+  [1m[35mSQL (0.9ms)[0m  UPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4  [["avatar_updated_at", "2017-01-04 15:05:20.502287"], ["avatar_file_name", "5_Tapa_papelucho_en_la_clinica.jpg"], ["updated_at", "2017-01-04 15:05:20.640202"], ["id", 3]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/003/original/5_Tapa_papelucho_en_la_clinica.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/003/medium/5_Tapa_papelucho_en_la_clinica.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/003/thumb/5_Tapa_papelucho_en_la_clinica.jpg
+  [1m[36m (9.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 185ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2017-01-04 12:05:20 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered books/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 120ms (Views: 117.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:05:27 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (1.9ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (1.7ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered books/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 145ms (Views: 140.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-01-04 12:05:31 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (1.8ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (6.4ms)
+  Rendered books/edit.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 134ms (Views: 129.8ms | ActiveRecord: 2.4ms)
+
+
+Started PATCH "/books/1" for 127.0.0.1 at 2017-01-04 12:05:43 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bSoid7JwQ7wldzPKOa5krnqT1UF+W/Fu8uaP7EJduGobN1NxeAnKweM8jdMKvtKXgZwyUxs09X1D1fdd27eAhw==", "book"=>{"name"=>"Harry Potter y la piedra filosofal", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f53a0214490 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-16qmm4r.jpg>, @original_filename="harry-potter-y-la-piedra-filosofal-poster.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"harry-potter-y-la-piedra-filosofal-poster.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1foq6ze.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-5n9n6t.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-5n9n6t.jpg[0]'
+Command :: convert '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-5n9n6t.jpg[0]' -auto-orient -resize "x500" -crop "300x500+6+0" +repage '/tmp/0d3ee58ef341fee2d94c3e5565fe1e2f20170104-3150-zznshz'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-5n9n6t.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-5n9n6t.jpg[0]'
+Command :: convert '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-5n9n6t.jpg[0]' -auto-orient -resize "x125" -crop "75x125+1+0" +repage '/tmp/0d3ee58ef341fee2d94c3e5565fe1e2f20170104-3150-1vdun7s'
+Command :: file -b --mime '/tmp/dd8cc71103a81a55dca5752edba1946e20170104-3150-1uqyzsf.jpg'
+  [1m[35mSQL (0.3ms)[0m  UPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4  [["avatar_updated_at", "2017-01-04 15:05:43.186599"], ["avatar_file_name", "harry-potter-y-la-piedra-filosofal-poster.jpg"], ["updated_at", "2017-01-04 15:05:44.265032"], ["id", 1]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/001/original/harry-potter-y-la-piedra-filosofal-poster.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/001/medium/harry-potter-y-la-piedra-filosofal-poster.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/001/thumb/harry-potter-y-la-piedra-filosofal-poster.jpg
+  [1m[36m (26.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 1144ms (ActiveRecord: 27.8ms)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2017-01-04 12:05:44 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 114ms (Views: 111.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-01-04 12:05:48 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.5ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (0.5ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (6.6ms)
+  Rendered books/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 128ms (Views: 126.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:05:51 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (4.4ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mGenre Load (0.4ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 127ms (Views: 121.2ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/books/2/edit" for 127.0.0.1 at 2017-01-04 12:05:53 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.6ms)[0m  [1mSELECT "genres".* FROM "genres"  ORDER BY "genres"."name" ASC[0m
+  Rendered books/_form.html.erb (6.3ms)
+  Rendered books/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 127ms (Views: 124.3ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/books/2" for 127.0.0.1 at 2017-01-04 12:06:00 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XmuLE0XqsydH43IxQbkJDnre5DXGxMmwMTajHvOGABEodvoVj5M6WoGozChyqb83gdEDJ6OrzaOABduvamw4/A==", "book"=>{"name"=>"Harry Potter y la cámara secreta", "price"=>"39990", "writer"=>"J.K. Rowling", "editorial"=>"Salamandra", "genre_id"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f53ad9965f8 @tempfile=#<Tempfile:/tmp/RackMultipart20170104-3150-175yz26.jpg>, @original_filename="camara.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[avatar]\"; filename=\"camara.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Book", "id"=>"2"}
+  [1m[35mBook Load (10.3ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-dy9tnz.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-ibi1iq.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-ibi1iq.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-ibi1iq.jpg[0]' -auto-orient -resize "x500" -crop "300x500+6+0" +repage '/tmp/dff2368b4110327ff6f815e415e8f54e20170104-3150-dfstmr'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-ibi1iq.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-ibi1iq.jpg[0]'
+Command :: convert '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-ibi1iq.jpg[0]' -auto-orient -resize "x125" -crop "75x125+1+0" +repage '/tmp/dff2368b4110327ff6f815e415e8f54e20170104-3150-16e7acv'
+Command :: file -b --mime '/tmp/d1fb83c4c01e41c00920a23b5295852520170104-3150-12lrihq.jpg'
+  [1m[35mSQL (0.4ms)[0m  UPDATE "books" SET "avatar_updated_at" = $1, "avatar_file_name" = $2, "updated_at" = $3 WHERE "books"."id" = $4  [["avatar_updated_at", "2017-01-04 15:06:00.724360"], ["avatar_file_name", "camara.jpg"], ["updated_at", "2017-01-04 15:06:02.414087"], ["id", 2]]
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/original/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/medium/camara.jpg
+[paperclip] deleting /home/omar/ProyectoISW/public/system/books/avatars/000/000/002/thumb/camara.jpg
+  [1m[36m (33.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 1773ms (ActiveRecord: 44.0ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-01-04 12:06:02 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.4ms)[0m  SELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 104ms (Views: 101.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:06:06 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 147ms (Views: 145.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2017-01-04 12:07:49 -0300
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (0.5ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 139ms (Views: 137.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:09:49 -0300
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.6ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  [1m[35mGenre Load (0.4ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 146ms (Views: 144.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2017-01-04 12:10:18 -0300
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 161ms (Views: 152.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:10:31 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mGenre Load (1.9ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 171ms (Views: 167.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2017-01-04 12:10:31 -0300
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mGenre Load (2.8ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mGenre Load (0.3ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 127ms (Views: 122.3ms | ActiveRecord: 3.7ms)
