@@ -1,36 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Libros</h1>
-
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th>Imagen</th>
-      <th>Nombre</th>
-      <th>Precio</th>
-      <th>Autor</th>
-      <th>Editorial</th>
-      <th>Genero</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container-fluid row">
     <% @books.each do |book| %>
-      <tr>
-        <td><%= image_tag(book.avatar.url(:thumb)) %></td>
-        <td><%= book.name %></td>
-        <td><%= '$' %><%= book.price %></td>
-        <td><%= book.writer %></td>
-        <td><%= book.editorial %></td>
-        <td><%= book.genre.name %></td>
-        <td><%= link_to 'Mostrar', book %></td>
-        <td><%= link_to 'Editar', edit_book_path(book) %></td>
-        <td><%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-md-3">
+        <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
+        <b><%= book.name %></b><br>
+        <%= 'Precio: $' %><%= book.price %><br>
+        <%= 'Autor: ' %><%= book.writer %><br>
+        <%= 'Editorial: ' %><%= book.editorial %><br>
+        <%= 'Género: ' %><%= book.genre.name %><br>
+        <%= link_to 'Mostrar', book %>
+        <%= link_to 'Editar', edit_book_path(book) %>
+        <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
 
 <br>
 

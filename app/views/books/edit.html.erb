@@ -1,6 +1,10 @@
-<h1>Editar Libro</h1>
+<h1 align="center">Editar Libro</h1>
+<div class="container col-md-3 col-md-offset-3">
+	<%= image_tag(@book.avatar.url(:medium)) %>
+</div>
+<div class="container col-md-3">
+	<%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Mostrar', @book %> |
-<%= link_to 'Volver', books_path %>
+	<%= link_to 'Mostrar', @book %> |
+	<%= link_to 'Volver', books_path %>
+</div>

@@ -1,4 +1,4 @@
-<%= form_for([@genre,@book]) do |f| %>
+<%= bootstrap_form_for([@genre,@book]) do |f| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
@@ -10,32 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name, "Nombre" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :price, "Precio" %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :writer, "Escritor" %><br>
-    <%= f.text_field :writer %>
-  </div>
-  <div class="field">
-    <%= f.label :editorial, "Editorial" %><br>
-    <%= f.text_field :editorial %>
-  </div>
-  <div class="field">
-    <%= f.label :genre_id, "Género" %><br>
-    <%= f.collection_select :genre_id, Genre.order(:name),:id,:name %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar, "Imagen" %><br>
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="field">
+        <%= f.text_field :name, label: "Nombre" %>
+      </div>
+      <div class="field">
+        <%= f.number_field :price, label: "Precio" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :writer, label: "Autor" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :editorial, label: "Editorial" %>
+      </div>
+      <div class="field">
+        <%= f.collection_select :genre_id, Genre.order(:name),:id,:name , label: "Género" %>
+        <%= link_to "Nuevo Género" ,new_genre_path %>
+      </div>
+      <div class="field">
+        <%= f.file_field :avatar , label: "Imagen" %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
 <% end %>

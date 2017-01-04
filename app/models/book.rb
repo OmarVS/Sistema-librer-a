@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
 	validates :genre_id, presence: true
 	# validate :book_not_registered
 
-	has_attached_file :avatar, :styles => { :medium => "300x500#", :thumb => "75x125#" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :avatar, :styles => { :medium => "300x500#", :thumb => "150x250#" }, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end
 
