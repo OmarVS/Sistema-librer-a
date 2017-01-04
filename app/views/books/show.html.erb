@@ -1,32 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <h2><%= @book.name %></h2>
-</p>
-
-<p>
+<div class="container col-md-3 col-md-offset-1">
   <%= image_tag(@book.avatar.url(:medium)) %>
-</p>
+</div>
+<div class="container col-md-4">
+  <p>
+    <h2><%= @book.name %></h2>
+  </p>
+  <p>
+    <strong>Precio:</strong>
+    $<%= @book.price %>
+  </p>
 
-<p>
-  <strong>Precio:</strong>
-  <%= '$' %><%= @book.price %>
-</p>
+  <p>
+    <strong>Autor:</strong>
+    <%= @book.writer %>
+  </p>
 
-<p>
-  <strong>Autor:</strong>
-  <%= @book.writer %>
-</p>
+  <p>
+    <strong>Editorial:</strong>
+    <%= @book.editorial %>
+  </p>
 
-<p>
-  <strong>Editorial:</strong>
-  <%= @book.editorial %>
-</p>
+  <p>
+    <strong>Genero:</strong>
+    <%= @book.genre.name %>
+  </p>
+  <%= link_to 'Edit', edit_book_path(@book) %> |
+  <%= link_to 'Back', books_path %>
+</div>
 
-<p>
-  <strong>Genero:</strong>
-  <%= @book.genre.name %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>

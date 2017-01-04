@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <h2><%= @product.name %></h2>
-</p>
-
-<p>
+<div class="container col-md-3 col-md-offset-1">
   <%= image_tag(@product.avatar.url(:medium)) %>
+</div>
+<div class="container col-md-4">
+<p>
+  <h1><%= @product.name %></h1>
 </p>
 
 <p>
@@ -20,3 +19,4 @@
 
 <%= link_to 'Editar', edit_product_path(@product) %> |
 <%= link_to 'Volver', products_path %>
+</div>
