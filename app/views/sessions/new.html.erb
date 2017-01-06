@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Inicia Sesión</h1>
+<div class="form", align="center">
+	<%= form_for(:session, url: sessions_path) do |f|%>
+		<%= f.label(:name, "Nombre de usuario") %><br>
+		<%= f.text_field(:name) %><br>
+		<%= f.label(:password, "Contraseña") %><br>
+		<%= f.password_field(:password) %><br>
+		<%= f.submit("Ingresar") %>
+	<% end %>
+	<p>¿Usuario Nuevo? <%= link_to "¡Registrate!", '/signup' %></p>
+</div>
