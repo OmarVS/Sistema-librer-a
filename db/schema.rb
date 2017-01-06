@@ -116,11 +116,14 @@ ActiveRecord::Schema.define(version: 20161228175611) do
   end
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 =======
 <<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   add_foreign_key "books", "genres"
 =======
