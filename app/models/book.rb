@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  price      :integer
+#  writer     :string
+#  editorial  :string
+#  genre      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Book < ActiveRecord::Base
 	belongs_to :genre
 	validates :name, presence: true, length: {maximum: 50}

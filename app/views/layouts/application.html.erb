@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<<<<<<< Updated upstream
 <div class= "container" >
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
@@ -38,5 +39,51 @@
 
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>
+=======
+  <div class= "container" >
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" 
+                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Proyecto de software</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Productos', products_path%></li>
+            <li><%= link_to 'Libros', books_path%></li>
+            <% if signed_in? %> <!-- Compara si hay una sesión de usuario activa -->
+              <li><%= link_to "Usuarios", '#' %></li>
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li><%= link_to "Settings", '#' %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Log out", signout_path%>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "Iniciar Sesión", signin_path %></li>
+            <% end %>
+          </ul>
+      
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div> <!-- container -->
+  <%= yield %>
+  <%= debug(params) if Rails.env.development? %>
+>>>>>>> Stashed changes
 </body>
 </html>

@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+<<<<<<< Updated upstream
   resources :users, :purchases, :tickets, :sales, :genres
   get 'static_pages/home'
 
   resources :providers, :products, :admins, :sellers, :clients, :books
 
+=======
+  resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products, :admins, :sellers, :clients
+  get 'static_pages/home'
+
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signup', to: 'users#new'
+  get '/signin', to: 'sessions#new'
+  get '/signout', to: 'sessions#destroy'
+>>>>>>> Stashed changes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

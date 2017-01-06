@@ -19,11 +19,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'Usuario creado exitosamente.' }
-        format.json { render :show, status: :created, location: @user }
+        sign_in @user
+        flash[:success] = "Bienvenido a la librería cuma!"
+        redirect_to @user
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render new
       end
     end
   end
@@ -57,6 +57,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation, :phone, :email)
+      params.require(:user).permit(:name, :password, :password_confirmation, :phone, :email, :kind)
     end
 end

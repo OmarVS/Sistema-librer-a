@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> evitó crear este usuario:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |message| %>
@@ -28,6 +28,15 @@
   <div class="field">
     <%= f.label :email, 'Correo electrónico' %><br>
     <%= f.text_field :email %><br>
+  </div>
+  <div class="field">
+    <%= f.label :kind, 'Tipo de Usuario' %><br>
+    <%= f.radio_button(:kind, "Admin") %>
+    <%= f.label(:admin, "Admin") %>
+    <%= f.radio_button(:kind, "Cliente") %>
+    <%= f.label(:client, "Cliente") %>
+    <%= f.radio_button(:kind, "Vendedor") %>
+    <%= f.label(:seller, "Vendedor") %>
   </div>
   <div class="actions">
     <%= f.submit %>
