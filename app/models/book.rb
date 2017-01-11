@@ -14,7 +14,7 @@
 
 class Book < ActiveRecord::Base
 	belongs_to :genre
-	has_many :providers, through: :purchases
+	has_many :purchases
 
 	validates :name, presence: true, length: {maximum: 50}
 	validates :price, presence: true
