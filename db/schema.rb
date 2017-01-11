@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111022109) do
+ActiveRecord::Schema.define(version: 20170111163404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170111022109) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "stock"
   end
 
   add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
@@ -61,23 +62,32 @@ ActiveRecord::Schema.define(version: 20170111022109) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "stock"
   end
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.integer  "rut"
     t.string   "business"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "purchase_id"
   end
+
+  add_index "providers", ["purchase_id"], name: "index_providers_on_purchase_id", using: :btree
 
   create_table "purchases", force: :cascade do |t|
     t.string   "name"
     t.integer  "amount"
     t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "book_id"
+    t.integer  "provider_id"
   end
+
+  add_index "purchases", ["book_id"], name: "index_purchases_on_book_id", using: :btree
+  add_index "purchases", ["provider_id"], name: "index_purchases_on_provider_id", using: :btree
 
   create_table "sales", force: :cascade do |t|
     t.integer  "amount"
@@ -112,4 +122,7 @@ ActiveRecord::Schema.define(version: 20170111022109) do
   end
 
   add_foreign_key "books", "genres"
+  add_foreign_key "providers", "purchases"
+  add_foreign_key "purchases", "books"
+  add_foreign_key "purchases", "providers"
 end
