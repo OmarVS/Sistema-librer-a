@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111165057) do
+ActiveRecord::Schema.define(version: 20170111195439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,24 +79,16 @@ ActiveRecord::Schema.define(version: 20170111165057) do
   add_index "providers", ["purchase_id"], name: "index_providers_on_purchase_id", using: :btree
 
   create_table "purchases", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "product_id"
+    t.integer  "provider_id"
     t.integer  "amount"
     t.integer  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "book_id"
-    t.integer  "provider_id"
   end
 
-  add_index "purchases", ["book_id"], name: "index_purchases_on_book_id", using: :btree
+  add_index "purchases", ["product_id"], name: "index_purchases_on_product_id", using: :btree
   add_index "purchases", ["provider_id"], name: "index_purchases_on_provider_id", using: :btree
-
-  create_table "sales", force: :cascade do |t|
-    t.integer  "amount"
-    t.integer  "subtotal"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "sellers", force: :cascade do |t|
     t.string   "name"
@@ -125,6 +117,6 @@ ActiveRecord::Schema.define(version: 20170111165057) do
 
   add_foreign_key "books", "genres"
   add_foreign_key "providers", "purchases"
-  add_foreign_key "purchases", "books"
+  add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "providers"
 end
