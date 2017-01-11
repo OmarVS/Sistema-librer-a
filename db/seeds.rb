@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Genre.create!([{name: "Fantasía"},{name: "Ciencia Ficción"},{name: "Romance"},{name: "Aventura"},{name: "Comedia"},{name: "Drama"}])
+User.create!( :name => 'admin1', :password => '123123', :email => 'brauliopuentes1995@hotmail.es', :password_confirmation => '123123' )
