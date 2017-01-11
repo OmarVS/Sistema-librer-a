@@ -8,16 +8,24 @@
         <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
         <div class="container-fluid">
           <b><%= book.name %></b><br>
-          Código: <%= book.barcode %><br>
+          <% if book.barcode.nil? %>
+            Id: <%= book.id %><br>
+          <% else %>
+            Código: <%= book.barcode %><br>
+          <% end %>
           Precio: $<%= book.price %><br>
           Autor: <%= book.writer %><br>
           Editorial <%= book.editorial %><br>
           Género: <%= book.genre.name %><br>
           Stock: <%= book.stock %> unidades.<br>
         </div>
-        <p align="center"><%= link_to 'Mostrar', book %> |
-        <%= link_to 'Editar', edit_book_path(book) %> |
-        <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p align="center">
+          <%= link_to 'Mostrar', book %>
+          <% if signed_in? && current_user.kind == 'admin' %> |
+            <%= link_to 'Editar', edit_book_path(book) %> |
+            <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </p>
       </div>
     <% end %>
 </div>

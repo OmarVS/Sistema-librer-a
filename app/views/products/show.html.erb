@@ -7,8 +7,13 @@
   <h1><%= @product.name %></h1>
 </p>
 <p>
-  <strong>Codigo:</strong>
-  <%= @product.barcode %>
+  <% if @product.barcode.nil? %>
+    <strong>Id:</strong>
+    <%= @product.id %>
+  <% else %>
+    <strong>Codigo:</strong>
+    <%= @product.barcode %>
+  <% end %>
 </p>
 <p>
   <strong>Precio:</strong>
@@ -22,7 +27,8 @@
   <strong>Stock:</strong>
   <%= @product.stock %> unidades.
 </p>
-
-<%= link_to 'Editar', edit_product_path(@product) %> |
+<% if signed_in? && current_user.kind == 'admin' %>
+  <%= link_to 'Editar', edit_product_path(@product) %> |
+  <% end %>
 <%= link_to 'Volver', products_path %>
 </div>

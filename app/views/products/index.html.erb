@@ -8,14 +8,21 @@
             <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
             <div class="container">
               <b><%= product.name %></b><br>
-              Código: <%= product.barcode %><br>
+              <% if product.barcode.nil? %>
+                Id: <%= product.id %><br>
+              <% else %>
+                Código: <%= product.barcode %><br>
+              <% end %>
               Precio: <%= product.price %><br>
               Marca: <%= product.trademark %><br>
               Stock: <%= product.stock %> unidades.<br>
             </div>
-            <p align="center"><%= link_to 'Mostrar', product %> |
-            <%= link_to 'Editar', edit_product_path(product) %> |
-            <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <p align="center">
+            <%= link_to 'Mostrar', product %>
+            <% if signed_in? && current_user.kind == 'admin' %> |
+              <%= link_to 'Editar', edit_product_path(product) %> |
+              <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %></p>
         </div>
     <% end %>
 </div>
