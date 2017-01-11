@@ -7,10 +7,12 @@
         <div class="col-md-2">
             <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
             <b><%= product.name %></b><br>
+            Código: <%= product.barcode %><br>
             Precio: <%= product.price %><br>
-            Marca: <%= product.trademark %><br><br>
-            <%= link_to 'Mostrar', product %> | 
-            <%= link_to 'Editar', edit_product_path(product) %> | 
+            Marca: <%= product.trademark %><br>
+            Stock: <%= product.stock %> unidades.<br><br>
+            <%= link_to 'Mostrar', product %> |
+            <%= link_to 'Editar', edit_product_path(product) %> |
             <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
     <% end %>

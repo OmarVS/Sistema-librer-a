@@ -6,15 +6,21 @@
 <p>
   <h1><%= @product.name %></h1>
 </p>
-
+<p>
+  <strong>Codigo:</strong>
+  <%= @product.barcode %>
+</p>
 <p>
   <strong>Precio:</strong>
   <%= '$' %><%= @product.price %>
 </p>
-
 <p>
   <strong>Marca:</strong>
   <%= @product.trademark %>
+</p>
+<p>
+  <strong>Stock:</strong>
+  <%= @product.stock %> unidades.
 </p>
 
 <%= link_to 'Editar', edit_product_path(@product) %> |

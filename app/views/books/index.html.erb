@@ -7,15 +7,15 @@
       <div class="col-md-3">
         <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
         <b><%= book.name %></b><br>
-        <%= 'Precio: $' %><%= book.price %><br>
-        <%= 'Autor: ' %><%= book.writer %><br>
-        <%= 'Editorial: ' %><%= book.editorial %><br>
-        <%= 'Género: ' %><%= book.genre.name %><br>
-        <p align="center"><%= link_to 'Mostrar', book %> | 
-        <%= link_to 'Editar', edit_book_path(book) %> | 
+        Código: <%= book.barcode %><br>
+        Precio: $<%= book.price %><br>
+        Autor: <%= book.writer %><br>
+        Editorial <%= book.editorial %><br>
+        Género: <%= book.genre.name %><br>
+        Stock: <%= book.stock %> unidades.<br><br>
+        <p align="center"><%= link_to 'Mostrar', book %> |
+        <%= link_to 'Editar', edit_book_path(book) %> |
         <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </div>
     <% end %>
 </div>
-
-

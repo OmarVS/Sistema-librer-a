@@ -7,10 +7,13 @@
     <h2><%= @book.name %></h2>
   </p>
   <p>
+    <strong>Código:</strong>
+    $<%= @book.barcode %>
+  </p>
+  <p>
     <strong>Precio:</strong>
     $<%= @book.price %>
   </p>
-
   <p>
     <strong>Autor:</strong>
     <%= @book.writer %>
@@ -25,7 +28,10 @@
     <strong>Genero:</strong>
     <%= @book.genre.name %>
   </p>
+  <p>
+    <strong>Stock:</strong>
+    <%= @book.genre.stock %> unidades.
+  </p>
   <%= link_to 'Edit', edit_book_path(@book) %> |
   <%= link_to 'Back', books_path %>
 </div>
-
