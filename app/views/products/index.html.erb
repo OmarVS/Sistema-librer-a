@@ -6,14 +6,16 @@
     <% @products.each do |product| %>
         <div class="col-md-2">
             <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
-            <b><%= product.name %></b><br>
-            Código: <%= product.barcode %><br>
-            Precio: <%= product.price %><br>
-            Marca: <%= product.trademark %><br>
-            Stock: <%= product.stock %> unidades.<br><br>
-            <%= link_to 'Mostrar', product %> |
+            <div class="container">
+              <b><%= product.name %></b><br>
+              Código: <%= product.barcode %><br>
+              Precio: <%= product.price %><br>
+              Marca: <%= product.trademark %><br>
+              Stock: <%= product.stock %> unidades.<br>
+            </div>
+            <p align="center"><%= link_to 'Mostrar', product %> |
             <%= link_to 'Editar', edit_product_path(product) %> |
-            <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         </div>
     <% end %>
 </div>
