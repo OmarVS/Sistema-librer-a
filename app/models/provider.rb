@@ -11,4 +11,5 @@
 #
 
 class Provider < ActiveRecord::Base
+  has_many :books :through :purchases
 end
