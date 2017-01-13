@@ -3,9 +3,13 @@
 	<%= image_tag(@product.avatar.url(:medium)) %>
 </div>
 <div class="container col-md-3">
+	<%= bootstrap_form_for(@product) do |f| %>
+	  <div class="field">
+	    <%= f.number_field :barcode, label: "Código", :readonly => true %>
+	  </div>
+	<% end %>
 	<%= render 'form' %>
 
 	<%= link_to 'Mostrar', @product %> |
 	<%= link_to 'Volver', products_path %>
 </div>
-

@@ -3,6 +3,11 @@
 	<%= image_tag(@book.avatar.url(:medium)) %>
 </div>
 <div class="container col-md-3">
+	<%= bootstrap_form_for(@book) do |f| %>
+	  <div class="field">
+			<%= f.number_field :barcode, label: "Código", :readonly => true %>
+		</div>
+  <% end %>
 	<%= render 'form' %>
 
 	<%= link_to 'Mostrar', @book %> |
