@@ -12,6 +12,11 @@ class Purchase < ActiveRecord::Base
     end
 
     def product_barcode_null
-      erros.add :product_barcode, ' no está registrado.' if Product.find_or_create_by(barcode: product_barcode).nil?
+      @p = Product.find_by_barcode(product_barcode)
+      if p.nil?
+        Product.create(barcode: product_barcode,stock: amount)
+      else
+        @p.stock = @p.stock + amount
+      end
     end
 end

@@ -33,10 +33,12 @@
     <strong>Genero:</strong>
     <%= @book.genre.name %>
   </p>
-  <p>
-    <strong>Stock:</strong>
-    <%= @book.stock %> unidades.
-  </p>
+  <% if !current_user.nil? && current_user.kind == 'admin' %>
+    <p>
+      <strong>Stock:</strong>
+      <%= @book.stock %> unidades.
+    </p>
+  <% end %>
   <% if signed_in? && current_user.kind == 'admin' %>
     <%= link_to 'Edit', edit_book_path(@book) %> |
   <% end %>

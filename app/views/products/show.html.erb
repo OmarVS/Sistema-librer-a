@@ -18,10 +18,12 @@
   <strong>Marca:</strong>
   <%= @product.trademark %>
 </p>
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %> unidades.
-</p>
+<% if !current_user.nil? && current_user.kind == 'admin' %>
+  <p>
+    <strong>Stock:</strong>
+    <%= @product.stock %> unidades.
+  </p>
+<% end %>
 <% if signed_in? && current_user.kind == 'admin' %>
   <%= link_to 'Editar', edit_product_path(@product) %> |
   <% end %>

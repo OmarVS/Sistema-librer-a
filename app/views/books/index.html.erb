@@ -19,7 +19,9 @@
           Autor: <%= book.writer %><br>
           Editorial <%= book.editorial %><br>
           Género: <%= book.genre.name %><br>
-          Stock: <%= book.stock %> unidades.<br>
+          <% if !current_user.nil? && current_user.kind == 'admin' %>
+            Stock: <%= book.stock %> unidades.<br>
+          <% end %>
         </div>
         <p align="center">
           <%= link_to 'Mostrar', book %>
