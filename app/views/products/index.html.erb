@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Productos</h1>
-<p><%= link_to 'Nuevo producto', new_product_path %></p>
+<% if !current_user.nil? && current_user.kind == 'admin' %>
+  <p><%= link_to 'Nuevo producto', new_product_path %></p>
+<% end %>
 <div class="container-fluid row">
     <% @products.each do |product| %>
         <div class="col-md-2">
             <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
             <div class="container">
               <b><%= product.name %></b><br>
-              <% if product.barcode.nil? %>
-                Id: <%= product.id %><br>
-              <% else %>
-                Código: <%= product.barcode %><br>
-              <% end %>
+              Código: <%= product.barcode %><br>
               Precio: <%= product.price %><br>
               Marca: <%= product.trademark %><br>
               Stock: <%= product.stock %> unidades.<br>

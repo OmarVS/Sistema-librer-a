@@ -32,8 +32,8 @@
                   Gestión Ventas <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Nueva venta", new_sale_path %></li>
-                  <li><%= link_to "Ver ventas", sales_path %></li>
+                  <li><%= link_to "Nueva venta", "#" %></li>
+                  <li><%= link_to "Ver ventas", "#" %></li>
                 </ul>
               </li>
               <% end %>
@@ -47,19 +47,19 @@
                   <li><%= link_to "Ver compras", purchases_path %></li>
                 </ul>
               </li>
-              <% end %>
               <li><%= link_to "Usuarios", users_path %></li>
+              <% end %>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Mi cuenta <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a>Hola, <%= current_user.name %></a></li>
+                  <li class="divider"></li>
                   <li><%= link_to "Perfil", current_user %></li>
                   <li><%= link_to "Editar", "#" %></li>
                   <li class="divider"></li>
-                  <li>
-                    <%= link_to "Cerrar sesión", signout_path%>
-                  </li>
+                  <li><%= link_to "Cerrar sesión", signout_path%></li>
                 </ul>
               </li>
             <% else %>

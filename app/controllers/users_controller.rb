@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new()
   end
-  
+
   def index
     @users = User.all
   end
@@ -57,6 +57,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation, :phone, :email, :kind)
+      params.require(:user).permit(:barcode, :name, :password, :password_confirmation, :phone, :email, :kind)
     end
 end

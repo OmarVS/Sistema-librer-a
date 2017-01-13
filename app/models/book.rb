@@ -15,7 +15,8 @@
 class Book < ActiveRecord::Base
 	belongs_to :genre
 	has_many :purchases
-
+	validates_uniqueness_of :barcode
+	validates :barcode, presence: true
 	validates :name, presence: true, length: {maximum: 50}
 	validates :price, presence: true
 	validates :writer, presence: true, length: {maximum: 30}

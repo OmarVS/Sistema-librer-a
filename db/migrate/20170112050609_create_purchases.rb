@@ -1,8 +1,8 @@
 class CreatePurchases < ActiveRecord::Migration
   def change
     create_table :purchases do |t|
-      t.references :product, index: true, foreign_key: true
-      t.references :provider, index: true, foreign_key: true
+      t.integer :product_barcode
+      t.integer :provider_rut
       t.integer :amount
       t.integer :price
 

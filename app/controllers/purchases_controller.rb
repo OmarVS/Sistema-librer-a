@@ -28,7 +28,7 @@ class PurchasesController < ApplicationController
 
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+        format.html { redirect_to purchases_url, notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new }
@@ -66,9 +66,8 @@ class PurchasesController < ApplicationController
     def set_purchase
       @purchase = Purchase.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:product_id, :provider_id, :amount, :price)
+      params.require(:purchase).permit(:product_barcode, :provider_rut, :amount, :price)
     end
 end

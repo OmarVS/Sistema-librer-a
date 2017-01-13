@@ -7,13 +7,8 @@
   <h1><%= @product.name %></h1>
 </p>
 <p>
-  <% if @product.barcode.nil? %>
-    <strong>Id:</strong>
-    <%= @product.id %>
-  <% else %>
-    <strong>Codigo:</strong>
-    <%= @product.barcode %>
-  <% end %>
+  <strong>Codigo:</strong>
+  <%= @product.barcode %>
 </p>
 <p>
   <strong>Precio:</strong>

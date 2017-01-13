@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Libros</h1>
-<p><%= link_to 'Agregar Libro', new_book_path %></p>
+<% if !current_user.nil? && current_user.kind == 'admin' %>
+  <p><%= link_to 'Agregar Libro', new_book_path %></p>
+<% end %>
 <div class="container-fluid row">
     <% @books.each do |book| %>
       <div class="col-md-3">

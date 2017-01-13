@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Product</th>
-      <th>Provider</th>
+      <th>Product barcode</th>
+      <th>Provider rut</th>
       <th>Amount</th>
       <th>Price</th>
       <th colspan="3"></th>
@@ -16,8 +16,8 @@
   <tbody>
     <% @purchases.each do |purchase| %>
       <tr>
-        <td><%= purchase.product %></td>
-        <td><%= purchase.provider %></td>
+        <td><%= purchase.product_barcode %></td>
+        <td><%= purchase.provider_rut %></td>
         <td><%= purchase.amount %></td>
         <td><%= purchase.price %></td>
         <td><%= link_to 'Show', purchase %></td>
