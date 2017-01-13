@@ -13,7 +13,7 @@
 class Product < ActiveRecord::Base
 	attr_readonly :barcode, :on => :update
 	validates_uniqueness_of :barcode
-	validates :name, :price, :trademark, presence: true, :on => :update
+	validates :barcode, :name, :price, :trademark, presence: true, :on => :update
 	validates :barcode, presence: true, :on => :create
 
 	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
