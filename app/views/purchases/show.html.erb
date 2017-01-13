@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="container col-md-3 col-md-offset-3">
+  <p>
+    <strong>Código del producto:</strong>
+    <%= @purchase.product_barcode %>
+  </p>
 
-<p>
-  <strong>Product barcode:</strong>
-  <%= @purchase.product_barcode %>
-</p>
+  <p>
+    <strong>Rut proveedor:</strong>
+    <%= @purchase.provider_rut %>
+  </p>
 
-<p>
-  <strong>Provider rut:</strong>
-  <%= @purchase.provider_rut %>
-</p>
+  <p>
+    <strong>Cantidad:</strong>
+    <%= @purchase.amount %>
+  </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @purchase.amount %>
-</p>
+  <p>
+    <strong>Precio unitario:</strong>
+    $ <%= @purchase.price %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @purchase.price %>
-</p>
-
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-<%= link_to 'Back', purchases_path %>
+  <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+  <%= link_to 'Back', purchases_path %>
+</div>

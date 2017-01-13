@@ -1,2 +1,24 @@
 <p id="notice"><%= notice %></p>
 <h1 align="center">Tienda Online de Libros y Artículos Escolares</h1>
+<% if signed_in? && current_user.kind=='admin' %>
+  <div class="container">
+    <h2>Productos bajos en stock</h2>
+    <% @products=Product.all %>
+    <% @products.each do |product| %>
+      <% if product.stock<=10 %>
+        <div class="col-md-2">
+            <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
+            <div class="container">
+              <b><%= product.name %></b><br>
+              Código: <%= product.barcode %><br>
+              Precio: <%= product.price %><br>
+              Marca: <%= product.trademark %><br>
+              Stock: <%= product.stock %> unidades.<br>
+            </div>
+            <p align="center">
+            <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => product.barcode) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

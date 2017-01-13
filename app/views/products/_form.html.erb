@@ -1,4 +1,7 @@
 <%= bootstrap_form_for(@product) do |f| %>
+<div class="field">
+  <%= f.text_field :barcode, label: "Código" %>
+</div>
   <div class="field">
     <%= f.text_field :name, label: "Nombre" %>
   </div>

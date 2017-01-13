@@ -2,7 +2,7 @@
 
 <h1>Productos</h1>
 <% if !current_user.nil? && current_user.kind == 'admin' %>
-  <p><%= link_to 'Nuevo producto', new_product_path %></p>
+  <%= link_to 'Nuevo producto', new_product_path, class: "btn btn-default btn-lg" %>
 <% end %>
 <div class="container-fluid row">
     <% @products.each do |product| %>
