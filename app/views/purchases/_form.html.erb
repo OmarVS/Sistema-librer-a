@@ -1,31 +1,15 @@
-<%= form_for(@purchase) do |f| %>
-  <% if @purchase.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
-
-      <ul>
-      <% @purchase.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= bootstrap_form_for(@purchase) do |f| %>
   <div class="field">
-    <%= f.label :product_barcode %><br>
-    <%= f.number_field :product_barcode %>
+    <%= f.number_field :product_barcode, label: "Código producto" %>
   </div>
   <div class="field">
-    <%= f.label :provider_rut %><br>
-    <%= f.number_field :provider_rut %>
+    <%= f.number_field :provider_rut, label: "Rut proveedor" %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount %>
+    <%= f.number_field :amount, label: "Cantidad comprada" %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, label: "Precio unitario de compra" %>
   </div>
   <div class="actions">
     <%= f.submit %>
