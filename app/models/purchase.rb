@@ -5,6 +5,7 @@ class Purchase < ActiveRecord::Base
   validates :product_barcode, presence: true
   validates :amount, presence: true
   validates :price, presence: true
+  validate :date_is_future?
 
   private
     def provider_rut_null
@@ -19,5 +20,9 @@ class Purchase < ActiveRecord::Base
         @product.stock = @product.stock + amount
         errors.add :product_barcode, "Primero complete los datos de este producto" if !@product.save
       end
+    end
+
+    def date_is_future?
+        errors.add :date, "No se puede ingresar fechas futuras" if date > Time.now
     end
 end
