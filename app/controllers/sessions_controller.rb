@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		sign_out
+		flash.now[:notice] = "Desconectado satisfactoriamente"
 		redirect_to root_path
 	end
 

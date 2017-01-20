@@ -16,15 +16,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        sign_in @user
-        flash[:success] = "Bienvenido a la librería cuma!"
-        redirect_to @user
-      else
-        render new
-      end
+    if @user.save
+      sign_in @user
+      flash[:success] = "Bienvenido a la librería cuma!"
+      redirect_to @user
+    else
+      render 'new'
     end
   end
 
