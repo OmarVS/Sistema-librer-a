@@ -51,6 +51,6 @@ Product.create!(
   stock: 0,
   barcode: 004})
 Provider.create!(
-  {name: "asdasd",
-   rut: 123,
-   business: "asdasd"} )
+  {name: "El Proveedor",
+   rut: 123456789,
+   business: "El negocio"} )
