@@ -4,6 +4,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Avatar</th>
       <th>Nombre</th>
       <th>Telefono</th>
       <th>Email</th>
@@ -15,13 +16,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= gravatar_for user%></td>
+        <td><%= link_to user.name, user %></td>
         <td><%= user.phone %></td>
         <td><%= user.email %></td>
         <td><%= user.kind %></td>
-        <td><%= link_to 'Mostrar', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

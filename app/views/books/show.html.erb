@@ -32,6 +32,8 @@
     <strong>Stock:</strong>
     <%= @book.stock %> unidades.
   </p>
-  <%= link_to 'Edit', edit_book_path(@book) %> |
+  <% if signed_in? && current_user.kind == "admin" %>
+    <%= link_to 'Edit', edit_book_path(@book) %> |
+  <% end %>
   <%= link_to 'Back', books_path %>
 </div>

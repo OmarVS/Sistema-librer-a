@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 		user = User.find_by_name(params[:session][:name])
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
-			redirect_to user
+			redirect_back user
+			flash.now[:notice] = 'Bienvenido'
         else
         	flash.now[:error] = 'Nombre o contraseña inválida' 
         	render 'new'	
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		sign_out
-		flash.now[:notice] = "Desconectado satisfactoriamente"
+		flash[:notice] = "Desconectado satisfactoriamente"
 		redirect_to root_path
 	end
 

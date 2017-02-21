@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Libros</h1>
-<p><%= link_to 'Agregar Libro', new_book_path %></p>
+<% if signed_in? && current_user.kind == "admin" %>
+  <p><%= link_to 'Agregar Libro', new_book_path %></p>
+<% end %>
 <div class="container-fluid row">
     <% @books.each do |book| %>
       <div class="col-md-3">
@@ -16,8 +18,10 @@
           Stock: <%= book.stock %> unidades.<br>
         </div>
         <p align="center"><%= link_to 'Mostrar', book %> |
-        <%= link_to 'Editar', edit_book_path(book) %> |
-        <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% if signed_in? && current_user.kind == "admin" %>
+          <%= link_to 'Editar', edit_book_path(book) %> |
+          <%= link_to 'Eliminar', book, method: :delete, data: { confirm: '¿Seguro?' } %></p>
+        <%end%>
       </div>
     <% end %>
 </div>

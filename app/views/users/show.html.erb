@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<% provide(:title, @user.name) %>
-<h1>
-	<%= gravatar_for @user %>
-	<%= @user.name %>
-</h1>
-
-<p>
-  <%= @user.password %>
-</p>
+<div class="container col-md-3 col-md-offset-1">
+  <%= image_tag(@user.avatar.url(:medium)) %>
+</div>
 
 <p>
   <strong>Teléfono:</strong>

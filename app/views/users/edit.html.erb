@@ -15,24 +15,25 @@
           </ul>
         </div>
       <% end %>
-      <%= f.label :name %>
+      <%= f.label :name, 'Nombre' %>
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
+      <%= f.label :password, 'Contraseña' %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Confirmacion" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
-    <% end %>
+      <%= f.label :phone, 'Número' %><br>
+      <%= f.number_field :phone %>
+      
+      <%= f.file_field :avatar, label: "Imagen" %>
+      
 
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">Cambiar</a>
-    </div>
+      <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
