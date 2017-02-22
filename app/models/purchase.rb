@@ -18,7 +18,7 @@ class Purchase < ActiveRecord::Base
         Product.create(barcode: product_barcode,stock: amount)
       else
         @product.stock = @product.stock + amount
-        errors.add :product_barcode, "Primero complete los datos de este producto" if !@product.save
+        errors.add :product_barcode, "Primero complete los datos de este producto." if !@product.save
       end
     end
 
