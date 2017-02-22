@@ -1,10 +1,11 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.all
+    @purchases = Purchase.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /purchases/1
@@ -15,6 +16,9 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
+    if params[:product_barcode].present?
+      @purchase.product_barcode = params[:product_barcode]
+    end
   end
 
   # GET /purchases/1/edit
@@ -25,7 +29,9 @@ class PurchasesController < ApplicationController
   # POST /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-
+    if params[:product_barcode].present?
+      @purchase.product_barcode = params[:product_barcode]
+    end
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to purchases_url, notice: 'Purchase was successfully created.' }
@@ -66,6 +72,15 @@ class PurchasesController < ApplicationController
     def set_purchase
       @purchase = Purchase.find(params[:id])
     end
+
+    def sort_column
+      Product.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
       params.require(:purchase).permit(:product_barcode, :provider_rut, :amount, :price, :date)

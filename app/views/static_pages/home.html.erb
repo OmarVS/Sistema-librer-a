@@ -3,7 +3,7 @@
 <% if signed_in? && current_user.kind=='admin' %>
   <div class="container">
     <% @products=Product.all %>
-    <h2>Productos bajos en stock</h2>
+    <h3>Productos bajos en stock</h3>
     <% @products.each do |product| %>
       <% if product.stock<=10 %>
         <div class="col-md-2">
@@ -22,7 +22,7 @@
     <% end %>
   </div>
   <div class="container">
-    <h2>Productos incompletos</h2>
+    <h3>Productos incompletos</h3>
     <% @products.each do |product| %>
       <% if product.price.nil? %>
         <div class="col-md-2">

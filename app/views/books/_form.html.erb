@@ -1,5 +1,8 @@
 <%= bootstrap_form_for([@genre,@book]) do |f| %>
       <div class="field">
+        <%= f.number_field :barcode, label: "Código" %>
+      </div>
+      <div class="field">
         <%= f.number_field :price, label: "Precio" %>
       </div>
       <div class="field">
