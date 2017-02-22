@@ -5,6 +5,9 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+    if params[:search].present?
+      @books = @books.where("name ILIKE ?", "%#{params[:search]}%")
+    end
   end
 
   # GET /books/1

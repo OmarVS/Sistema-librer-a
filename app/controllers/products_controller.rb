@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    if params[:search].present?
+      @products = @products.where("name ILIKE ?", "%#{params[:search]}%")
+    end
   end
 
   # GET /products/1
