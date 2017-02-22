@@ -29,6 +29,9 @@
     <%= f.label :email, 'Correo electrónico' %><br>
     <%= f.text_field :email %><br>
   </div>
+  <div class="field">
+    <%= f.file_field :avatar , label: "Imagen" %>
+  </div>
   <% if signed_in? && current_user.kind == "admin"%>
     <div class="field">
       <%= f.label :kind, 'Tipo de Usuario' %><br>

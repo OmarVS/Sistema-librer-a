@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Genre.create!([{name: "Fantasía"},{name: "Ciencia Ficción"},{name: "Romance"},{name: "Aventura"},{name: "Comedia"},{name: "Drama"}])
-User.create!( :name => 'admin1', :password => '123123', :email => 'brauliopuentes1995@hotmail.es', :password_confirmation => '123123' )
+User.create!( :name => 'admin1', :password => '123123', :phone => '123456789' ,:email => 'brauliopuentes1995@hotmail.es', :password_confirmation => '123123' )
 Book.create!([
   {name: 'Harry Potter y la piedra filosofal',price: 39990,writer: "J.K. Rowling",editorial: "Salamandra",genre_id: 1,stock: 0},
   {name: 'Harry Potter y la cámara secreta',price: 39990,writer: "J.K. Rowling",editorial: "Salamandra",genre_id: 1,stock: 0},
