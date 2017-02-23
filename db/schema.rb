@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170222123458) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170222123458) do
     t.integer  "price"
     t.string   "writer"
     t.string   "editorial"
+    t.string   "genre"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "genre_id"
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170222123458) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
-    t.string   "trademark"
+    t.text     "Description"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20170222123458) do
     t.datetime "avatar_updated_at"
     t.integer  "stock"
     t.integer  "barcode"
+    t.string   "trademark"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -132,19 +134,21 @@ ActiveRecord::Schema.define(version: 20170222123458) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "password"
     t.integer  "phone"
     t.string   "email"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "kind",                default: "Cliente"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   add_foreign_key "books", "genres"
   add_foreign_key "in_shopping_carts", "books"
