@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lista de compras</h1>
-
+<h1>Registro de compras</h1>
+<% if !current_user.nil? && current_user.kind == 'Admin' %>
+  <div class="col-md-2">
+    <%= link_to 'Registrar compra', new_purchase_path, class: "btn btn-default btn-lg" %><br><br>
+  </div>
+<% end %>
 <table class="table">
   <thead>
     <tr>
@@ -31,5 +35,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Purchase', new_purchase_path %>
