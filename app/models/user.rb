@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :name
     validates_confirmation_of :password, :on => :create
     validates_length_of :password, :within => 6..40
+<<<<<<< HEAD
     validates_length_of :phone, minimum: 9
+=======
+>>>>>>> gestion_productos
 	validates :name, presence: true, length: {minimum: 6}
 	validates :password_confirmation, presence: true
 	validates :email, presence: true, format: {with: /.+@.+\..+/i}, uniqueness: {case_sensitive: false}

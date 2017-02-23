@@ -1,7 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Productos</h1>
-<p><%= link_to 'Nuevo producto', new_product_path %></p>
+<div class="container-fluid row">
+  <% if !current_user.nil? && current_user.kind == 'Admin' %>
+    <div class="col-md-2">
+      <%= link_to 'Nuevo producto', new_product_path, class: "btn btn-default btn-lg" %>
+    </div>
+  <% end %>
+  <div class="col-md-3 col-md-offset-7">
+    <%= form_tag products_path, method: :get, class: "form-inline" do %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar nombre" %>
+      </div>
+        <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+    <% end %>
+  </div>
+</div>
 <div class="container-fluid row">
     <% @products.each do |product| %>
         <div class="col-md-2">
@@ -11,11 +25,16 @@
               Código: <%= product.barcode %><br>
               Precio: <%= product.price %><br>
               Marca: <%= product.trademark %><br>
-              Stock: <%= product.stock %> unidades.<br>
+              <% if !current_user.nil? && current_user.kind == 'Admin' %>
+                Stock: <%= product.stock %> unidades.<br>
+              <% end %>
             </div>
-            <p align="center"><%= link_to 'Mostrar', product %> |
-            <%= link_to 'Editar', edit_product_path(product) %> |
-            <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <p align="center">
+            <%= link_to 'Mostrar', product %>
+            <% if signed_in? && current_user.kind == 'Admin' %> |
+              <%= link_to 'Editar', edit_product_path(product) %> |
+              <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %></p>
         </div>
     <% end %>
 </div>

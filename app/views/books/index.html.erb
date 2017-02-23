@@ -1,27 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Libros</h1>
-<% if signed_in? && current_user.kind == "admin" %>
-  <p><%= link_to 'Agregar Libro', new_book_path %></p>
-<% end %>
+<div class="container-fluid row">
+  <% if !current_user.nil? && current_user.kind == 'Admin' %>
+    <div class="col-md-2">
+      <%= link_to 'Agregar Libro', new_book_path, class: "btn btn-default btn-lg" %>
+    </div>
+  <% end %>
+  <div class="col-md-3 col-md-offset-7">
+    <%= form_tag books_path, method: :get, class: "form-inline" do %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar título" %>
+      </div>
+        <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container-fluid row">
     <% @books.each do |book| %>
       <div class="col-md-3">
         <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
         <div class="container-fluid">
           <b><%= book.name %></b><br>
-          Código: <%= book.barcode %><br>
+          <% if book.barcode.nil? %>
+            Id: <%= book.id %><br>
+          <% else %>
+            Código: <%= book.barcode %><br>
+          <% end %>
           Precio: $<%= book.price %><br>
           Autor: <%= book.writer %><br>
           Editorial <%= book.editorial %><br>
           Género: <%= book.genre.name %><br>
-          Stock: <%= book.stock %> unidades.<br>
+          <% if !current_user.nil? && current_user.kind == 'Admin' %>
+            Stock: <%= book.stock %> unidades.<br>
+          <% end %>
         </div>
+
         <p align="center"><%= link_to 'Mostrar', book %> |
         <% if signed_in? && current_user.kind == "admin" %>
           <%= link_to 'Editar', edit_book_path(book) %> |
           <%= link_to 'Eliminar', book, method: :delete, data: { confirm: '¿Seguro?' } %></p>
         <%end%>
+        
       </div>
     <% end %>
 </div>

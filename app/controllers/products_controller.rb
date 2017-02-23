@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    if params[:search].present?
+      @products = @products.where("name ILIKE ?", "%#{params[:search]}%")
+    end
   end
 
   # GET /products/1
@@ -25,7 +28,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+    @product.stock = 0
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -69,6 +72,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :trademark)
+      params.require(:product).permit(:barcode, :name, :price, :trademark)
     end
 end

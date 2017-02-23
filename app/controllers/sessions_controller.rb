@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
 			redirect_back user
 			flash.now[:notice] = 'Bienvenido'
         else
-        	flash.now[:error] = 'Nombre o contraseña inválida' 
-        	render 'new'	
+        	flash.now[:error] = 'Nombre o contraseña inválida'
+        	render 'new'
 		end
 	end
 
