@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170223201134) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170223201134) do
     t.integer  "price"
     t.string   "writer"
     t.string   "editorial"
+    t.string   "genre"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "genre_id"
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170223201134) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
-    t.string   "trademark"
+    t.text     "Description"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170223201134) do
     t.datetime "avatar_updated_at"
     t.integer  "stock"
     t.integer  "barcode"
+    t.string   "trademark"
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", using: :btree
@@ -128,19 +130,29 @@ ActiveRecord::Schema.define(version: 20170223201134) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "password"
     t.integer  "phone"
     t.string   "email"
+<<<<<<< HEAD
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "kind",                default: "Cliente"
+    t.string   "password_digest"
+    t.string   "remember_token"
+=======
     t.string   "kind"
     t.string   "password_digest"
     t.string   "remember_token"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+>>>>>>> c4dddff9d90fc12bf4c6e03e7b608de9f86c6776
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   add_foreign_key "books", "genres"
   add_foreign_key "in_shopping_carts", "books"
