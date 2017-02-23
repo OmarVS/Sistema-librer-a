@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     if params[:mes].present?
-      @purchases = @purchases.where("date(1i) ILIKE ?", "%#{params["date[:month]"]}%" )
+      @purchases = Purchase.find_by_year(:date[:year])
     end
     @purchases = Purchase.order(sort_column + ' ' + sort_direction)
   end

@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170223021543) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -132,11 +132,11 @@ ActiveRecord::Schema.define(version: 20170223021543) do
     t.string   "password"
     t.integer  "phone"
     t.string   "email"
-    t.string   "kind",                default: "Cliente"
+    t.string   "kind"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -147,7 +147,4 @@ ActiveRecord::Schema.define(version: 20170223021543) do
   add_foreign_key "in_shopping_carts", "books"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
-  add_foreign_key "providers", "purchases"
-  add_foreign_key "purchases", "books"
-  add_foreign_key "purchases", "providers"
 end
