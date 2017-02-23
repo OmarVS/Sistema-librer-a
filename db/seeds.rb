@@ -15,19 +15,19 @@ Genre.create!([{name: "Fantasía"},
 User.create!([
   { :name => 'admin1',
     :password => '123123',
-    :phone => '123456789'
+    :phone => '123456789',
     :email => 'brauliopuentes1995@hotmail.es',
     :password_confirmation => '123123',
     :kind => 'Admin'},
   { :name => 'omarvs',
     :password => '123123',
-    :phone => '123456789'
+    :phone => '123456789',
     :email => 'prueba@test.cl',
     :password_confirmation => '123123',
     :kind => 'Vendedor'},
   { :name => 'mariom',
     :password => '123123',
-    :phone => '123456789'
+    :phone => '123456789',
     :email => 'test@test.cl',
     :password_confirmation => '123123',
     :kind => 'Cliente'} ])
@@ -47,12 +47,17 @@ Book.create!([
     writer: "Marcela Paz",
     editorial: "El barco de vapor",
     genre_id: 4,stock: 0,barcode: 003} ])
-Product.create!(
+Product.create!([
  {name: "Block Medio",
   price: 1190,
   trademark: "Artel",
   stock: 0,
-  barcode: 004})
+  barcode: 004},
+ {name: "Set 6 Lapiz Pasta",
+  price: 990,
+  trademark: "Bic",
+  stock: 10,
+  barcode: 005} ])
 Provider.create!(
   {name: "El Proveedor",
    rut: 123456789,

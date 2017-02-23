@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Proveedores</h1>
-
+<% if !current_user.nil? && current_user.kind == 'Admin' %>
+  <div class="col-md-2">
+    <%= link_to 'Registrar proveedor', new_provider_path, class: "btn btn-default btn-lg" %><br><br>
+  </div>
+<% end %>
 <table class="table">
   <thead>
     <tr>
@@ -27,5 +31,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Provider', new_provider_path %>

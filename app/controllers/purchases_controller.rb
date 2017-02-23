@@ -5,6 +5,9 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
+    if params[:mes].present?
+      @purchases = @purchases.where("date(1i) ILIKE ?", "%#{params["date[:month]"]}%" )
+    end
     @purchases = Purchase.order(sort_column + ' ' + sort_direction)
   end
 
@@ -60,10 +63,12 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
-    @product = Product.find_by_barcode(@purchase.product_barcode)
-    @product.stock = @product.stock - @purchase.amount
+
     @purchase.destroy
     respond_to do |format|
+      @product = Product.find_by_barcode(@purchase.product_barcode)
+      @product.stock = @product.stock - @purchase.amount
+      @product.save
       format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
       format.json { head :no_content }
     end
