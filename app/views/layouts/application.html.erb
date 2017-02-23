@@ -21,7 +21,7 @@
             <li><%= link_to 'Productos', products_path%></li>
             <li><%= link_to 'Libros', books_path%></li>
             <% if signed_in? %> <!-- Compara si hay una sesión de usuario activa -->
-              <% if current_user.kind == 'seller' || current_user.kind == 'admin' %>
+              <% if current_user.kind == 'Vendedor' || current_user.kind == 'Admin' %>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Gestión Ventas <b class="caret"></b>
@@ -32,7 +32,7 @@
                 </ul>
               </li>
               <% end %>
-              <% if current_user.kind == 'admin' %>
+              <% if current_user.kind == 'Admin' %>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Gestión Compras <b class="caret"></b>

@@ -17,17 +17,17 @@ User.create!([
     :password => '123123',
     :email => 'brauliopuentes1995@hotmail.es',
     :password_confirmation => '123123',
-    :kind => 'admin'},
+    :kind => 'Admin'},
   { :name => 'omarvs',
     :password => '123123',
     :email => 'prueba@test.cl',
     :password_confirmation => '123123',
-    :kind => 'seller'},
+    :kind => 'Vendedor'},
   { :name => 'mariom',
     :password => '123123',
     :email => 'test@test.cl',
     :password_confirmation => '123123',
-    :kind => 'client'} ])
+    :kind => 'Cliente'} ])
 Book.create!([
   { name: 'Harry Potter y la piedra filosofal',
     price: 39990,

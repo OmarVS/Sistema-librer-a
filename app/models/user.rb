@@ -19,9 +19,9 @@ class User < ActiveRecord::Base
 	belongs_to :admins
 	belongs_to :clients
 	belongs_to :sellers
-	validates_uniqueness_of :name 
+	validates_uniqueness_of :name
     validates_confirmation_of :password, :on => :create
-    validates_length_of :password, :within => 6..40 
+    validates_length_of :password, :within => 6..40
 	validates :name, presence: true, length: {minimum: 6}
 	validates :password_confirmation, presence: true
 	validate :user_not_registered
@@ -37,4 +37,3 @@ class User < ActiveRecord::Base
 			self.remember_token = SecureRandom.urlsafe_base64
 		end
 end
-

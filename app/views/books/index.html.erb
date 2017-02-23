@@ -2,7 +2,7 @@
 
 <h1>Libros</h1>
 <div class="container-fluid row">
-  <% if !current_user.nil? && current_user.kind == 'admin' %>
+  <% if !current_user.nil? && current_user.kind == 'Admin' %>
     <div class="col-md-2">
       <%= link_to 'Agregar Libro', new_book_path, class: "btn btn-default btn-lg" %>
     </div>
@@ -31,13 +31,13 @@
           Autor: <%= book.writer %><br>
           Editorial <%= book.editorial %><br>
           Género: <%= book.genre.name %><br>
-          <% if !current_user.nil? && current_user.kind == 'admin' %>
+          <% if !current_user.nil? && current_user.kind == 'Admin' %>
             Stock: <%= book.stock %> unidades.<br>
           <% end %>
         </div>
         <p align="center">
           <%= link_to 'Mostrar', book %>
-          <% if signed_in? && current_user.kind == 'admin' %> |
+          <% if signed_in? && current_user.kind == 'Admin' %> |
             <%= link_to 'Editar', edit_book_path(book) %> |
             <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
