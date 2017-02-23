@@ -26,6 +26,7 @@
             <li><%= link_to 'Productos', products_path%></li>
             <li><%= link_to 'Libros', books_path%></li>
             <% if signed_in? %> <!-- Compara si hay una sesión de usuario activa -->
+            <li><%= link_to 'Mi carrito', carrito_path%></li>
               <% if current_user.kind == "admin" %>
                 <li><%= link_to "Usuarios", users_path %></li>
                 <li><%= link_to "Crear Usuario", new_user_path %></li>

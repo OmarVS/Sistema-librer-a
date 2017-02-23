@@ -1,5 +1,5 @@
 class ProductTrademark < ActiveRecord::Migration
   def change
-  	add_column :products,:trademark,:string
+  	#add_column :products,:trademark,:string
   end
 end

@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218235025) do
+ActiveRecord::Schema.define(version: 20170222123458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.integer  "user_id"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20170218235025) do
     t.integer  "price"
     t.string   "writer"
     t.string   "editorial"
-    t.string   "genre"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "genre_id"
@@ -54,10 +53,22 @@ ActiveRecord::Schema.define(version: 20170218235025) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "in_shopping_carts", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "shopping_cart_id"
+    t.integer  "book_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "in_shopping_carts", ["book_id"], name: "index_in_shopping_carts_on_book_id", using: :btree
+  add_index "in_shopping_carts", ["product_id"], name: "index_in_shopping_carts_on_product_id", using: :btree
+  add_index "in_shopping_carts", ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
-    t.text     "Description"
+    t.string   "trademark"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
@@ -66,7 +77,6 @@ ActiveRecord::Schema.define(version: 20170218235025) do
     t.datetime "avatar_updated_at"
     t.integer  "stock"
     t.integer  "barcode"
-    t.string   "trademark"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -107,6 +117,13 @@ ActiveRecord::Schema.define(version: 20170218235025) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer  "status",     default: 0
+    t.string   "ip"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.integer  "total"
     t.datetime "created_at", null: false
@@ -115,23 +132,24 @@ ActiveRecord::Schema.define(version: 20170218235025) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "password"
     t.integer  "phone"
     t.string   "email"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
     t.string   "kind",                default: "Cliente"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-
   add_foreign_key "books", "genres"
+  add_foreign_key "in_shopping_carts", "books"
+  add_foreign_key "in_shopping_carts", "products"
+  add_foreign_key "in_shopping_carts", "shopping_carts"
   add_foreign_key "providers", "purchases"
   add_foreign_key "purchases", "books"
   add_foreign_key "purchases", "providers"

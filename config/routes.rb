@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :providers, :products, :admins, :sellers, :clients, :books
   resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products, :admins, :sellers, :clients
   get 'static_pages/home'
+  resources :in_shopping_carts, only: [:create,:destroy,:show]
+  get "/carrito", to: "shopping_carts#show"
+  get '/add/product_id', as: :add_to_cart, to: 'in_shopping_carts#create'
 
   resources :sessions, only: [:new, :create, :destroy]
   get '/signup', to: 'users#new'

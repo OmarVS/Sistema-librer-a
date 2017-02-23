@@ -22,7 +22,7 @@
   <strong>Stock:</strong>
   <%= @product.stock %> unidades.
 </p>
-
+<%= link_to 'Agregar al carrito', add_to_cart_path(product_id: @product.id) %>|
 <%= link_to 'Editar', edit_product_path(@product) %> |
 <%= link_to 'Volver', products_path %>
 </div>
