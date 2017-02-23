@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Providers</h1>
-
-<table>
+<h1>Proveedores</h1>
+<% if !current_user.nil? && current_user.kind == 'Admin' %>
+  <div class="col-md-2">
+    <%= link_to 'Registrar proveedor', new_provider_path, class: "btn btn-default btn-lg" %><br><br>
+  </div>
+<% end %>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nombre</th>
       <th>Rut</th>
       <th>Business</th>
       <th colspan="3"></th>
@@ -18,14 +22,12 @@
         <td><%= provider.name %></td>
         <td><%= provider.rut %></td>
         <td><%= provider.business %></td>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', provider %></td>
+        <td><%= link_to 'Editar', edit_provider_path(provider) %></td>
+        <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Provider', new_provider_path %>

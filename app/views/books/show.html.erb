@@ -2,13 +2,18 @@
 <div class="container col-md-3 col-md-offset-1">
   <%= image_tag(@book.avatar.url(:medium)) %>
 </div>
-<div class="container col-md-4">
+<div class="container col-md">
   <p>
     <h2><%= @book.name %></h2>
   </p>
   <p>
-    <strong>Código:</strong>
-    <%= @book.barcode %>
+    <% if @book.barcode.nil? %>
+      <strong>Id:</strong>
+      <%= @book.id %>
+    <% else %>
+      <strong>Codigo:</strong>
+      <%= @book.barcode %>
+    <% end %>
   </p>
   <p>
     <strong>Precio:</strong>
@@ -28,11 +33,12 @@
     <strong>Genero:</strong>
     <%= @book.genre.name %>
   </p>
+
   <p>
     <strong>Stock:</strong>
     <%= @book.stock %> unidades.
   </p>
-  <% if signed_in? && current_user.kind == "admin" %>
+  <% if signed_in? && current_user.kind == "Admin" %>
     <%= link_to 'Edit', edit_book_path(@book) %> |
   <% end %>
   <%= link_to 'Back', books_path %>

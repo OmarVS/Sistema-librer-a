@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :purchases
   resources :users, :purchases, :tickets, :sales, :genres
   get 'static_pages/home'
 

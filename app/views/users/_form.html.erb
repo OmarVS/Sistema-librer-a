@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= bootstrap_form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> evitan crear este usuario:</h2>
@@ -12,35 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, 'Nombre de usuario' %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, label: 'Nombre de usuario' %>
   </div>
   <div class="field">
-    <%= f.label :password, 'Contraseña' %><br>
-    <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation, 'Confirme su contraseña' %><br>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password, label: 'Contraseña' %>
+    <%= f.password_field :password_confirmation, label: 'Confirme su contraseña' %>
   </div>
   <div class="field">
-    <%= f.label :phone, 'Número' %><br>
-    <%= f.number_field :phone %>
+    <%= f.number_field :phone, label: 'Número' %>
   </div>
   <div class="field">
-    <%= f.label :email, 'Correo electrónico' %><br>
-    <%= f.text_field :email %><br>
+    <%= f.text_field :email, label: 'Correo electrónico' %>
   </div>
   <div class="field">
-    <%= f.file_field :avatar , label: "Imagen" %>
+    <%= f.file_field :avatar, label: "Imagen" %>
   </div>
-  <% if signed_in? && current_user.kind == "admin"%>
-    <div class="field">
+  <% if signed_in? && current_user.kind == "Admin"%>
+    <div class="form-inline field">
       <%= f.label :kind, 'Tipo de Usuario' %><br>
       <%= f.radio_button(:kind, "admin") %>
-      <%= f.label(:admin, "admin") %>
-      <%= f.radio_button(:kind, "Cliente") %>
-      <%= f.label(:client, "cliente") %>
+      <%= f.label(:admin, "Admin") %>
+      <%= f.radio_button(:kind, "cliente") %>
+      <%= f.label(:client, "Cliente") %>
       <%= f.radio_button(:kind, "vendedor") %>
-      <%= f.label(:seller, "vendedor") %>
+      <%= f.label(:seller, "Vendedor") %>
       </div>
   <% end %>
   <div class="actions">

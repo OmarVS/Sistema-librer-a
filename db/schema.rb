@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222123458) do
+ActiveRecord::Schema.define(version: 20170223021543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170222123458) do
     t.integer  "barcode"
   end
 
+  add_index "books", ["barcode"], name: "index_books_on_barcode", using: :btree
   add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
@@ -81,29 +82,25 @@ ActiveRecord::Schema.define(version: 20170222123458) do
     t.string   "trademark"
   end
 
+  add_index "products", ["barcode"], name: "index_products_on_barcode", using: :btree
+
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.integer  "rut"
     t.string   "business"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "purchase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "providers", ["purchase_id"], name: "index_providers_on_purchase_id", using: :btree
 
   create_table "purchases", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "product_barcode"
+    t.integer  "provider_rut"
     t.integer  "amount"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "book_id"
-    t.integer  "provider_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.date     "date"
   end
-
-  add_index "purchases", ["book_id"], name: "index_purchases_on_book_id", using: :btree
-  add_index "purchases", ["provider_id"], name: "index_purchases_on_provider_id", using: :btree
 
   create_table "sales", force: :cascade do |t|
     t.integer  "amount"
@@ -136,11 +133,19 @@ ActiveRecord::Schema.define(version: 20170222123458) do
     t.string   "name"
     t.integer  "phone"
     t.string   "email"
+<<<<<<< HEAD
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "kind",                default: "Cliente"
     t.string   "password_digest"
     t.string   "remember_token"
+=======
+    t.string   "kind"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+>>>>>>> c4dddff9d90fc12bf4c6e03e7b608de9f86c6776
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -154,7 +159,4 @@ ActiveRecord::Schema.define(version: 20170222123458) do
   add_foreign_key "in_shopping_carts", "books"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
-  add_foreign_key "providers", "purchases"
-  add_foreign_key "purchases", "books"
-  add_foreign_key "purchases", "providers"
 end

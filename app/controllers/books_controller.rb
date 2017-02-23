@@ -5,6 +5,9 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+    if params[:search].present?
+      @books = @books.where("name ILIKE ?", "%#{params[:search]}%")
+    end
   end
 
   # GET /books/1
@@ -25,6 +28,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    @book.stock = 0
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }

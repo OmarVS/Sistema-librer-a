@@ -17,11 +17,15 @@
   <strong>Marca:</strong>
   <%= @product.trademark %>
 </p>
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %> unidades.
-</p>
+<% if !current_user.nil? && current_user.kind == 'Admin' %>
+  <p>
+    <strong>Stock:</strong>
+    <%= @product.stock %> unidades.
+  </p>
+<% end %>
 <%= link_to 'Agregar al carrito', add_to_cart_path(product_id: @product.id) %>|
-<%= link_to 'Editar', edit_product_path(@product) %> |
+<% if signed_in? && current_user.kind == 'Admin' %>
+  <%= link_to 'Editar', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Volver', products_path %>
 </div>

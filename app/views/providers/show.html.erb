@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
+<div class="container col-md-3 col-md-offset-3">
+  <p>
+    <strong>Nombre:</strong>
+    <%= @provider.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
+  <p>
+    <strong>Rut:</strong>
+    <%= @provider.rut %>
+  </p>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @provider.rut %>
-</p>
+  <p>
+    <strong>Negocio:</strong>
+    <%= @provider.business %>
+  </p>
 
-<p>
-  <strong>Business:</strong>
-  <%= @provider.business %>
-</p>
+  <%= link_to 'Editar', edit_provider_path(@provider) %> |
+  <%= link_to 'Volver', providers_path %>
 
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+</div>
