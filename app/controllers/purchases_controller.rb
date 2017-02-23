@@ -5,10 +5,14 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
-    if params[:mes].present?
-      @purchases = Purchase.find_by_year(:date[:year])
-    end
     @purchases = Purchase.order(sort_column + ' ' + sort_direction)
+    @date = params[:date]
+    if params[:date].present?
+      @purchases = Purchase.where("extract(year from created_at) = ?",@date[:year])
+      if params[:mes].present?
+        @purchases = Purchase.where("extract(month from created_at) = ?",@date[:month])
+      end
+    end
   end
 
   # GET /purchases/1
@@ -81,7 +85,7 @@ class PurchasesController < ApplicationController
     end
 
     def sort_column
-      Product.column_names.include?(params[:sort]) ? params[:sort] : "date"
+      Product.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
     end
 
     def sort_direction
@@ -90,6 +94,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:product_barcode, :provider_rut, :amount, :price, :date)
+      params.require(:purchase).permit(:product_barcode, :provider_rut, :amount, :price, :created_at)
     end
 end

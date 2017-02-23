@@ -23,6 +23,6 @@ class Purchase < ActiveRecord::Base
     end
 
     def date_is_future?
-        errors.add :date, "No se puede ingresar fechas futuras" if date > Time.now
+        errors.add :created_at, "No se puede ingresar fechas futuras" if created_at.to_date > Time.now
     end
 end

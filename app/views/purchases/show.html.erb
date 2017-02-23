@@ -20,6 +20,11 @@
     $ <%= @purchase.price %>
   </p>
 
-  <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-  <%= link_to 'Back', purchases_path %>
+  <p>
+    <strong>Fecha (AAAA-MM-DD):</strong>
+    <%= @purchase.created_at.to_date %>
+  </p>
+
+  <%= link_to 'Editar', edit_purchase_path(@purchase) %> |
+  <%= link_to 'Volver', purchases_path %>
 </div>

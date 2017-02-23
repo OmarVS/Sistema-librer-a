@@ -12,7 +12,7 @@
     <%= f.number_field :price, label: "Precio unitario de compra" %>
   </div>
   <div class="field">
-    <%= f.date_select :date, label: "Fecha de compra", start_year: Date.current.year - 1, end_year: Date.current.year %>
+    <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
   </div>
   <div class="actions">
     <%= f.submit %>

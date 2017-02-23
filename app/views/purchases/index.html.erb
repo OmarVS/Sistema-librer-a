@@ -11,7 +11,7 @@
       <%= label_tag :kind, 'Filtro' %>
         <%= check_box_tag(:mes, 'yes') %>
         <%= label_tag("Mes") %>
-        <%= select_date(Date.current, order: [:month, :year]) %>
+        <%= select_date(Date.current, order: [:month,:year]) %>
       <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
     <% end %>
   </div>
@@ -20,9 +20,9 @@
         <tr>
           <th><%= sortable "product_barcode", "Código del producto" %></th>
           <th><%= sortable "provider_rut", "Rut proveedor" %></th>
-          <th><%= sortable "amount", "Cantidad comprada" %></th>
-          <th><%= sortable "price", "Precio unitario" %></th>
-          <th><%= sortable "date", "Fecha" %></th>
+          <th>Cantidad comprada</th>
+          <th>Precio unitario</th>
+          <th><%= sortable "created_at", "Fecha (AAAA-MM-DD)" %></th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -34,7 +34,7 @@
             <td><%= link_to purchase.provider_rut, Provider.find_by_rut(purchase.provider_rut) %></td>
             <td><%= purchase.amount %></td>
             <td>$ <%= purchase.price %></td>
-            <td><%= purchase.date %></td>
+            <td><%= purchase.created_at.to_date %></td>
             <td><%= link_to 'Mostrar', purchase %></td>
             <td><%= link_to 'Editar', edit_purchase_path(purchase) %></td>
             <td><%= link_to 'Eliminar', purchase, method: :delete, data: { confirm: 'Seguro?' } %></td>
