@@ -38,11 +38,11 @@
         </div>
 
         <p align="center"><%= link_to 'Mostrar', book %> |
-        <% if signed_in? && current_user.kind == "admin" %>
+        <% if signed_in? && current_user.kind == "Admin" %>
           <%= link_to 'Editar', edit_book_path(book) %> |
           <%= link_to 'Eliminar', book, method: :delete, data: { confirm: '¿Seguro?' } %></p>
         <%end%>
-        
+
       </div>
     <% end %>
 </div>
