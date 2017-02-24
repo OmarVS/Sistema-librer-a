@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'El usuario fue borrado con éxito' }
       format.json { head :no_content }
     end
   end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_path, error: "Please sign in"
+        redirect_to signin_path, error: "Inicie sesión, por favor"
       end
     end
 

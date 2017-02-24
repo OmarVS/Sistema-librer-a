@@ -1,9 +1,9 @@
 <%= bootstrap_form_for(@purchase) do |f| %>
   <div class="field">
-    <%= f.number_field :product_barcode, label: "Código producto" %>
+    <%= f.number_field :product_id, label: "Código producto" %>
   </div>
   <div class="field">
-    <%= f.number_field :provider_rut, label: "Rut proveedor" %>
+    <%= f.number_field :provider_id, label: "Rut proveedor" %>
   </div>
   <div class="field">
     <%= f.number_field :amount, label: "Cantidad comprada" %>
