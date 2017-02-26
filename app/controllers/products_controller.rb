@@ -8,6 +8,13 @@ class ProductsController < ApplicationController
     if params[:search].present?
       @products = @products.where("name ILIKE ?", "%#{params[:search]}%")
     end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@products)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   # GET /products/1
