@@ -12,6 +12,7 @@
 
 class Product < ActiveRecord::Base
 	attr_readonly :barcode, :on => :update
+	self.primary_key = 'barcode'
 	validates_uniqueness_of :barcode
 	validates :barcode, :name, :price, :trademark, presence: true, :on => :update
 	validates :barcode, presence: true, :on => :create

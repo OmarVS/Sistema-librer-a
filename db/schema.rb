@@ -21,18 +21,18 @@ ActiveRecord::Schema.define(version: 20170225215609) do
     t.integer  "price"
     t.string   "writer"
     t.string   "editorial"
-    t.string   "genre"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "genre_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "stock"
+    t.integer  "stock",               default: 0
     t.integer  "barcode"
   end
 
+  add_index "books", ["barcode"], name: "index_books_on_barcode", unique: true, using: :btree
   add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
 
   create_table "genres", force: :cascade do |t|
@@ -56,50 +56,38 @@ ActiveRecord::Schema.define(version: 20170225215609) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
-    t.text     "Description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "trademark"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "stock"
+    t.integer  "stock",               default: 0
     t.integer  "barcode"
-    t.string   "trademark"
   end
+
+  add_index "products", ["barcode"], name: "index_products_on_barcode", unique: true, using: :btree
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.integer  "rut"
     t.string   "business"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "purchase_id"
-  end
-
-  add_index "providers", ["purchase_id"], name: "index_providers_on_purchase_id", using: :btree
-
-  create_table "purchases", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "amount"
-    t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "book_id"
-    t.integer  "provider_id"
-    t.integer  "product_id"
-  end
-
-  add_index "purchases", ["book_id"], name: "index_purchases_on_book_id", using: :btree
-  add_index "purchases", ["product_id"], name: "index_purchases_on_product_id", using: :btree
-  add_index "purchases", ["provider_id"], name: "index_purchases_on_provider_id", using: :btree
-
-  create_table "sales", force: :cascade do |t|
-    t.integer  "amount"
-    t.integer  "subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "product_barcode"
+    t.integer  "provider_rut"
+    t.integer  "amount"
+    t.integer  "price"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "product_id"
+  end
+
+  add_index "purchases", ["product_id"], name: "index_purchases_on_product_id", using: :btree
 
   create_table "shopping_carts", force: :cascade do |t|
     t.integer  "status",     default: 0
@@ -116,28 +104,23 @@ ActiveRecord::Schema.define(version: 20170225215609) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "password"
     t.integer  "phone"
     t.string   "email"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
     t.string   "kind",                default: "Cliente"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
-
   add_foreign_key "books", "genres"
   add_foreign_key "in_shopping_carts", "books"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
-  add_foreign_key "providers", "purchases"
-  add_foreign_key "purchases", "books"
   add_foreign_key "purchases", "products"
-  add_foreign_key "purchases", "providers"
 end

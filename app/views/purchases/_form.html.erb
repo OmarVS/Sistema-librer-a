@@ -1,15 +1,15 @@
 <%= bootstrap_form_for(@purchase) do |f| %>
   <div class="field">
-    <%= f.number_field :product_id, label: "Código producto" %>
+    <%= f.number_field :product_barcode, label: "Código producto" %>
   </div>
   <div class="field">
-    <%= f.number_field :provider_id, label: "Rut proveedor" %>
+    <%= f.number_field :provider_rut, label: "Rut proveedor" %>
   </div>
   <div class="field">
     <%= f.number_field :amount, label: "Cantidad comprada" %>
   </div>
   <div class="field">
-    <%= f.number_field :price, label: "Precio unitario de compra" %>
+    <%= f.number_field :price, label: "Precio unitario" %>
   </div>
   <div class="field">
     <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>

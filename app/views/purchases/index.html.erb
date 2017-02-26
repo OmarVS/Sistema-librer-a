@@ -16,7 +16,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th><%= sortable "product_barcode", "Código del producto" %></th>
+          <th><%= sortable "product_barcode", "Código producto" %></th>
           <th><%= sortable "provider_rut", "Rut proveedor" %></th>
           <th>Cantidad comprada</th>
           <th>Precio unitario</th>
@@ -28,14 +28,14 @@
       <tbody>
         <% @purchases.each do |purchase| %>
           <tr>
-            <td><%= link_to purchase.product_barcode, Product.find_by_barcode(purchase.product_barcode) %></td>
+            <td><%= purchase.product_barcode %></td>
             <td><%= link_to purchase.provider_rut, Provider.find_by_rut(purchase.provider_rut) %></td>
             <td><%= purchase.amount %></td>
             <td>$ <%= purchase.price %></td>
             <td><%= purchase.created_at.to_date %></td>
             <td><%= link_to 'Mostrar', purchase %></td>
             <td><%= link_to 'Editar', edit_purchase_path(purchase) %></td>
-            <td><%= link_to 'Eliminar', purchase, method: :delete, data: { confirm: 'Seguro?' } %></td>
+            <td><%= link_to 'Eliminar', purchase, method: :delete, data: { confirm: 'Si elimina este registro, disminuirá también el stock del producto.' } %></td>
           </tr>
         <% end %>
       </tbody>

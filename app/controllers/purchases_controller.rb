@@ -6,13 +6,6 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     @purchases = Purchase.order(sort_column + ' ' + sort_direction)
-    @date = params[:date]
-    if params[:date].present?
-      @purchases = Purchase.where("extract(year from created_at) = ?",@date[:year])
-      if params[:mes].present?
-        @purchases = Purchase.where("extract(month from created_at) = ?",@date[:month])
-      end
-    end
   end
 
   # GET /purchases/1
@@ -41,7 +34,7 @@ class PurchasesController < ApplicationController
     end
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to purchases_url, notice: 'Purchase was successfully created.' }
+        format.html { redirect_to purchases_url, notice: 'Compra registrada con éxito.' }
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new }
@@ -55,7 +48,7 @@ class PurchasesController < ApplicationController
   def update
     respond_to do |format|
       if @purchase.update(purchase_params)
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
+        format.html { redirect_to @purchase, notice: 'Compra actualizada.' }
         format.json { render :show, status: :ok, location: @purchase }
       else
         format.html { render :edit }
@@ -67,13 +60,15 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
-
+    @product = Product.find_by_barcode(@purchase.product_barcode)
+    if @product.nil?
+      @product = Book.find_by_barcode(@purchase.product_barcode)
+    end
+    @product.stock = @product.stock - @purchase.amount
+    @product.save
     @purchase.destroy
     respond_to do |format|
-      @product = Product.find_by_barcode(@purchase.product_barcode)
-      @product.stock = @product.stock - @purchase.amount
-      @product.save
-      format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
+      format.html { redirect_to purchases_url, notice: 'Compra eliminada con éxito.' }
       format.json { head :no_content }
     end
   end
