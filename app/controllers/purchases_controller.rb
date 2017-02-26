@@ -6,6 +6,13 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     @purchases = Purchase.order(sort_column + ' ' + sort_direction)
+    if params[:date].present?
+      if params[:mes].present? && params[:mes]=='yes'
+        @purchases = Purchase.where('extract(month from created_at) = ? AND extract(year from created_at) = ?', params[:date]['month'], params[:date]['year'])
+      else
+        @purchases = Purchase.where('extract(year from created_at) = ?',params[:date]['year'])
+      end
+    end
   end
 
   # GET /purchases/1

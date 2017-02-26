@@ -6,10 +6,11 @@
 <% end %>
   <div class="col-md-offset-8">
     <%= form_tag purchases_path, method: :get do %>
-      <%= label_tag :kind, 'Filtro' %>
+      <%= label_tag :kind, 'Filtro: ' %>
         <%= check_box_tag(:mes, 'yes') %>
         <%= label_tag("Mes") %>
-        <%= select_date(Date.current, order: [:month,:year]) %>
+        <%= select_month(Date.current, use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
+        <%= select_year(Date.current, end_year: Date.current.year ) %>
       <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
     <% end %>
   </div>
