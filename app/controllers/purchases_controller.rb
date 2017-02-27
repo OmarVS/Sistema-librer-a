@@ -1,11 +1,10 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction
 
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.order(sort_column + ' ' + sort_direction)
+    @purchases = Purchase.all
     if params[:date].present?
       if params[:mes].present? && params[:mes]=='yes'
         @purchases = Purchase.where('extract(month from created_at) = ? AND extract(year from created_at) = ?', params[:date]['month'], params[:date]['year'])
@@ -84,14 +83,6 @@ class PurchasesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
       @purchase = Purchase.find(params[:id])
-    end
-
-    def sort_column
-      Product.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
