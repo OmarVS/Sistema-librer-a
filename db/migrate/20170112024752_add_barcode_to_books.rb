@@ -4,5 +4,6 @@ class AddBarcodeToBooks < ActiveRecord::Migration
     add_index :books, :barcode, unique: true
     add_column :products, :barcode, :integer
     add_index :products, :barcode, unique: true
+    add_index :products, :id, unique: true
   end
 end

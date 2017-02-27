@@ -15,7 +15,6 @@
 class Book < ActiveRecord::Base
 	belongs_to :genre
 	has_many :purchases
-	self.primary_key = 'barcode'
 	attr_readonly :barcode, :on => :update
 	validates_uniqueness_of :barcode
 	validates :barcode, presence: true

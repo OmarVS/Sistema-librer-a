@@ -11,6 +11,5 @@
 #
 
 class Provider < ActiveRecord::Base
-  self.primary_key = 'rut'
   has_many :purchases
 end
