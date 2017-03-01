@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'reports/purchases'
+
+  get 'reports/sales'
+
+  get 'reports/earnings'
+
+  get 'reports/purchases'
+
+  get 'reports/sales'
+
+  get 'reports/earnings'
+
   get 'static_pages/home'
   resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products
   resources :in_shopping_carts, only: [:create,:destroy,:show]
