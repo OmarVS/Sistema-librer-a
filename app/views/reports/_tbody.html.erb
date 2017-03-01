@@ -1,0 +1,19 @@
+<tbody>
+  <% total = 0 %>
+  <% @products.each do |p| %>
+    <tr>
+      <td><%= p.barcode %></td>
+      <% total_prod = 0 %>
+      <% 1.upto(12) do |i| %>
+        <td>$ <%= calc_purchases(p.barcode,params[:date]['year'],i) %></td>
+        <% total_prod += calc_purchases(p.barcode,params[:date]['year'],i) %>
+      <% end %>
+      <td>$ <%= total_prod %></td>
+      <% total += total_prod %>
+    </tr>
+  <% end %>
+  <tr>
+    <% 13.times do %><td></td><% end %>
+    <td><b>$ <%= total %></b></td>
+  </tr>
+</tbody>
