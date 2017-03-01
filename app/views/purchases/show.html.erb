@@ -16,7 +16,12 @@
 
   <p>
     <strong>Precio unitario:</strong>
-    $ <%= @purchase.price %>
+    <%= moneda(@purchase.price) %>
+  </p>
+
+  <p>
+    <strong>Total compra:</strong>
+    <%= moneda(@purchase.price*@purchase.amount) %>
   </p>
 
   <p>

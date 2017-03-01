@@ -27,7 +27,7 @@
             <% else %>
               Código: <%= book.barcode %><br>
             <% end %>
-            Precio: $<%= book.price %><br>
+            Precio: <%= moneda(book.price) %><br>
             Autor: <%= book.writer %><br>
             Editorial <%= book.editorial %><br>
             Género: <%= book.genre.name %><br>

@@ -1,10 +1,10 @@
 <h1 align="center">Tienda Online de Libros y Artículos Escolares</h1>
 <% if signed_in? && current_user.kind=='Admin' %>
+<% @products=Product.where("stock < 10") %>
   <div class="container">
-    <% @products=Product.all %>
-    <h3>Productos bajos en stock</h3>
-    <% @products.each do |product| %>
-      <% if product.stock<10 %>
+      <% if !@products.nil? %>
+      <h3>Productos bajos en stock</h3>
+      <% @products.each do |product| %>
         <div class="col-md-2">
             <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
             <div class="container">
@@ -16,25 +16,6 @@
             </div>
             <p align="center">
             <%= link_to 'Registrar compra', new_purchase_path(:product_id => product.barcode) %></p>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="container">
-    <h3>Productos incompletos</h3>
-    <% @products.each do |product| %>
-      <% if product.price.nil? %>
-        <div class="col-md-2">
-            <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
-            <div class="container">
-              <b><%= product.name %></b><br>
-              Código: <%= product.barcode %><br>
-              Precio: <%= product.price %><br>
-              Marca: <%= product.trademark %><br>
-              Stock: <%= product.stock %> unidades.<br>
-            </div>
-            <p align="center">
-            <%= link_to 'Editar', edit_product_path(product) %></p>
         </div>
       <% end %>
     <% end %>
