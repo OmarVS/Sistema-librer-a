@@ -7,20 +7,23 @@
     </div>
   <% end %>
   <% if params[:date].present? %>
-    <h2 align="center">Año: <%= params[:date]["year"] %></h2>
-    <h3>Productos</h3>
-    <% @purchases = Purchase.where('extract(year from created_at) = ?',params[:date]['year']) %>
-    <% @total = 0 %>
-    <table class="table">
-      <%= render 'thead' %>
-      <% @products = Product.all %>
-      <%= render 'tbody' %>
-    </table>
-    <h3>Libros</h3>
-    <table class="table">
-      <%= render 'thead' %>
-      <% @products = Book.all %>
-      <%= render 'tbody' %>
-    </table>
-    <h4 align="center">Total compras: <%= moneda(@total) %></h4>
+    <% @date_year = params[:date]["year"] %>
+  <% else %>
+    <% @date_year = Date.current.year %>
   <% end %>
+  <h2 align="center">Año: <%= @date_year %></h2>
+  <% @purchases = Purchase.where('extract(year from created_at) = ?',@date_year) %>
+  <h3>Productos</h3>
+  <% @total = 0 %>
+  <table class="table">
+    <%= render 'thead' %>
+    <% @products = Product.all %>
+    <%= render 'tbody' %>
+  </table>
+  <h3>Libros</h3>
+  <table class="table">
+    <%= render 'thead' %>
+    <% @products = Book.all %>
+    <%= render 'tbody' %>
+  </table>
+  <h4 align="center">Total compras: <%= moneda(@total) %></h4>

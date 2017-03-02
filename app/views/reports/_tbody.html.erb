@@ -5,7 +5,7 @@
       <td><%= p.barcode %></td>
       <% total_prod = 0 %>
       <% 1.upto(12) do |i| %>
-        <td><%= moneda(mes=calc_purchases(p.barcode,params[:date]['year'],i)) %></td>
+        <td><%= moneda(mes=calc_purchases(p.barcode,@date_year,i)) %></td>
         <% total_prod += mes %>
       <% end %>
       <td><%= moneda(total_prod) %></td>
