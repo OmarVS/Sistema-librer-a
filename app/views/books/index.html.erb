@@ -22,11 +22,7 @@
           <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
           <div class="container-fluid">
             <b><%= book.name %></b><br>
-            <% if book.barcode.nil? %>
-              Id: <%= book.id %><br>
-            <% else %>
-              Código: <%= book.barcode %><br>
-            <% end %>
+            Código ISBN: <%= book.barcode %><br>
             Precio: <%= moneda(book.price) %><br>
             Autor: <%= book.writer %><br>
             Editorial <%= book.editorial %><br>

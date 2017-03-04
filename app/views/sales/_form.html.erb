@@ -1,16 +1,4 @@
 <%= bootstrap_form_for(@sale) do |f| %>
-  <% if @sale.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
-
-      <ul>
-      <% @sale.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.number_field :product_barcode, label: "Código producto" %>
   </div>
@@ -18,10 +6,10 @@
     <%= f.number_field :provider_rut, label: "Rut proveedor" %>
   </div>
   <div class="field">
-    <%= f.number_field :amount, label: "Cantidad" %>
+    <%= f.number_field :amount, label: "Cantidad vendida" %>
   </div>
   <div class="field">
-    <%= f.number_field :price, label: "Precio venta" %>
+    <%= f.number_field :price, label: "Precio unitario" %>
   </div>
   <div class="field">
     <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>

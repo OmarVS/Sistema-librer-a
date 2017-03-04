@@ -6,13 +6,8 @@
     <h2><%= @book.name %></h2>
   </p>
   <p>
-    <% if @book.barcode.nil? %>
-      <strong>Id:</strong>
-      <%= @book.id %>
-    <% else %>
-      <strong>Codigo:</strong>
-      <%= @book.barcode %>
-    <% end %>
+    <strong>Codigo ISBN:</strong>
+    <%= @book.barcode %>
   </p>
   <p>
     <strong>Precio:</strong>
@@ -38,7 +33,7 @@
     <%= @book.stock %> unidades.
   </p>
   <% if signed_in? && current_user.kind == "Admin" %>
-    <%= link_to 'Edit', edit_book_path(@book) %> |
+    <%= link_to 'Editar', edit_book_path(@book) %> |
   <% end %>
-  <%= link_to 'Back', books_path %>
+  <%= link_to 'Volver', books_path %>
 </div>
