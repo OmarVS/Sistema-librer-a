@@ -1,8 +1,7 @@
 <% provide(:title, "Editar usuario") %>
-<h1>Actualiza tu perfil</h1>
-
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <h1>Actualiza tu perfil</h1>
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -29,9 +28,9 @@
 
       <%= f.label :phone, 'Número' %><br>
       <%= f.number_field :phone %>
-      
+
       <%= f.file_field :avatar, label: "Imagen" %>
-      
+
 
       <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
     <% end %>

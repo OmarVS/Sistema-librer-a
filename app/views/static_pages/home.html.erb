@@ -15,7 +15,7 @@
               Stock: <%= product.stock %> unidades.<br>
             </div>
             <p align="center">
-            <%= link_to 'Registrar compra', new_purchase_path(:product_id => product.barcode) %></p>
+            <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => product.barcode) %></p>
         </div>
       <% end %>
     <% end %>

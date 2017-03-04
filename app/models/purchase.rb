@@ -1,9 +1,9 @@
 class Purchase < ActiveRecord::Base
 
-  validate :provider_rut_null
-  validate :product_barcode_null
   validates :provider_rut, presence: true
+  validate :provider_rut_null
   validates :product_barcode, presence: true
+  validate :product_barcode_null
   validates :amount, presence: true
   validates :price, presence: true
   validate :date_is_future?
@@ -18,12 +18,7 @@ class Purchase < ActiveRecord::Base
       if @product.nil?
         @product = Book.find_by_barcode(product_barcode)
       end
-      if !@product.nil?
-        @product.stock = @product.stock + amount
-        @product.save
-      else
-        errors.add :product_barcode, "Producto no registrado."
-      end
+      errors.add :product_barcode, "Producto no registrado." if @product.nil?
     end
 
     def date_is_future?

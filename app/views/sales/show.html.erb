@@ -1,0 +1,34 @@
+<div class="container col-md-3 col-md-offset-3">
+  <p>
+    <strong>Código producto:</strong>
+    <%= @sale.product_barcode %>
+  </p>
+
+  <p>
+    <strong>Rut proveedor:</strong>
+    <%= @sale.provider_rut %>
+  </p>
+
+  <p>
+    <strong>Cantidad:</strong>
+    <%= @sale.amount %> unidades.
+  </p>
+
+  <p>
+    <strong>Precio unitario:</strong>
+    <%= moneda(@sale.price) %>
+  </p>
+
+  <p>
+    <strong>Total venta:</strong>
+    <%= moneda(@sale.price*@sale.amount) %>
+  </p>
+
+  <p>
+    <strong>Fecha:</strong>
+    <%= @sale.created_at.to_date %>
+  </p>
+
+  <%= link_to 'Editar', edit_sale_path(@sale) %> |
+  <%= link_to 'Volver', sales_path %>
+</div>

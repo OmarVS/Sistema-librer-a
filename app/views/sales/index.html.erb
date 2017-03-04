@@ -1,0 +1,38 @@
+<h1>Registro de ventas</h1>
+<% if !current_user.nil? && current_user.kind == 'Admin' || current_user.kind == 'Vendedor' %>
+  <div class="col-md-2">
+    <%= link_to 'Registrar venta', new_sale_path, class: "btn btn-default btn-lg" %>
+  </div>
+<% end %>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Código producto</th>
+      <th>Rut proveedor</th>
+      <th>Cantidad vendida</th>
+      <th>Precio unitario</th>
+      <th>Total venta</th>
+      <th>Fecha (AAAA-MM-DD)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.product_barcode %></td>
+        <td><%= sale.provider_rut %></td>
+        <td><%= sale.amount %></td>
+        <td><%= moneda(sale.price) %></td>
+        <td><%= moneda(sale.amount*sale.price) %></td>
+        <td><%= sale.created_at.to_date %></td>
+        <td><%= link_to 'Mostrar', sale %></td>
+        <td><%= link_to 'Editar', edit_sale_path(sale) %></td>
+        <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock del producto.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

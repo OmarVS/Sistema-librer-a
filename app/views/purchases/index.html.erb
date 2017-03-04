@@ -16,7 +16,7 @@
       <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
     <% end %>
   </div>
-  <br><br>
+  <br>
   <% if @purchases.count == 0 %>
     <h4 align="center">No existen compras</h4>
   <% else %>
@@ -43,7 +43,7 @@
             <td><%= purchase.created_at.to_date %></td>
             <td><%= link_to 'Mostrar', purchase %></td>
             <td><%= link_to 'Editar', edit_purchase_path(purchase) %></td>
-            <td><%= link_to 'Eliminar', purchase, method: :delete, data: { confirm: 'Si elimina este registro, disminuirá también el stock del producto.' } %></td>
+            <td><%= link_to 'Eliminar', purchase, method: :delete, data: { confirm: 'Al eliminar este registro, disminuirá también el stock del producto.' } %></td>
           </tr>
         <% end %>
       </tbody>
