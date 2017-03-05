@@ -1,9 +1,10 @@
 <%= bootstrap_form_for([@genre,@book]) do |f| %>
       <div class="field">
-        <%= f.number_field :barcode, label: "Código ISBN" %>
-      </div>
-      <div class="field">
-        <%= f.number_field :price, label: "Precio" %>
+        <% if @book.new_record? %>
+          <%= f.number_field :barcode, label: "Código ISBN" %>
+        <% else %>
+          <%= f.number_field :barcode, label: "Código ISBN", readonly: true %>
+        <% end %>
       </div>
       <div class="field">
         <%= f.text_field :writer, label: "Autor" %>
@@ -14,6 +15,9 @@
       <div class="field">
         <%= f.collection_select :genre_id, Genre.order(:name),:id,:name , label: "Género" %>
         <%= link_to "Nuevo Género" ,new_genre_path %>
+      </div>
+      <div class="field">
+        <%= f.number_field :price, label: "Precio", prepend: "$" %>
       </div>
       <div class="field">
         <%= f.file_field :avatar , label: "Imagen" %>

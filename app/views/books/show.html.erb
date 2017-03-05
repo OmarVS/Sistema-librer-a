@@ -5,14 +5,12 @@
   <p>
     <h2><%= @book.name %></h2>
   </p>
+  
   <p>
     <strong>Codigo ISBN:</strong>
     <%= @book.barcode %>
   </p>
-  <p>
-    <strong>Precio:</strong>
-    <%= moneda(@book.price) %>
-  </p>
+
   <p>
     <strong>Autor:</strong>
     <%= @book.writer %>
@@ -26,6 +24,11 @@
   <p>
     <strong>Genero:</strong>
     <%= @book.genre.name %>
+  </p>
+
+  <p>
+    <strong>Precio:</strong>
+    <%= moneda(@book.price) %>
   </p>
 
   <p>

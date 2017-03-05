@@ -23,10 +23,10 @@
           <div class="container-fluid">
             <b><%= book.name %></b><br>
             Código ISBN: <%= book.barcode %><br>
-            Precio: <%= moneda(book.price) %><br>
             Autor: <%= book.writer %><br>
             Editorial <%= book.editorial %><br>
             Género: <%= book.genre.name %><br>
+            Precio: <b><%= moneda(book.price) %></b><br>
             <% if !current_user.nil? && current_user.kind == 'Admin' %>
               Stock: <%= book.stock %> unidades.<br>
             <% end %>

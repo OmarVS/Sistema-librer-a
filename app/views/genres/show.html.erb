@@ -1,7 +1,10 @@
-<p>
-  <strong>Nombre:</strong>
-  <%= @genre.name %>
-</p>
+<h1 align="center">Ficha género</h1>
+<div class="col-md-offset-4">
+  <p>
+    <strong>Nombre:</strong>
+    <%= @genre.name %>
+  </p>
 
-<%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
+  <%= link_to 'Editar', edit_genre_path(@genre) %> |
+  <%= link_to 'Volver', genres_path %>
+</div>

@@ -22,8 +22,8 @@
             <div class="container">
               <b><%= product.name %></b><br>
               Código: <%= product.barcode %><br>
-              Precio: <%= moneda(product.price) %><br>
               Marca: <%= product.trademark %><br>
+              Precio: <%= moneda(product.price) %><br>
               <% if !current_user.nil? && current_user.kind == 'Admin' %>
                 Stock: <%= product.stock %> unidades.<br>
               <% end %>

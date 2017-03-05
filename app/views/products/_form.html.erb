@@ -1,15 +1,19 @@
 <%= bootstrap_form_for(@product) do |f| %>
   <div class="field">
-    <%= f.text_field :barcode, label: "Código" %>
+    <% if @product.new_record? %>
+      <%= f.number_field :barcode, label: "Código" %>
+    <% else %>
+      <%= f.number_field :barcode, label: "Código", readonly: true %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.text_field :name, label: "Nombre" %>
   </div>
   <div class="field">
-    <%= f.number_field :price, label: "Precio" %>
+    <%= f.text_field :trademark, label: "Marca" %>
   </div>
   <div class="field">
-    <%= f.text_field :trademark, label: "Marca" %>
+    <%= f.number_field :price, label: "Precio", prepend: "$" %>
   </div>
   <div class="field">
     <%= f.file_field :avatar, label: "Imagen" %>

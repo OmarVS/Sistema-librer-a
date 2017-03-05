@@ -10,12 +10,12 @@
   <%= @product.barcode %>
 </p>
 <p>
-  <strong>Precio:</strong>
-  <%= moneda(@product.price) %>
-</p>
-<p>
   <strong>Marca:</strong>
   <%= @product.trademark %>
+</p>
+<p>
+  <strong>Precio:</strong>
+  <%= moneda(@product.price) %>
 </p>
 <% if !current_user.nil? && current_user.kind == 'Admin' %>
   <p>
