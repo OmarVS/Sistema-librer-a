@@ -23,9 +23,9 @@
               <b><%= product.name %></b><br>
               Código: <%= product.barcode %><br>
               Marca: <%= product.trademark %><br>
-              Precio: <%= moneda(product.price) %><br>
+              Precio: <b><%= moneda(product.price) %></b><br>
               <% if !current_user.nil? && current_user.kind == 'Admin' %>
-                Stock: <%= product.stock %> unidades.<br>
+                Stock: <%= numero(product.stock) %> unidades.<br>
               <% end %>
             </div>
             <p align="center">

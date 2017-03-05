@@ -1,18 +1,18 @@
 <h1 align="center">Ficha venta</h1>
 <div class="container col-md-3 col-md-offset-3">
   <p>
-    <strong>Código producto:</strong>
-    <%= @sale.product_barcode %>
-  </p>
-
-  <p>
     <strong>Rut proveedor:</strong>
     <%= @sale.provider_rut %>
   </p>
 
   <p>
+    <strong>Código producto:</strong>
+    <%= @sale.product_barcode %>
+  </p>
+
+  <p>
     <strong>Cantidad:</strong>
-    <%= @sale.amount %> unidades.
+    <%= numero(@sale.amount) %> unidades.
   </p>
 
   <p>
@@ -27,7 +27,7 @@
 
   <p>
     <strong>Fecha:</strong>
-    <%= @sale.created_at.to_date %>
+    <%= @sale.created_at.to_date.strftime("%d-%m-%Y") %>
   </p>
 
   <%= link_to 'Editar', edit_sale_path(@sale) %> |

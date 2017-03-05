@@ -20,4 +20,10 @@ module ReportsHelper
     end
     sum
   end
+
+  def calc_earnings(barcode,year,month)
+    sum = calc_sales(barcode,year,month) - calc_purchases(barcode,year,month)
+    sum
+  end
+
 end

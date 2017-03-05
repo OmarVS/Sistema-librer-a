@@ -5,7 +5,14 @@
       <td><%= p.barcode %></td>
       <% total_prod = 0 %>
       <% 1.upto(12) do |i| %>
-        <td><%= moneda(mes=calc_purchases(p.barcode,@date_year,i)) %></td>
+        <% case params[:action] %>
+          <% when 'purchases' %>
+            <td><%= moneda(mes=calc_purchases(p.barcode,@date_year,i)) %></td>
+          <% when 'sales' %>
+            <td><%= moneda(mes=calc_sales(p.barcode,@date_year,i)) %></td>
+          <% when 'earnings' %>
+            <td><%= moneda(mes=calc_earnings(p.barcode,@date_year,i)) %></td>
+        <% end %>
         <% total_prod += mes %>
       <% end %>
       <td><%= moneda(total_prod) %></td>

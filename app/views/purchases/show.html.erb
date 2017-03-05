@@ -1,18 +1,18 @@
 <h1 align="center">Ficha compra</h1>
 <div class="container col-md-3 col-md-offset-3">
   <p>
-    <strong>Código del producto:</strong>
-    <%= @purchase.product_barcode %>
-  </p>
-
-  <p>
     <strong>Rut proveedor:</strong>
     <%= @purchase.provider_rut %>
   </p>
 
   <p>
+    <strong>Código del producto:</strong>
+    <%= @purchase.product_barcode %>
+  </p>
+
+  <p>
     <strong>Cantidad:</strong>
-    <%= @purchase.amount %> unidades.
+    <%= numero(@purchase.amount) %> unidades.
   </p>
 
   <p>
@@ -26,8 +26,8 @@
   </p>
 
   <p>
-    <strong>Fecha (AAAA-MM-DD):</strong>
-    <%= @purchase.created_at.to_date %>
+    <strong>Fecha:</strong>
+    <%= @purchase.created_at.to_date.strftime("%d-%m-%Y") %>
   </p>
 
   <%= link_to 'Editar', edit_purchase_path(@purchase) %> |

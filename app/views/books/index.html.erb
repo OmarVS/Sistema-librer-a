@@ -28,7 +28,7 @@
             Género: <%= book.genre.name %><br>
             Precio: <b><%= moneda(book.price) %></b><br>
             <% if !current_user.nil? && current_user.kind == 'Admin' %>
-              Stock: <%= book.stock %> unidades.<br>
+              Stock: <%= numero(book.stock) %> unidades.<br>
             <% end %>
           </div>
           <p align="center"><%= link_to 'Mostrar', book %>

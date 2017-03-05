@@ -10,9 +10,9 @@
             <div class="container">
               <b><%= product.name %></b><br>
               Código: <%= product.barcode %><br>
-              Precio: <%= product.price %><br>
               Marca: <%= product.trademark %><br>
-              Stock: <%= product.stock %> unidades.<br>
+              Precio: <b><%= moneda(product.price) %></b><br>
+              Stock: <%= product.stock %> unidades.<br><br>
             </div>
             <p align="center">
             <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => product.barcode) %></p>

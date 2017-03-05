@@ -20,7 +20,7 @@
 <% if !current_user.nil? && current_user.kind == 'Admin' %>
   <p>
     <strong>Stock:</strong>
-    <%= @product.stock %> unidades.
+    <%= numero(@product.stock) %> unidades.
   </p>
 <% end %>
 <%= link_to 'Agregar al carrito', add_to_cart_path(product_id: @product.id) %> |

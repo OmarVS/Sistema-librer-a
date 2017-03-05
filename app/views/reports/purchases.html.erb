@@ -3,7 +3,7 @@
     <div class="form-group form-inline">
       <%= f.label :date_filter, 'Año:' %>
       <%= select_year(Date.current, end_year: Date.current.year ) %>
-      <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
+      <%= submit_tag "Mostrar", name: nil, class: "btn btn-primary btn-md" %>
     </div>
   <% end %>
   <% if params[:date].present? %>

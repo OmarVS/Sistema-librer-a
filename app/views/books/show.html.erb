@@ -5,7 +5,7 @@
   <p>
     <h2><%= @book.name %></h2>
   </p>
-  
+
   <p>
     <strong>Codigo ISBN:</strong>
     <%= @book.barcode %>
@@ -33,7 +33,7 @@
 
   <p>
     <strong>Stock:</strong>
-    <%= @book.stock %> unidades.
+    <%= numero(@book.stock) %> unidades.
   </p>
   <% if signed_in? && current_user.kind == "Admin" %>
     <%= link_to 'Editar', edit_book_path(@book) %> |

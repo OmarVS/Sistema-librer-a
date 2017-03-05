@@ -1,2 +1,29 @@
-<h1>Reports#earnings</h1>
-<p>Find me in app/views/reports/earnings.html.erb</p>
+<h1>Informe de ganancias</h1>
+  <%= bootstrap_form_tag url: reports_earnings_path, method: :get, class: "form-inline" do |f| %>
+    <div class="form-group form-inline">
+      <%= f.label :date_filter, 'Año:' %>
+      <%= select_year(Date.current, end_year: Date.current.year ) %>
+      <%= submit_tag "Mostrar", name: nil, class: "btn btn-primary btn-md" %>
+    </div>
+  <% end %>
+  <% if params[:date].present? %>
+    <% @date_year = params[:date]["year"] %>
+  <% else %>
+    <% @date_year = Date.current.year %>
+  <% end %>
+  <h2 align="center">Año: <%= @date_year %></h2>
+  <% @sales = Sale.where('extract(year from created_at) = ?',@date_year) %>
+  <h3>Productos</h3>
+  <% @total = 0 %>
+  <table class="table">
+    <%= render 'thead' %>
+    <% @products = Product.all %>
+    <%= render 'tbody' %>
+  </table>
+  <h3>Libros</h3>
+  <table class="table">
+    <%= render 'thead' %>
+    <% @products = Book.all %>
+    <%= render 'tbody' %>
+  </table>
+  <h4 align="center">Ganancia neta: <%= moneda(@total) %></h4>
