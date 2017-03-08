@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225215609) do
+ActiveRecord::Schema.define(version: 20170308013112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,20 @@ ActiveRecord::Schema.define(version: 20170225215609) do
   add_index "in_shopping_carts", ["product_id"], name: "index_in_shopping_carts_on_product_id", using: :btree
   add_index "in_shopping_carts", ["shopping_cart_id"], name: "index_in_shopping_carts_on_shopping_cart_id", using: :btree
 
+  create_table "my_payments", force: :cascade do |t|
+    t.string   "email"
+    t.string   "ip"
+    t.string   "status"
+    t.decimal  "fee",              precision: 6, scale: 2
+    t.string   "paypal_id"
+    t.decimal  "total",            precision: 9, scale: 2
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "shopping_cart_id"
+  end
+
+  add_index "my_payments", ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
@@ -90,10 +104,10 @@ ActiveRecord::Schema.define(version: 20170225215609) do
   add_index "purchases", ["product_id"], name: "index_purchases_on_product_id", using: :btree
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.integer  "status",     default: 0
+    t.string   "status"
     t.string   "ip"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|

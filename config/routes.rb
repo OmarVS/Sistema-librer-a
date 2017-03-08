@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  
+
   get 'static_pages/home'
+  get 'payments/create'
+  get "/checkout", to: "payments#checkout"
+  get "/carrito", to: "shopping_carts#show"
+  get '/add/:product_id', as: :add_to_cart, to: 'in_shopping_carts#create'
+  
   resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products
   resources :in_shopping_carts, only: [:create,:destroy,:show]
-  get "/carrito", to: "shopping_carts#show"
-  get '/add/product_id', as: :add_to_cart, to: 'in_shopping_carts#create'
+  
+  post "/pagar", to: "payments#create"
 
   resources :sessions, only: [:new, :create, :destroy]
   get '/signup', to: 'users#new'
