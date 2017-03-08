@@ -23,6 +23,8 @@
     <%= @product.stock %> unidades.
   </p>
 <% end %>
+<%= stylesheet_link_tag 'print', :media => 'print' %>
+<%= link_to "Imprimir", '#', onclick: "printpage()" %> |
 <%= link_to 'Agregar al carrito', add_to_cart_path(product_id: @product.id) %> |
 <% if signed_in? && current_user.kind == 'Admin' %>
   <%= link_to 'Editar', edit_product_path(@product) %> |
