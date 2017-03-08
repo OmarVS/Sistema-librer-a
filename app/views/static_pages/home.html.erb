@@ -68,7 +68,6 @@
         Stock: <%= maybook1.stock %> unidades.<br>
       </div>
       <p align="center">
-      <%= link_to 'Editar', edit_book_path(maybook1) %></p>
       <p align="center"><%= image_tag(maybook2.avatar.url(:thumb)) %></p>
       <div class="container">
         <b><%= maybook2.name %></b><br>
@@ -78,7 +77,6 @@
         Stock: <%= maybook2.stock %> unidades.<br>
       </div>
       <p align="center">
-      <%= link_to 'Editar', edit_book_path(maybook2) %></p>
     </div>
   </div>
 <% end %>
