@@ -17,6 +17,6 @@
 //= require turbolinks
 //= require_tree .
 function printpage()
-{
-   window.print()
-}
+  {
+    window.print()
+  }

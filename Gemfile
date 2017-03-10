@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'bcrypt'
 gem 'prawn'
+gem 'paypal-sdk-rest'
+gem 'aasm'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets

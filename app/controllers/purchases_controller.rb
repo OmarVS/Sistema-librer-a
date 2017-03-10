@@ -38,6 +38,12 @@ class PurchasesController < ApplicationController
     if params[:product_barcode].present?
       @purchase.product_barcode = params[:product_barcode]
     end
+    @product = Product.find_by_barcode(@purchase.product_barcode)
+    if @product.nil?
+      @product = Book.find_by_barcode(@purchase.product_barcode)
+    end
+    @product.stock = @product.stock + @purchase.amount
+    @product.save
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to purchases_url, notice: 'Compra registrada con éxito.' }
@@ -54,7 +60,7 @@ class PurchasesController < ApplicationController
   def update
     respond_to do |format|
       if @purchase.update(purchase_params)
-        format.html { redirect_to @purchase, notice: 'Compra actualizada.' }
+        format.html { redirect_to @purchase, notice: 'Compra actualizada con éxito.' }
         format.json { render :show, status: :ok, location: @purchase }
       else
         format.html { render :edit }

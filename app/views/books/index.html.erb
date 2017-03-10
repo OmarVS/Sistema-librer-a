@@ -32,11 +32,11 @@
             <% end %>
           </div>
           <p align="center"><%= link_to 'Mostrar', book %>
-          <% if signed_in? && current_user.kind == "Admin" %> |
-            <%= link_to 'Editar', edit_book_path(book) %> |
-            <%= link_to 'Eliminar', book, method: :delete, data: { confirm: '¿Seguro?' } %></p>
-          <%end%>
-
+            <% if signed_in? && current_user.kind == "Admin" %> |
+              <%= link_to 'Editar', edit_book_path(book) %> |
+              <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
+            <%end%>
+          </p><br>
         </div>
       <% end %>
     <% end %>

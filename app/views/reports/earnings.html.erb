@@ -26,4 +26,8 @@
     <% @products = Book.all %>
     <%= render 'tbody' %>
   </table>
-  <h4 align="center">Ganancia neta: <%= moneda(@total) %></h4>
+  <% if @total >= 0 %>
+    <h4 align="center">Ganancia neta:<strong class="text-success"> <%= moneda(@total) %></strong></h4>
+  <% else %>
+    <h4 align="center">Ganancia neta:<strong class="text-danger"> <%= moneda(@total) %></strong></h4>
+  <% end %>

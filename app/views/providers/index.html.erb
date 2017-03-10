@@ -24,7 +24,7 @@
         <td><%= provider.business %></td>
         <td><%= link_to 'Mostrar', provider %></td>
         <td><%= link_to 'Editar', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Seguro?' } %></td>
+        <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

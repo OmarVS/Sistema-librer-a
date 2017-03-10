@@ -28,7 +28,7 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-        format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
+        format.html { redirect_to @provider, notice: 'Proveedor registrado con éxito.' }
         format.json { render :show, status: :created, location: @provider }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'Provider was successfully updated.' }
+        format.html { redirect_to @provider, notice: 'Proveedor actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @provider }
       else
         format.html { render :edit }
@@ -54,9 +54,17 @@ class ProvidersController < ApplicationController
   # DELETE /providers/1
   # DELETE /providers/1.json
   def destroy
+    @purchases = Purchase.where(provider_rut: @provider.rut)
+    @purchases.each do |purchase|
+      purchase.destroy
+    end
+    @sales = Sale.where(provider_rut: @provider.rut)
+    @sales.each do |sale|
+      sale.destroy
+    end
     @provider.destroy
     respond_to do |format|
-      format.html { redirect_to providers_url, notice: 'Provider was successfully destroyed.' }
+      format.html { redirect_to providers_url, notice: 'Proveedor eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

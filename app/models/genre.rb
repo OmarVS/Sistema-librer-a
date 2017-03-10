@@ -10,4 +10,7 @@
 
 class Genre < ActiveRecord::Base
 	has_many :books
+	validates_uniqueness_of :name, :message => 'Ya está registrado'
+	validates :name, presence: true, length: {minimum: 4}
+
 end

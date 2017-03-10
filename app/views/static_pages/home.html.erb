@@ -20,4 +20,44 @@
       <% end %>
     <% end %>
   </div>
+<% else %>
+  <div class="container">
+    <% @books=Book.all %>
+    <h3>Libros Destacados</h3>
+    <% may1=0 %>
+    <% maybook1=nil %>
+    <% may2=0 %>
+    <% maybook2=nil %>
+    <% @books.each do |book| %>
+      <% if book.price>may1 %>
+        <% may1 = book.price %>
+        <% maybook1 = book %>
+      <% else %>
+        <% if book.price>may2 %>
+          <% may2 = book.price %>
+          <% maybook2 = book %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class="col-md-2">
+      <p align="center"><%= image_tag(maybook1.avatar.url(:thumb)) %></p>
+      <div class="container">
+        <b><%= maybook1.name %></b><br>
+        Código: <%= maybook1.barcode %><br>
+        Precio: <%= may1 %><br>
+        Marca: <%= maybook1.writer %><br>
+        Stock: <%= maybook1.stock %> unidades.<br>
+      </div>
+      <p align="center">
+      <p align="center"><%= image_tag(maybook2.avatar.url(:thumb)) %></p>
+      <div class="container">
+        <b><%= maybook2.name %></b><br>
+        Código: <%= maybook2.barcode %><br>
+        Precio: <%= may2 %><br>
+        Marca: <%= maybook2.writer %><br>
+        Stock: <%= maybook2.stock %> unidades.<br>
+      </div>
+      <p align="center">
+    </div>
+  </div>
 <% end %>

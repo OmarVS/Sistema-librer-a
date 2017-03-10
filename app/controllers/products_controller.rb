@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
     @product.stock = 0
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: 'Producto agregado con éxito.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: 'Producto actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -64,9 +64,17 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    @purchases = Purchase.where(product_barcode: @product.barcode)
+    @purchases.each do |purchase|
+      purchase.destroy
+    end
+    @sales = Sale.where(product_barcode: @product.barcode)
+    @sales.each do |sale|
+      sale.destroy
+    end
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: 'Producto eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

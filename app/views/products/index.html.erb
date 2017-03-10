@@ -29,11 +29,12 @@
               <% end %>
             </div>
             <p align="center">
-            <%= link_to 'Mostrar', product %>
-            <% if signed_in? && current_user.kind == 'Admin' %> |
-              <%= link_to 'Editar', edit_product_path(product) %> |
-              <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %></p>
+              <%= link_to 'Mostrar', product %>
+              <% if signed_in? && current_user.kind == 'Admin' %> |
+                <%= link_to 'Editar', edit_product_path(product) %> |
+                <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
+              <% end %>
+            </p><br>
         </div>
       <% end %>
     <% end %>

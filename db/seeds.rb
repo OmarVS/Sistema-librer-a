@@ -36,28 +36,28 @@ Book.create!([
     price: 39990,
     writer: "J.K. Rowling",
     editorial: "Salamandra",
-    genre_id: 1,stock: 0,barcode: 001},
+    genre_id: 1,stock: 0,barcode: 1111111111},
   { name: 'Harry Potter y la cámara secreta',
     price: 39990,
     writer: "J.K. Rowling",
     editorial: "Salamandra",
-    genre_id: 1,stock: 0,barcode: 002},
+    genre_id: 1,stock: 0,barcode: 2222222222},
   { name: 'Papelucho en la clínica',
     price: 9990,
     writer: "Marcela Paz",
     editorial: "El barco de vapor",
-    genre_id: 4,stock: 0,barcode: 003} ])
+    genre_id: 4,stock: 0,barcode: 3333333333} ])
 Product.create!([
  {name: "Block Medio",
   price: 1190,
   trademark: "Artel",
   stock: 0,
-  barcode: 004},
+  barcode: 4444444444},
  {name: "Set 6 Lapiz Pasta",
   price: 990,
   trademark: "Bic",
   stock: 10,
-  barcode: 005} ])
+  barcode: 5555555555} ])
 Provider.create!(
   {name: "El Proveedor",
    rut: 123456789,

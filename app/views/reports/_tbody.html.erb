@@ -7,21 +7,34 @@
       <% 1.upto(12) do |i| %>
         <% case params[:action] %>
           <% when 'purchases' %>
-            <td><%= moneda(mes=calc_purchases(p.barcode,@date_year,i)) %></td>
+            <% mes=calc_purchases(p.barcode,@date_year,i) %>
           <% when 'sales' %>
-            <td><%= moneda(mes=calc_sales(p.barcode,@date_year,i)) %></td>
+            <% mes=calc_sales(p.barcode,@date_year,i) %>
           <% when 'earnings' %>
-            <td><%= moneda(mes=calc_earnings(p.barcode,@date_year,i)) %></td>
+            <% mes=calc_earnings(p.barcode,@date_year,i) %>
+        <% end %>
+        <% if mes >= 0 %>
+          <td class="alert alert-success"><%= moneda(mes) %></td>
+        <% else %>
+          <td class="alert alert-danger"><%= moneda(mes) %></td>
         <% end %>
         <% total_prod += mes %>
       <% end %>
-      <td><%= moneda(total_prod) %></td>
+      <% if total_prod >= 0 %>
+        <td class="alert alert-success"><%= moneda(total_prod) %></td>
+      <% else %>
+        <td class="alert alert-danger"><%= moneda(total_prod) %></td>
+      <% end %>
       <% total_año += total_prod %>
     </tr>
   <% end %>
   <tr>
     <% 13.times do %><td></td><% end %>
-    <td><b><%= moneda(total_año) %></b></td>
+    <% if total_año >= 0 %>
+      <td class="alert alert-success"><b><%= moneda(total_año) %></b></td>
+    <% else %>
+      <td class="alert alert-danger"><b><%= moneda(total_año) %></b></td>
+    <% end %>
   </tr>
   <% @total += total_año %>
 </tbody>

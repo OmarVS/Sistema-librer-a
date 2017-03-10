@@ -16,12 +16,13 @@ class Book < ActiveRecord::Base
 	belongs_to :genre
 	has_many :purchases
 	attr_readonly :barcode, :on => :update
-	validates_uniqueness_of :barcode
-	validates :barcode, presence: true
-	validates :name, presence: true, length: {maximum: 50}
-	validates :price, presence: true
-	validates :writer, presence: true, length: {maximum: 30}
-	validates :editorial, presence: true, length: {maximum: 30}
+	validates_uniqueness_of :barcode, :message => 'Ya está registrado'
+	validates :barcode, presence: true, length: {in: 10..15}
+	validate :barcode_positivo
+	validates :name, presence: true, length: {in: 4..50}
+	validates :price, presence: true, length: {maximum: 7}
+	validates :writer, presence: true, length: {in: 6..30}
+	validates :editorial, presence: true, length: {in: 4..30}
 	validates :genre_id, presence: true
 	# validate :book_not_registered
 
@@ -31,4 +32,8 @@ end
 
 def book_not_registered
 	errors.add :name, 'ya está registrado' if Book.find_by_name(name)
+end
+
+def barcode_positivo
+	errors.add :barcode, 'Ingrese sólo números' if self.barcode.include?("-")
 end
