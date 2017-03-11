@@ -2,12 +2,12 @@
 <div class="container col-md-3 col-md-offset-3">
   <p>
     <strong>Rut proveedor:</strong>
-    <%= @purchase.provider_rut %>
+    <%= link_to @purchase.provider_rut, Provider.find_by_rut(@purchase.provider_rut) %>
   </p>
 
   <p>
     <strong>Código del producto:</strong>
-    <%= @purchase.product_barcode %>
+    <%= link_to @purchase.product_barcode, producto(@purchase.product_barcode) %>
   </p>
 
   <p>

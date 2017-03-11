@@ -10,8 +10,6 @@
             <div class="container">
               <b><%= product.name %></b><br>
               Código: <%= product.barcode %><br>
-              Marca: <%= product.trademark %><br>
-              Precio: <b><%= moneda(product.price) %></b><br>
               Stock: <%= product.stock %> unidades.<br><br>
             </div>
             <p align="center">
@@ -20,6 +18,24 @@
       <% end %>
     <% end %>
   </div>
+  <% @books=Book.where("stock < 10") %>
+    <div class="container">
+        <% if !@books.nil? %>
+        <h3>Libros bajos en stock</h3>
+        <% @books.each do |book| %>
+          <div class="col-md-2">
+              <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
+              <div class="container">
+                <b><%= book.name %></b><br>
+                Código: <%= book.barcode %><br>
+                Stock: <%= book.stock %> unidades.<br><br>
+              </div>
+              <p align="center">
+              <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => book.barcode) %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 <% else %>
   <div class="container">
     <% @books=Book.all %>
