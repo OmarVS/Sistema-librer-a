@@ -12,6 +12,12 @@ class PurchasesController < ApplicationController
         @purchases = Purchase.where('extract(year from created_at) = ?',params[:date]['year'])
       end
     end
+    if params[:rut].present?
+      @purchases = Purchase.where('provider_rut = ?',params[:rut])
+    end
+    if params[:barcode].present?
+      @purchases = Purchase.where('product_barcode = ?',params[:barcode])
+    end
   end
 
   # GET /purchases/1
@@ -42,10 +48,10 @@ class PurchasesController < ApplicationController
     if @product.nil?
       @product = Book.find_by_barcode(@purchase.product_barcode)
     end
-    @product.stock = @product.stock + @purchase.amount
-    @product.save
     respond_to do |format|
       if @purchase.save
+        @product.stock += @purchase.amount
+        @product.save
         format.html { redirect_to purchases_url, notice: 'Compra registrada con éxito.' }
         format.json { render :show, status: :created, location: @purchase }
       else
@@ -76,7 +82,7 @@ class PurchasesController < ApplicationController
     if @product.nil?
       @product = Book.find_by_barcode(@purchase.product_barcode)
     end
-    @product.stock = @product.stock - @purchase.amount
+    @product.stock -= @purchase.amount
     @product.save
     @purchase.destroy
     respond_to do |format|

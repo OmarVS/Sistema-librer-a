@@ -25,7 +25,12 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
-
+    @product = Product.find_by_barcode(@sale.product_barcode)
+    if @product.nil?
+      @product = Book.find_by_barcode(@sale.product_barcode)
+    end
+    @product.stock = @product.stock + @sale.amount
+    @product.save
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Venta registrada con éxito.' }

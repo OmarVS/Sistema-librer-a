@@ -60,5 +60,5 @@ Product.create!([
   barcode: 5555555555} ])
 Provider.create!(
   {name: "El Proveedor",
-   rut: 123456789,
+   rut: "66666666-6",
    business: "El negocio"} )

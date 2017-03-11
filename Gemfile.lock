@@ -152,6 +152,8 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rut_validation (1.1.0)
+      railties (>= 4.1)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -208,6 +210,7 @@ DEPENDENCIES
   prawn
   rails (= 4.2.6)
   rspec-rails
+  rut_validation
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

@@ -21,15 +21,15 @@ ActiveRecord::Schema.define(version: 20170310042029) do
     t.integer  "price"
     t.string   "writer"
     t.string   "editorial"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "genre_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "stock",               default: 0
-    t.string   "barcode"
+    t.integer  "stock",                         default: 0
+    t.integer  "barcode",             limit: 8
   end
 
   add_index "books", ["barcode"], name: "index_books_on_barcode", unique: true, using: :btree
@@ -71,14 +71,14 @@ ActiveRecord::Schema.define(version: 20170310042029) do
     t.string   "name"
     t.integer  "price"
     t.string   "trademark"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "stock",               default: 0
-    t.string   "barcode"
+    t.integer  "stock",                         default: 0
+    t.integer  "barcode",             limit: 8
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", unique: true, using: :btree
@@ -93,24 +93,24 @@ ActiveRecord::Schema.define(version: 20170310042029) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer  "product_barcode"
-    t.integer  "provider_rut"
+    t.integer  "product_barcode", limit: 8
+    t.string   "provider_rut"
     t.integer  "amount"
     t.integer  "price"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "product_id"
   end
 
   add_index "purchases", ["product_id"], name: "index_purchases_on_product_id", using: :btree
 
   create_table "sales", force: :cascade do |t|
-    t.integer  "product_barcode"
+    t.integer  "product_barcode", limit: 8
     t.integer  "provider_rut"
     t.integer  "amount"
     t.integer  "price"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "shopping_carts", force: :cascade do |t|

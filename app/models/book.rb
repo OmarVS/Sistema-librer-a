@@ -19,10 +19,11 @@ class Book < ActiveRecord::Base
 	validates_uniqueness_of :barcode, :message => 'Ya está registrado'
 	validates :barcode, presence: true, length: {in: 10..15}
 	validate :barcode_positivo
-	validates :name, presence: true, length: {in: 4..50}
-	validates :price, presence: true, length: {maximum: 7}
-	validates :writer, presence: true, length: {in: 6..30}
-	validates :editorial, presence: true, length: {in: 4..30}
+	validates :name, length: {in: 4..40}
+	validates :price, presence: true, length: {maximum: 6}
+	validate :price_mayor
+	validates :writer, length: {in: 6..30}
+	validates :editorial, length: {in: 4..30}
 	validates :genre_id, presence: true
 	# validate :book_not_registered
 
@@ -35,5 +36,9 @@ def book_not_registered
 end
 
 def barcode_positivo
-	errors.add :barcode, 'Ingrese sólo números' if self.barcode.include?("-")
+	errors.add :barcode, 'Ingrese sólo números' if self.barcode.to_s.include?("-")
+end
+
+def price_mayor
+	errors.add :price, "El precio debe ser mínimo $1" if self.price == 0 || self.price.to_s.include?("-")
 end

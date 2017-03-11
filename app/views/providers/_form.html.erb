@@ -1,9 +1,13 @@
 <%= bootstrap_form_for(@provider) do |f| %>
+<div class="field">
+  <% if @provider.new_record? %>
+    <%= f.text_field :rut, label: "Rut", placeholder: "12345678-k" %>
+  <% else %>
+    <%= f.text_field :rut, label: "Rut", placeholder: "12345678-k", readonly: true %>
+  <% end %>
+</div>
   <div class="field">
     <%= f.text_field :name, label: "Nombre" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :rut, label: "Rut" %>
   </div>
   <div class="field">
     <%= f.text_field :business, label: "Negocio" %>

@@ -1,6 +1,6 @@
 <%= bootstrap_form_for(@purchase) do |f| %>
   <div class="field">
-    <%= f.number_field :provider_rut, label: "Rut proveedor" %>
+    <%= f.text_field :provider_rut, label: "Rut proveedor", placeholder: "12345678-k" %>
   </div>
   <div class="field">
     <%= f.number_field :product_barcode, label: "Código producto" %>

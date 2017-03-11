@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'prawn'
 gem 'paypal-sdk-rest'
 gem 'aasm'
+gem 'rut_validation'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -53,4 +54,3 @@ group :development do
 	gem 'rspec-rails'
 	gem 'annotate'
 end
-
