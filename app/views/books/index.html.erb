@@ -19,9 +19,9 @@
     <% @books.each do |book| %>
       <% if !book.price.nil? || book.stock == 0 %>
         <div class="col-md-3">
-          <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
+          <p align="center"><%= link_to image_tag(book.avatar.url(:thumb)), book %></p>
           <div class="container-fluid">
-            <b><%= book.name %></b><br>
+            <b><%= link_to book.name, book %></b><br>
             Código ISBN: <%= book.barcode %><br>
             Autor: <%= book.writer %><br>
             Editorial <%= book.editorial %><br>
@@ -31,8 +31,8 @@
               Stock: <%= numero(book.stock) %> unidades.<br>
             <% end %>
           </div>
-          <p align="center"><%= link_to 'Mostrar', book %>
-            <% if signed_in? && current_user.kind == "Admin" %> |
+          <p align="center">
+            <% if signed_in? && current_user.kind == "Admin" %>
               <%= link_to 'Editar', edit_book_path(book) %> |
               <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
             <%end%>

@@ -30,6 +30,6 @@
     <%= @purchase.created_at.to_date.strftime("%d-%m-%Y") %>
   </p>
 
-  <%= link_to 'Editar', edit_purchase_path(@purchase) %> |
+  <%= link_to 'Eliminar', @purchase, method: :delete, data: { confirm: 'Al eliminar este registro, disminuirá también el stock del producto.' } %> |
   <%= link_to 'Volver', purchases_path %>
 </div>
