@@ -1,5 +1,5 @@
 class Purchase < ActiveRecord::Base
-
+  has_many :products
   validate :provider_rut_null
   validate :product_barcode_null
   validates :amount, presence: true, length: {maximum: 7}

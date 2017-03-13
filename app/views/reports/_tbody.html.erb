@@ -2,8 +2,10 @@
   <% total_año = 0 %>
   <% @products.each do |p| %>
     <tr>
-      <td><%= p.barcode %></td>
-      <% total_prod = 0 %>
+      <td><%= p.barcode %>
+        <% if params[:action] == 'earnings' %><br>Vendidos<br>Comprados<% end %>
+      </td>
+      <% total_prod = 0; total_vend = 0; total_comp = 0 %>
       <% 1.upto(12) do |i| %>
         <% case params[:action] %>
           <% when 'purchases' %>
@@ -13,17 +15,34 @@
           <% when 'earnings' %>
             <% mes=calc_earnings(p.barcode,@date_year,i) %>
         <% end %>
-        <% if mes >= 0 %>
-          <td class="alert alert-success"><%= moneda(mes) %></td>
-        <% else %>
-          <td class="alert alert-danger"><%= moneda(mes) %></td>
+        <% vend = amount_sales(p.barcode,@date_year,i) %>
+        <% comp = amount_purchases(p.barcode,@date_year,i) %>
+        <% if mes >= 0 %> <td class="alert alert-success">
+        <% else %> <td class="alert alert-danger">
         <% end %>
-        <% total_prod += mes %>
+        <%= moneda(mes) %><br>
+        <% if params[:action] == 'sales' || params[:action] == 'earnings' %><%= numero(vend) %> unid.<br><% end %>
+        <% if params[:action] == 'purchases' || params[:action] == 'earnings' %><%= numero(comp) %> unid.</td><% end %>
+        <% total_prod += mes; total_vend += vend; total_comp += comp %>
       <% end %>
       <% if total_prod >= 0 %>
-        <td class="alert alert-success"><%= moneda(total_prod) %></td>
+        <td class="alert alert-success"><%= moneda(total_prod) %>
+          <% if params[:action] == 'sales' || params[:action] == 'earnings' %>
+            <br><%= numero(total_vend) %> unid.
+          <% end %>
+          <% if params[:action] == 'purchases' || params[:action] == 'earnings' %>
+          <br><%= numero(total_comp) %> unid.
+          <% end %>
+        </td>
       <% else %>
-        <td class="alert alert-danger"><%= moneda(total_prod) %></td>
+        <td class="alert alert-danger"><%= moneda(total_prod) %>
+          <% if params[:action] == 'sales' || params[:action] == 'earnings' %>
+            <br><%= numero(total_vend) %> unid.
+          <% end %>
+          <% if params[:action] == 'purchases' || params[:action] == 'earnings' %>
+          <br><%= numero(total_comp) %> unid.
+          <% end %>
+        </td>
       <% end %>
       <% total_año += total_prod %>
     </tr>

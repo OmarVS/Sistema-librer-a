@@ -4,7 +4,13 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
-    @sales = Sale.all
+    @sales = Sale.all.includes(:user)
+    if params[:user_id].present?
+      @sales = @sales.where(user_id: params[:user_id])
+    end
+    if params[:product_barcode].present?
+      @sales = @sales.where(product_barcode: params[:product_barcode])
+    end
   end
 
   # GET /sales/1
@@ -29,10 +35,10 @@ class SalesController < ApplicationController
     if @product.nil?
       @product = Book.find_by_barcode(@sale.product_barcode)
     end
-    @product.stock = @product.stock + @sale.amount
-    @product.save
     respond_to do |format|
       if @sale.save
+        @product.stock -= @sale.amount
+        @product.save
         format.html { redirect_to @sale, notice: 'Venta registrada con éxito.' }
         format.json { render :show, status: :created, location: @sale }
       else
@@ -74,6 +80,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:product_barcode, :provider_rut, :amount, :price, :created_at)
+      params.require(:sale).permit(:user_id, :product_barcode, :amount ,:created_at)
     end
 end

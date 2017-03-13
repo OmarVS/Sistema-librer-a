@@ -1,13 +1,13 @@
 <h1 align="center">Ficha venta</h1>
 <div class="container col-md-3 col-md-offset-3">
   <p>
-    <strong>Rut proveedor:</strong>
-    <%= @sale.provider_rut %>
+    <strong>Vendedor/Usuario:</strong>
+    <%= link_to @sale.user.name, @sale.user %>
   </p>
 
   <p>
     <strong>Código producto:</strong>
-    <%= @sale.product_barcode %>
+    <%= link_to @sale.product_barcode, producto(@sale.product_barcode) %>
   </p>
 
   <p>
@@ -30,6 +30,6 @@
     <%= @sale.created_at.to_date.strftime("%d-%m-%Y") %>
   </p>
 
-  <%= link_to 'Editar', edit_sale_path(@sale) %> |
+  <td><%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock del producto.' } %></td> |
   <%= link_to 'Volver', sales_path %>
 </div>

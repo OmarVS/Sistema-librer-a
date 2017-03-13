@@ -1,37 +1,54 @@
 <h1>Registro de ventas</h1>
+<%= javascript_include_tag "productos" %>
 <% if !current_user.nil? && current_user.kind == 'Admin' || current_user.kind == 'Vendedor' %>
   <div class="col-md-2">
     <%= link_to 'Registrar venta', new_sale_path, class: "btn btn-default btn-lg" %>
   </div>
 <% end %>
+<div class="col-md-offset-8">
+  <%= form_tag sales_path, method: :get, class: "form-inline" do |f| %>
+    <%= label_tag :kind, 'Filtro: ' %>
+    <div class="checkbox">
+      <%= check_box_tag(:mes, 'yes') %>
+      <%= label_tag("Mes") %>
+      <%= select_month(Date.current, use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
+    </div>
+    <%= select_year(Date.current, end_year: Date.current.year ) %>
+    <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
+  <% end %>
+</div>
 <br>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Rut proveedor</th>
-      <th>Código producto</th>
-      <th>Cantidad vendida</th>
-      <th>Precio unitario</th>
-      <th>Total venta</th>
-      <th>Fecha</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sales.each do |sale| %>
+<% if @sales.count == 0 %>
+  <h4 align="center">No existen compras</h4>
+<% else %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= sale.provider_rut %></td>
-        <td><%= sale.product_barcode %></td>
-        <td><%= numero(sale.amount) %></td>
-        <td><%= moneda(sale.price) %></td>
-        <td><%= moneda(sale.amount*sale.price) %></td>
-        <td><%= sale.created_at.to_date.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Mostrar', sale %></td>
-        <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock del producto.' } %></td>
+        <th>Vendedor/Usuario</th>
+        <th>Código producto</th>
+        <th>Cantidad vendida</th>
+        <th>Precio unitario</th>
+        <th>Total venta</th>
+        <th>Fecha</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <%= link_to 'Agregar', '#' , onclick: "iniciar()" %>
+      <% @sales.each do |sale| %>
+        <tr>
+          <td><%= link_to sale.user.name, sales_path(:user_id  => sale.user.id) %></td>
+          <td><%= link_to sale.product_barcode, sales_path(:product_barcode  => sale.product_barcode) %></td>
+          <td><%= numero(sale.amount) %></td>
+          <td><%= moneda(sale.price) %></td>
+          <td><%= moneda(sale.amount*sale.price) %></td>
+          <td><%= sale.created_at.to_date.strftime("%d-%m-%Y") %></td>
+          <td><%= link_to 'Mostrar', sale %></td>
+          <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock del producto.' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 <br>

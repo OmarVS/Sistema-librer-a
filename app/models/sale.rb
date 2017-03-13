@@ -1,23 +1,28 @@
 class Sale < ActiveRecord::Base
-  validates :provider_rut, presence: true
-  validate :provider_rut_null
-  validates :product_barcode, presence: true
+  belongs_to :user
+  has_many :products
+  validates :user_id, presence: true
   validate :product_barcode_null
-  validates :amount, presence: true
-  validates :price, presence: true
+  validates :amount, presence: true, length: {maximum: 7}
+  validate :amount_positivo
   validate :date_is_future?
 
   private
-    def provider_rut_null
-      errors.add :provider_rut, 'Proveedor no registado.' if Provider.find_by(rut: provider_rut).nil?
-    end
-
     def product_barcode_null
       @product = Product.find_by_barcode(product_barcode)
       if @product.nil?
         @product = Book.find_by_barcode(product_barcode)
       end
-      errors.add :product_barcode, "Producto no registrado." if @product.nil?
+      if @product.nil?
+        errors.add :product_barcode, "Producto no registrado."
+      else
+        self.price = @product.price
+      end
+    end
+
+    def amount_positivo
+      errors.add :amount, "La cantidad debe ser mínimo 1" if self.amount == 0 || self.amount.to_s.include?("-")
+      errors.add :amount, "Stock disponible: #{@product.stock}" if !@product.nil? && @product.stock < self.amount
     end
 
     def date_is_future?

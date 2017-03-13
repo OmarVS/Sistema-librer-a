@@ -25,8 +25,8 @@
         <tr>
           <th>Rut proveedor</th>
           <th>Código producto</th>
-          <th>Cantidad comprada</th>
           <th>Precio unitario</th>
+          <th>Cantidad comprada</th>
           <th>Total compra</th>
           <th>Fecha</th>
           <th colspan="2"></th>
@@ -37,8 +37,8 @@
           <tr>
             <td><%= link_to purchase.provider_rut, purchases_path(:rut => purchase.provider_rut) %></td>
             <td><%= link_to purchase.product_barcode, purchases_path(:barcode => purchase.product_barcode) %></td>
-            <td><%= numero(purchase.amount) %></td>
             <td><%= moneda(purchase.price) %></td>
+            <td><%= numero(purchase.amount) %></td>
             <td><%= moneda(purchase.price*purchase.amount) %></td>
             <td><%= purchase.created_at.to_date.strftime("%d-%m-%Y") %></td>
             <td><%= link_to 'Mostrar', purchase %></td>

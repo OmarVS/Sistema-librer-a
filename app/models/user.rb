@@ -16,9 +16,7 @@ class User < ActiveRecord::Base
 	before_save { |user| user.email = email.downcase}
 	before_save :create_remember_token
 	has_secure_password
-	belongs_to :admins
-	belongs_to :clients
-	belongs_to :sellers
+	has_many :sales
 	validates_uniqueness_of :name
   validates_confirmation_of :password, :on => :create
   validates_length_of :password, :within => 6..40

@@ -1,15 +1,12 @@
 <%= bootstrap_form_for(@sale) do |f| %>
   <div class="field">
-    <%= f.number_field :provider_rut, label: "Rut proveedor" %>
+    <%= f.select :user_id, User.where(id: current_user.id).pluck(:name,:id), { include_blank: false, label: "Vendedor", disabled: true } %>
   </div>
     <div class="field">
       <%= f.number_field :product_barcode, label: "Código producto" %>
     </div>
   <div class="field">
     <%= f.number_field :amount, label: "Cantidad vendida" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :price, label: "Precio unitario", prepend: "$" %>
   </div>
   <div class="field">
     <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>

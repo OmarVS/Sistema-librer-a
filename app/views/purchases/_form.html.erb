@@ -6,10 +6,10 @@
     <%= f.number_field :product_barcode, label: "Código producto" %>
   </div>
   <div class="field">
-    <%= f.number_field :amount, label: "Cantidad comprada" %>
+    <%= f.number_field :price, label: "Precio unitario", prepend: "$" %>
   </div>
   <div class="field">
-    <%= f.number_field :price, label: "Precio unitario", prepend: "$" %>
+    <%= f.number_field :amount, label: "Cantidad comprada" %>
   </div>
   <div class="field">
     <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
