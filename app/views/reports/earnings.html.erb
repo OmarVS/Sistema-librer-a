@@ -1,11 +1,21 @@
 <h1>Informe de ganancias</h1>
+<div class="row">
   <%= bootstrap_form_tag url: reports_earnings_path, method: :get, class: "form-inline" do |f| %>
-    <div class="form-group form-inline">
+    <div class="form-group form-inline col-md-3">
       <%= f.label :date_filter, 'Año:' %>
-      <%= select_year(Date.current, end_year: Date.current.year ) %>
+      <% if Purchase.minimum("extract(year from created_at)").to_i < Sale.minimum("extract(year from created_at)").to_i %>
+        <% minimo = Purchase.minimum("extract(year from created_at)").to_i %>
+      <% else %>
+        <% minimo = Sale.minimum("extract(year from created_at)").to_i %>
+      <% end %>
+      <%= select_year(Date.current, start_year: minimo, end_year: Date.current.year ) %>
       <%= submit_tag "Mostrar", name: nil, class: "btn btn-primary btn-md" %>
     </div>
+    <div class="col-md-offset-7 col-md-2">
+      <%= link_to 'Imprimir informe', nil, onclick: "printpage()", class: "btn btn-success btn-lg" %>
+    </div>
   <% end %>
+  </div>
   <% if params[:date].present? %>
     <% @date_year = params[:date]["year"] %>
   <% else %>

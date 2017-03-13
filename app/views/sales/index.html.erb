@@ -35,7 +35,6 @@
     </thead>
 
     <tbody>
-      <%= link_to 'Agregar', '#' , onclick: "iniciar()" %>
       <% @sales.each do |sale| %>
         <tr>
           <td><%= link_to sale.user.name, sales_path(:user_id  => sale.user.id) %></td>
