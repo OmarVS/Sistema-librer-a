@@ -1,6 +1,6 @@
-<h1> Carrito</h1>
-
 <h1> Gracias por adquirir nuestros productos :) </h1>
+
+<h1> Carrito</h1>
 
 <table class="table table-condensed">
   <thead>
@@ -27,3 +27,5 @@
 <p>
  <h3><strong>Total:</strong>  <%= '$' %><%= @shopping_cart.total %></h3> 
 </p>
+
+<%= link_to 'Pagar con PayPal', pagar_path, method: :post%>
