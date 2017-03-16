@@ -16,12 +16,6 @@ ActiveRecord::Schema.define(version: 20170312012834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "books", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
@@ -40,13 +34,6 @@ ActiveRecord::Schema.define(version: 20170312012834) do
 
   add_index "books", ["barcode"], name: "index_books_on_barcode", unique: true, using: :btree
   add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
-
-  create_table "clients", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "RUT"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "genres", force: :cascade do |t|
     t.string   "name"
@@ -95,6 +82,7 @@ ActiveRecord::Schema.define(version: 20170312012834) do
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", unique: true, using: :btree
+  add_index "products", ["id"], name: "index_products_on_id", unique: true, using: :btree
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
@@ -127,13 +115,6 @@ ActiveRecord::Schema.define(version: 20170312012834) do
   end
 
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
-
-  create_table "sellers", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "RUT"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "shopping_carts", force: :cascade do |t|
     t.string   "status"
