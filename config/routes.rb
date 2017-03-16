@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products
   resources :in_shopping_carts, only: [:create,:destroy,:show]
+  resources :shopping_carts, only: [:create,:destroy,:show]
 
   post "/pagar", to: "payments#create"
 
