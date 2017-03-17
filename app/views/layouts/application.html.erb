@@ -33,31 +33,30 @@
               </li>
               <% end %>
               <% if current_user.kind == 'Admin' %>
-              <li id="fat-menu" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Gestión Compras <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Nueva compra", new_purchase_path %></li>
-                  <li><%= link_to "Ver compras", purchases_path %></li>
-                </ul>
-              </li>
-              <li id="fat-menu" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Informes <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Compra", reports_purchases_path  %></li>
-                  <li><%= link_to "Venta", reports_sales_path %></li>
-                  <li><%= link_to "Ganancia", reports_earnings_path %></li>
-                </ul>
-              </li>
-              <li><%= link_to "Usuarios", users_path %></li>
-              <li><%= link_to "Proveedores", providers_path %></li>
-              <% end %>
-              <% if current_user.kind == "admin" %>
+                <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Gestión Compras <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Nueva compra", new_purchase_path %></li>
+                    <li><%= link_to "Ver compras", purchases_path %></li>
+                  </ul>
+                </li>
+                <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Informes <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Compra", reports_purchases_path  %></li>
+                    <li><%= link_to "Venta", reports_sales_path %></li>
+                    <li><%= link_to "Ganancia", reports_earnings_path %></li>
+                  </ul>
+                </li>
                 <li><%= link_to "Usuarios", users_path %></li>
-                <li><%= link_to "Crear Usuario", new_user_path %></li>
+                <li><%= link_to "Proveedores", providers_path %></li>
+              <% end %>
+              <% if current_user.kind == "Admin" %>
+                <li><%= link_to "Usuarios", users_path %></li>
               <% end %>
               <li><%= link_to 'Mi carrito', carrito_path%></li>
               <li> <%='('%><%=@shopping_cart.in_shopping_carts.where(shopping_cart_id: @shopping_cart.id).count%><%=')'%></li>
