@@ -1,35 +1,51 @@
 <h1 align="center">Ficha venta</h1>
-<div class="container col-md-3 col-md-offset-3">
+<div class="container col-md-8 col-md-offset-2">
   <p>
     <strong>Vendedor/Usuario:</strong>
     <%= link_to @sale.user.name, @sale.user %>
   </p>
 
   <p>
-    <strong>Código producto:</strong>
-    <%= link_to @sale.product_barcode, producto(@sale.product_barcode) %>
+    <strong>Fecha de venta:</strong>
+    <%= @sale.created_at.to_date.strftime("%d-%m-%Y") %>
   </p>
 
   <p>
-    <strong>Cantidad:</strong>
-    <%= numero(@sale.amount) %> unidades.
-  </p>
-
-  <p>
-    <strong>Precio unitario:</strong>
-    <%= moneda(@sale.price) %>
+    <strong>Productos vendidos: </strong><br>
+    <ul>
+      <% suma = 0 %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código producto</th>
+            <th>Nombre</th>
+            <th>Cantidad vendida</th>
+            <th>Precio unitario</th>
+            <th>Sub total</th>
+          </tr>
+        </thead>
+          <% for product_sale in @sale.product_sales %>
+            <tbody>
+              <td><%= product_sale.product_barcode %></td>
+              <td><%= producto(product_sale.product_barcode).name %></td>
+              <td><%= numero(product_sale.amount) %></td>
+              <td><%= moneda(product_sale.price) %></td>
+              <td><%= moneda(subtotal(product_sale)) %></td>
+            </tbody>
+          <% end %>
+          <tbody>
+            <td></td><td></td><td><strong><%= numero(cant_vendida(@sale)) %></strong></td><td></td><td><strong><%= moneda(total(@sale)) %></strong></td>
+          </tbody>
+      </table>
+    </ul>
   </p>
 
   <p>
     <strong>Total venta:</strong>
-    <%= moneda(@sale.price*@sale.amount) %>
+    <%= moneda(total(@sale)) %>
   </p>
-
-  <p>
-    <strong>Fecha:</strong>
-    <%= @sale.created_at.to_date.strftime("%d-%m-%Y") %>
-  </p>
-
-  <td><%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock del producto.' } %></td> |
+  <% if !current_user.nil? && current_user.kind == "Admin" %>
+    <td><%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock de los productos.' } %></td> |
+  <% end %>
   <%= link_to 'Volver', sales_path %>
 </div>

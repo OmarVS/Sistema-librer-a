@@ -7,6 +7,7 @@ gem 'prawn'
 gem 'paypal-sdk-rest'
 gem 'aasm'
 gem 'rut_validation'
+gem 'nested_form'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312012834) do
+ActiveRecord::Schema.define(version: 20170314033425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 20170312012834) do
 
   add_index "my_payments", ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id", using: :btree
 
+  create_table "product_sales", force: :cascade do |t|
+    t.integer  "sale_id"
+    t.integer  "product_barcode"
+    t.integer  "amount"
+    t.integer  "price"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "product_sales", ["sale_id"], name: "index_product_sales_on_sale_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
@@ -79,10 +90,12 @@ ActiveRecord::Schema.define(version: 20170312012834) do
     t.datetime "avatar_updated_at"
     t.integer  "stock",                         default: 0
     t.integer  "barcode",             limit: 8
+    t.integer  "product_sale_id"
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", unique: true, using: :btree
   add_index "products", ["id"], name: "index_products_on_id", unique: true, using: :btree
+  add_index "products", ["product_sale_id"], name: "index_products_on_product_sale_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
     t.string   "name"
@@ -149,6 +162,8 @@ ActiveRecord::Schema.define(version: 20170312012834) do
   add_foreign_key "in_shopping_carts", "books"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
+  add_foreign_key "product_sales", "sales"
+  add_foreign_key "products", "product_sales"
   add_foreign_key "purchases", "products"
   add_foreign_key "sales", "users"
 end

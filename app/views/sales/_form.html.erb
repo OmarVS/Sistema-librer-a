@@ -1,15 +1,18 @@
-<%= bootstrap_form_for(@sale) do |f| %>
-  <div class="field">
-    <%= f.select :user_id, User.where(id: current_user.id).pluck(:name,:id), { include_blank: false, label: "Vendedor", disabled: true } %>
-  </div>
-    <div class="field">
-      <%= f.number_field :product_barcode, label: "Código producto" %>
+<%= bootstrap_nested_form_for(@sale) do |f| %>
+  <div class="field row">
+    <div class="field col-md-6">
+      <%= f.select :user_id, User.where(id: current_user.id).pluck(:name,:id), { include_blank: false, label: "Vendedor", disabled: true } %>
     </div>
-  <div class="field">
-    <%= f.number_field :amount, label: "Cantidad vendida" %>
+    <div class="field col-md-6">
+      <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
+  <p><%= f.link_to_add "Agregar producto", :product_sales %></p>
+  <div class="fields">
+      <%= f.fields_for :product_sales do |builder| %>
+        <%= render "product_sale_fields", :f => builder %>
+        <%= builder.link_to_remove "Eliminar producto" %>
+      <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

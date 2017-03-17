@@ -13,6 +13,7 @@
 class Product < ActiveRecord::Base
 	attr_readonly :barcode, :on => :update
 	belongs_to :user
+	belongs_to :product_sale
 	validates_uniqueness_of :barcode, :message => 'Ya está registrado'
 	validates :barcode, presence: true, length: {in: 10..15}
 	validate :barcode_positivo
@@ -29,6 +30,6 @@ class Product < ActiveRecord::Base
 	end
 
 	def price_mayor
-		errors.add :price, "El precio debe ser mínimo $1" if self.price == 0 || self.price.to_s.include?("-")
+		errors.add :price, "Precio mínimo $1" if self.price == 0 || self.price.to_s.include?("-")
 	end
 end

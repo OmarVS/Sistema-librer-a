@@ -21,6 +21,7 @@ class SalesController < ApplicationController
   # GET /sales/new
   def new
     @sale = Sale.new
+    product_sale = @sale.product_sales.build
   end
 
   # GET /sales/1/edit
@@ -31,14 +32,13 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
-    @product = Product.find_by_barcode(@sale.product_barcode)
-    if @product.nil?
-      @product = Book.find_by_barcode(@sale.product_barcode)
-    end
     respond_to do |format|
       if @sale.save
-        @product.stock -= @sale.amount
-        @product.save
+        for product_sale in @sale.product_sales
+          product = producto(product_sale.product_barcode)
+          product.stock = product.stock - product_sale.amount
+          product.save
+        end
         format.html { redirect_to @sale, notice: 'Venta registrada con éxito.' }
         format.json { render :show, status: :created, location: @sale }
       else
@@ -65,6 +65,11 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
+    for product_sale in @sale.product_sales
+      product = producto(product_sale.product_barcode)
+      product.stock = product.stock + product_sale.amount
+      product.save
+    end
     @sale.destroy
     respond_to do |format|
       format.html { redirect_to sales_url, notice: 'Venta eliminada con éxito.' }
@@ -80,6 +85,14 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:user_id, :product_barcode, :amount ,:created_at)
+      params.require(:sale).permit(:user_id, :created_at, product_sales_attributes: [:product_barcode, :amount, :_destroy])
+    end
+
+    def producto(barcode)
+      product = Product.find_by_barcode(barcode)
+      if product.nil?
+        product = Book.find_by_barcode(barcode)
+      end
+      product
     end
 end

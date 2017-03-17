@@ -1,11 +1,10 @@
 class Sale < ActiveRecord::Base
   belongs_to :user
-  has_many :products
+  has_many :product_sales, :dependent => :destroy
+  accepts_nested_attributes_for :product_sales, :allow_destroy => true
   validates :user_id, presence: true
-  validate :product_barcode_null
-  validates :amount, presence: true, length: {maximum: 7}
-  validate :amount_positivo
   validate :date_is_future?
+  validate :productos
 
   private
     def product_barcode_null
@@ -14,15 +13,14 @@ class Sale < ActiveRecord::Base
         @product = Book.find_by_barcode(product_barcode)
       end
       if @product.nil?
-        errors.add :product_barcode, "Producto no registrado."
+        errors.add :barcode, "Producto no registrado."
       else
         self.price = @product.price
       end
     end
 
-    def amount_positivo
-      errors.add :amount, "La cantidad debe ser mínimo 1" if self.amount == 0 || self.amount.to_s.include?("-")
-      errors.add :amount, "Stock disponible: #{@product.stock}" if !@product.nil? && @product.stock < self.amount
+    def productos
+      errors.add :user_id, "Debe ingresar mínimo un producto" if :product_sales.count==0
     end
 
     def date_is_future?

@@ -21,15 +21,14 @@
 <% if @sales.count == 0 %>
   <h4 align="center">No existen compras</h4>
 <% else %>
+<div class="col-md-10 col-md-offset-1">
   <table class="table">
     <thead>
       <tr>
         <th>Vendedor/Usuario</th>
-        <th>Código producto</th>
-        <th>Cantidad vendida</th>
-        <th>Precio unitario</th>
-        <th>Total venta</th>
         <th>Fecha</th>
+        <th>Productos vendidos</th>
+        <th>Total venta</th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -38,16 +37,17 @@
       <% @sales.each do |sale| %>
         <tr>
           <td><%= link_to sale.user.name, sales_path(:user_id  => sale.user.id) %></td>
-          <td><%= link_to sale.product_barcode, sales_path(:product_barcode  => sale.product_barcode) %></td>
-          <td><%= numero(sale.amount) %></td>
-          <td><%= moneda(sale.price) %></td>
-          <td><%= moneda(sale.amount*sale.price) %></td>
           <td><%= sale.created_at.to_date.strftime("%d-%m-%Y") %></td>
-          <td><%= link_to 'Mostrar', sale %></td>
-          <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock del producto.' } %></td>
+          <td><%= cant_vendida(sale) %></td>
+          <td><%= moneda(total(sale)) %></td>
+          <td><%= link_to 'Ver ficha', sale %></td>
+          <% if !current_user.nil? && current_user.kind == "Admin" %>
+          <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock de los productos.' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
 <% end %>
 <br>
