@@ -3,7 +3,12 @@
   <%= bootstrap_form_tag url: reports_sales_path, method: :get, class: "form-inline" do |f| %>
     <div class="form-group form-inline col-md-3">
       <%= f.label :date_filter, 'Año:' %>
-      <%= select_year(Date.current, start_year: Sale.minimum("extract(year from created_at)").to_i, end_year: Date.current.year ) %>
+      <% if Sale.count == 0 %>
+        <% año = Date.current.year %>
+      <% else %>
+        <% año = Sale.minimum("extract(year from created_at)").to_i %>
+      <% end %>
+      <%= select_year(Date.current, start_year: año, end_year: Date.current.year ) %>
       <%= submit_tag "Mostrar", name: nil, class: "btn btn-primary btn-md" %>
     </div>
     <div class="col-md-offset-7 col-md-2">

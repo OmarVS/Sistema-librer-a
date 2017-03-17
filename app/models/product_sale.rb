@@ -21,7 +21,7 @@ class ProductSale < ActiveRecord::Base
 
   def amount_positivo
     errors.add :amount, "Cantidad mínima 1" if self.amount == 0 || self.amount.to_s.include?("-")
-    errors.add :amount, "Stock disponible: #{@product.stock}" if !@product.nil? && @product.stock < self.amount
+    errors.add :amount, "Stock disponible: #{@product.stock}" if !@product.nil? && @product.stock < self.amount.to_i
   end
 
   def barcode_positivo

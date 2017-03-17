@@ -18,7 +18,7 @@ class Sale < ActiveRecord::Base
   accepts_nested_attributes_for :product_sales, :allow_destroy => true
   validates :user_id, presence: true
   validate :date_is_future?
-  validate :productos
+  
 
   private
     def product_barcode_null
@@ -31,10 +31,6 @@ class Sale < ActiveRecord::Base
       else
         self.price = @product.price
       end
-    end
-
-    def productos
-      errors.add :user_id, "Debe ingresar mínimo un producto" if :product_sales.count==0
     end
 
     def date_is_future?
