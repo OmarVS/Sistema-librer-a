@@ -14,7 +14,6 @@
     <% @shopping_cart.in_shopping_carts.each do |i_sh| product = i_sh.product %>
       <% if !product.nil? %>
       <tr>
-        <td> <% product.stock-- %> </td>
         <td><%= product.name %></td>
         <td><%= '$' %><%= product.price %></td>
       </tr>

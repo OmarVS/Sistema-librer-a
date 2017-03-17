@@ -23,7 +23,7 @@
         <% if !@books.nil? %>
         <h3>Libros bajos en stock</h3>
         <% @books.each do |book| %>
-          <div class="col-md-2">
+          <div class="col-md-3">
               <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
               <div class="container">
                 <b><%= book.name %></b><br>

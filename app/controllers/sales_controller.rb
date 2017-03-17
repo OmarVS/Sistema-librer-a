@@ -72,7 +72,7 @@ class SalesController < ApplicationController
     end
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sale_path(@sale), notice: 'Venta eliminada con éxito.' }
+      format.html { redirect_to sales_url, notice: 'Venta eliminada con éxito.' }
       format.json { head :no_content }
     end
   end
