@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  rut        :integer
+#  rut        :string
 #  business   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -12,6 +12,7 @@
 
 class Provider < ActiveRecord::Base
   has_many :purchases
+  has_many :products
   validates_uniqueness_of :rut, :message => "Ya está registrado"
   validates :name, length: {in: 4..30}
   validates :rut, rut: true

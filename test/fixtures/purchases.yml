@@ -2,12 +2,14 @@
 #
 # Table name: purchases
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  amount     :integer
-#  price      :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  product_barcode :integer
+#  provider_rut    :string
+#  amount          :integer
+#  price           :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  product_id      :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

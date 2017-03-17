@@ -15,4 +15,19 @@ module ApplicationHelper
     producto
   end
 
+  def permitido?
+    if signed_in?
+      true if current_user.kind == 'Admin'
+    else
+      false
+    end
+  end
+
+  def Admin
+    unless permitido?
+      store_location
+      redirect_to signin_path, notice: "Sólo permitido a usuarios con autorización"
+    end
+  end
+
 end

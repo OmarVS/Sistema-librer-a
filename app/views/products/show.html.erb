@@ -26,7 +26,7 @@
 <%= stylesheet_link_tag 'print', :media => 'print' %>
 <%= link_to "Imprimir", '#', onclick: "printpage()" %> |
 <%= link_to 'Agregar al carrito', add_to_cart_path(product_id: @product.id) %> |
-<% if signed_in? && current_user.kind == 'Admin' %>
+<% if permitido? %>
   <%= link_to 'Editar', edit_product_path(@product) %> |
 <% end %>
 <%= link_to 'Volver', products_path %>

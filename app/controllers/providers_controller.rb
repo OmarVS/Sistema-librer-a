@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  before_filter :Admin
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
   # GET /providers
@@ -79,4 +80,5 @@ class ProvidersController < ApplicationController
     def provider_params
       params.require(:provider).permit(:name, :rut, :business)
     end
+
 end
