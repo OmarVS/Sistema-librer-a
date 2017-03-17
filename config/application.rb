@@ -23,5 +23,7 @@ module Luchito
     config.active_record.raise_in_transactional_callbacks = true
     config.serve_static_files = true
     config.assets.initialize_on_precompile = false
+    config.exceptions_app = self.routes
+    config.consider_all_requests_local = false
   end
 end

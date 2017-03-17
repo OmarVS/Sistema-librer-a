@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20170316191228) do
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", unique: true, using: :btree
-  add_index "products", ["id"], name: "index_products_on_id", unique: true, using: :btree
   add_index "products", ["product_sale_id"], name: "index_products_on_product_sale_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
