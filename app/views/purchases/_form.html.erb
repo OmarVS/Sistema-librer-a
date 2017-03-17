@@ -1,20 +1,22 @@
-<%= bootstrap_form_for(@purchase) do |f| %>
-  <div class="field">
-    <%= f.text_field :provider_rut, label: "Rut proveedor", placeholder: "12345678-k" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :product_barcode, label: "Código producto" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :price, label: "Precio unitario", prepend: "$" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :amount, label: "Cantidad comprada" %>
-  </div>
-  <div class="field">
-    <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= bootstrap_nested_form_for(@purchase) do |f| %>
+  <div class="field row">
+    <div class="field col-md-6">
+      <%= f.text_field :provider_rut, label: "Rut proveedor", placeholder: "12345678-k" %>
+    </div>
+    <div class="field col-md-6">
+      <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
+    </div>
+    <p><%= f.link_to_add "Agregar producto", :product_purchases, "data-target" => ".ps" %></p>
+    <div class="fields row ps">
+        <%= f.fields_for :product_purchases do |builder| %>
+          <%= render "product_purchase_fields", :f => builder %>
+          <% if @purchase.product_purchases.present? %>
+            <%= builder.link_to_remove "Eliminar producto" %>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

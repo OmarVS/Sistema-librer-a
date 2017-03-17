@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317051551) do
+ActiveRecord::Schema.define(version: 20170317052223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 20170317051551) do
 
   add_index "my_payments", ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id", using: :btree
 
+  create_table "product_purchases", force: :cascade do |t|
+    t.integer  "purchase_id"
+    t.integer  "product_barcode", limit: 8
+    t.integer  "amount"
+    t.integer  "price"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "product_purchases", ["purchase_id"], name: "index_product_purchases_on_purchase_id", using: :btree
+
   create_table "product_sales", force: :cascade do |t|
     t.integer  "sale_id"
     t.integer  "product_barcode", limit: 8
@@ -94,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170317051551) do
   end
 
   add_index "products", ["barcode"], name: "index_products_on_barcode", unique: true, using: :btree
+  add_index "products", ["id"], name: "index_products_on_id", unique: true, using: :btree
   add_index "products", ["product_sale_id"], name: "index_products_on_product_sale_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
@@ -164,6 +176,7 @@ ActiveRecord::Schema.define(version: 20170317051551) do
   add_foreign_key "in_shopping_carts", "books"
   add_foreign_key "in_shopping_carts", "products"
   add_foreign_key "in_shopping_carts", "shopping_carts"
+  add_foreign_key "product_purchases", "purchases"
   add_foreign_key "product_sales", "sales"
   add_foreign_key "products", "product_sales"
   add_foreign_key "purchases", "products"

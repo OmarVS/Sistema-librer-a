@@ -6,17 +6,17 @@
     <div class="field col-md-6">
       <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
     </div>
-  </div>
-  <p><%= f.link_to_add "Agregar producto", :product_sales, "data-target" => ".ps" %></p>
-  <div class="fields ps">
-      <%= f.fields_for :product_sales do |builder| %>
-        <%= render "product_sale_fields", :f => builder %>
-        <% if @sale.product_sales.present? %>
-          <%= builder.link_to_remove "Eliminar producto" %>
+    <p><%= f.link_to_add "Agregar producto", :product_sales, "data-target" => ".ps" %></p>
+    <div class="fields ps">
+        <%= f.fields_for :product_sales do |builder| %>
+          <%= render "product_sale_fields", :f => builder %>
+          <% if @sale.product_sales.present? %>
+            <%= builder.link_to_remove "Eliminar producto" %>
+          <% end %>
         <% end %>
-      <% end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

@@ -18,7 +18,6 @@ class Sale < ActiveRecord::Base
   accepts_nested_attributes_for :product_sales, :allow_destroy => true
   validates :user_id, presence: true
   validate :date_is_future?
-  
 
   private
     def product_barcode_null

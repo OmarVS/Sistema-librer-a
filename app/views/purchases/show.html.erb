@@ -1,28 +1,8 @@
 <h1 align="center">Ficha compra</h1>
-<div class="container col-md-3 col-md-offset-3">
+<div class="container col-md-8 col-md-offset-2">
   <p>
     <strong>Rut proveedor:</strong>
     <%= link_to @purchase.provider_rut, Provider.find_by_rut(@purchase.provider_rut) %>
-  </p>
-
-  <p>
-    <strong>Código del producto:</strong>
-    <%= link_to @purchase.product_barcode, producto(@purchase.product_barcode) %>
-  </p>
-
-  <p>
-    <strong>Cantidad:</strong>
-    <%= numero(@purchase.amount) %> unidades.
-  </p>
-
-  <p>
-    <strong>Precio unitario:</strong>
-    <%= moneda(@purchase.price) %>
-  </p>
-
-  <p>
-    <strong>Total compra:</strong>
-    <%= moneda(@purchase.price*@purchase.amount) %>
   </p>
 
   <p>
@@ -30,6 +10,43 @@
     <%= @purchase.created_at.to_date.strftime("%d-%m-%Y") %>
   </p>
 
-  <%= link_to 'Eliminar', @purchase, method: :delete, data: { confirm: 'Al eliminar este registro, disminuirá también el stock del producto.' } %> |
+  <p>
+    <strong>Productos comprados: </strong><br>
+    <ul>
+      <% suma = 0 %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código producto</th>
+            <th>Nombre</th>
+            <th>Cantidad comprada</th>
+            <th>Precio unitario</th>
+            <th>Sub total</th>
+          </tr>
+        </thead>
+          <% for product_purchase in @purchase.product_purchases %>
+            <tbody>
+              <td><%= product_purchase.product_barcode %></td>
+              <td><%= producto(product_purchase.product_barcode).name %></td>
+              <td><%= numero(product_purchase.amount) %></td>
+              <td><%= moneda(product_purchase.price) %></td>
+              <td><%= moneda(subtotal_compra(product_purchase)) %></td>
+            </tbody>
+          <% end %>
+          <tbody>
+            <td></td><td></td><td><strong><%= numero(cant_comprada(@purchase)) %></strong></td><td></td><td><strong><%= moneda(total_compra(@purchase)) %></strong></td>
+          </tbody>
+      </table>
+    </ul>
+  </p>
+
+  <p>
+    <strong>Total compra:</strong>
+    <%= moneda(total_compra(@purchase)) %>
+  </p>
+
+  <% if !current_user.nil? && current_user.kind == "Admin" %>
+    <%= link_to 'Eliminar', @purchase, method: :delete, data: { confirm: 'Al eliminar este registro, disminuirá también el stock del producto.' } %> |
+  <% end %>
   <%= link_to 'Volver', purchases_path %>
 </div>

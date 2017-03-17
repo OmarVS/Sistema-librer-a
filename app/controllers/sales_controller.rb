@@ -72,7 +72,7 @@ class SalesController < ApplicationController
     end
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Venta eliminada con éxito.' }
+      format.html { redirect_to sale_path(@sale), notice: 'Venta eliminada con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -85,7 +85,7 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:user_id, :created_at, :counter ,product_sales_attributes: [:product_barcode, :amount, :_destroy])
+      params.require(:sale).permit(:user_id, :created_at, product_sales_attributes: [:product_barcode, :amount, :_destroy])
     end
 
     def producto(barcode)

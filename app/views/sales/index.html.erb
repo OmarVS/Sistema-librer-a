@@ -38,9 +38,9 @@
         <tr>
           <td><%= link_to sale.user.name, sales_path(:user_id  => sale.user.id) %></td>
           <td><%= sale.created_at.to_date.strftime("%d-%m-%Y") %></td>
-          <td><%= cant_vendida(sale) %></td>
-          <td><%= moneda(total(sale)) %></td>
-          <td><%= link_to 'Ver ficha', sale %></td>
+          <td><%= numero(cant_vendida(sale)) %></td>
+          <td><%= moneda(total_venta(sale)) %></td>
+          <td><%= link_to 'Detalle', sale %></td>
           <% if !current_user.nil? && current_user.kind == "Admin" %>
           <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock de los productos.' } %></td>
           <% end %>

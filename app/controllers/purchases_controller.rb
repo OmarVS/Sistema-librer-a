@@ -31,6 +31,7 @@ class PurchasesController < ApplicationController
     if params[:product_barcode].present?
       @purchase.product_barcode = params[:product_barcode]
     end
+    product_purchase = @purchase.product_purchases.build
   end
 
   # GET /purchases/1/edit
@@ -44,15 +45,14 @@ class PurchasesController < ApplicationController
     if params[:product_barcode].present?
       @purchase.product_barcode = params[:product_barcode]
     end
-    @product = Product.find_by_barcode(@purchase.product_barcode)
-    if @product.nil?
-      @product = Book.find_by_barcode(@purchase.product_barcode)
-    end
     respond_to do |format|
       if @purchase.save
-        @product.stock += @purchase.amount
-        @product.save
-        format.html { redirect_to purchases_url, notice: 'Compra registrada con éxito.' }
+        for product_purchase in @purchase.product_purchases
+          product = producto(product_purchase.product_barcode)
+          product.stock = product.stock + product_purchase.amount
+          product.save
+        end
+        format.html { redirect_to purchase_path(@purchase), notice: 'Compra registrada con éxito.' }
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new }
@@ -78,12 +78,11 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
-    @product = Product.find_by_barcode(@purchase.product_barcode)
-    if @product.nil?
-      @product = Book.find_by_barcode(@purchase.product_barcode)
+    for product_purchase in @purchase.product_purchases
+      product = producto(product_purchase.product_barcode)
+      product.stock = product.stock - product_purchase.amount
+      product.save
     end
-    @product.stock -= @purchase.amount
-    @product.save
     @purchase.destroy
     respond_to do |format|
       format.html { redirect_to purchases_url, notice: 'Compra eliminada con éxito.' }
@@ -99,6 +98,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:product_barcode, :provider_rut, :amount, :price, :created_at)
+      params.require(:purchase).permit(:provider_rut, :created_at, product_purchases_attributes: [:product_barcode, :amount, :price, :_destroy])
     end
 end

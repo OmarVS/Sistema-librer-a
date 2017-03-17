@@ -30,11 +30,11 @@
               <td><%= producto(product_sale.product_barcode).name %></td>
               <td><%= numero(product_sale.amount) %></td>
               <td><%= moneda(product_sale.price) %></td>
-              <td><%= moneda(subtotal(product_sale)) %></td>
+              <td><%= moneda(subtotal_venta(product_sale)) %></td>
             </tbody>
           <% end %>
           <tbody>
-            <td></td><td></td><td><strong><%= numero(cant_vendida(@sale)) %></strong></td><td></td><td><strong><%= moneda(total(@sale)) %></strong></td>
+            <td></td><td></td><td><strong><%= numero(cant_vendida(@sale)) %></strong></td><td></td><td><strong><%= moneda(total_venta(@sale)) %></strong></td>
           </tbody>
       </table>
     </ul>
@@ -42,8 +42,9 @@
 
   <p>
     <strong>Total venta:</strong>
-    <%= moneda(total(@sale)) %>
+    <%= moneda(total_venta(@sale)) %>
   </p>
+
   <% if !current_user.nil? && current_user.kind == "Admin" %>
     <td><%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock de los productos.' } %></td> |
   <% end %>
