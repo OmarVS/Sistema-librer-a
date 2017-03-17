@@ -57,7 +57,6 @@
               <% end %>
               <% if current_user.kind == "Admin" %>
                 <li><%= link_to "Usuarios", users_path %></li>
-                <li><%= link_to "Crear Usuario", new_user_path %></li>
               <% end %>
               <li><%= link_to 'Mi carrito', carrito_path%></li>
               <li> <%='('%><%=@shopping_cart.products.count%><%=')'%></li>
