@@ -34,8 +34,11 @@ class Book < ActiveRecord::Base
 	# validate :book_not_registered
 
 	has_attached_file :avatar, :styles => { :medium => "300x500#", :thumb => "150x250#" }, :default_url => "/images/books/:style/missing.jpg"
-    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-end
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+	def paypal_form
+		{name: name,sku: :item, price: (price),currency:"USD",quantity: 1}
+	end
 
 def book_not_registered
 	errors.add :name, 'ya está registrado' if Book.find_by_name(name)
@@ -47,4 +50,6 @@ end
 
 def price_mayor
 	errors.add :price, "El precio debe ser mínimo $1" if self.price == 0 || self.price.to_s.include?("-")
+end
+
 end

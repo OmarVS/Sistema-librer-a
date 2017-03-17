@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'payments/create'
   get "/checkout", to: "payments#checkout"
   get "/carrito", to: "shopping_carts#show"
-  get '/add/:product_id', as: :add_to_cart, to: 'in_shopping_carts#create'
+  get '/add/:product_barcode', as: :add_to_cart, to: 'in_shopping_carts#create'
   get "/ok", to: "static_pages#payment_succed"
 
   resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products

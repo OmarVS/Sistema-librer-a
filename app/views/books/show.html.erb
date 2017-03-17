@@ -35,6 +35,7 @@
     <strong>Stock:</strong>
     <%= numero(@book.stock) %> unidades.
   </p>
+  <%= link_to 'Agregar al carrito', add_to_cart_path(product_barcode: @book.barcode) %> |
   <% if signed_in? && current_user.kind == "Admin" %>
     <%= link_to 'Editar', edit_book_path(@book) %> |
   <% end %>

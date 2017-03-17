@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @shopping_cart.in_shopping_carts.each do |i_sh| product = i_sh.product %>
+    <% @shopping_cart.in_shopping_carts.each do |i_sh| product = producto(i_sh.product_barcode) %>
       <% if !product.nil? %>
       <tr>
           <td><%= product.name %></td>
@@ -23,7 +23,7 @@
   </tbody>
 </table>
 <p>
- <h3><strong>Total:</strong>  <%= '$' %><%= @shopping_cart.total %></h3>
+ <h3><strong>Total:</strong>  <%= '$' %><%= @shopping_cart.total_precio %></h3>
 </p>
 
 <%= link_to 'Pagar con PayPal', pagar_path, method: :post%>

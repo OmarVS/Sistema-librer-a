@@ -17,7 +17,7 @@ class ShoppingCart < ActiveRecord::Base
 	has_many :books, through: :in_shopping_carts
 	belongs_to :users
 
-	aasm column: "status" do 
+	aasm column: "status" do
 
 		state :created, initial: true
 		state :payed
@@ -31,11 +31,25 @@ class ShoppingCart < ActiveRecord::Base
 	end
 
 	def items
-		self.products.map{|product| product.paypal_form }
+		self.in_shopping_carts.each do |i_sh|
+			product = Product.find_by_barcode(i_sh.product_barcode)
+				if product.nil?
+					product = Book.find_by_barcode(i_sh.product_barcode)
+				end
+			product.paypal_form
+		end
 	end
 
 
-	def total
-		products.sum(:price)
+	def total_precio
+		total=0
+		self.in_shopping_carts.each do |i_sh|
+			product = Product.find_by_barcode(i_sh.product_barcode)
+			if product.nil?
+				product = Book.find_by_barcode(i_sh.product_barcode)
+			end
+			total+= product.price
+		end
+		total
 	end
 end

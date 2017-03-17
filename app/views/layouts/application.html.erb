@@ -60,7 +60,7 @@
                 <li><%= link_to "Crear Usuario", new_user_path %></li>
               <% end %>
               <li><%= link_to 'Mi carrito', carrito_path%></li>
-              <li> <%='('%><%=@shopping_cart.products.count%><%=')'%></li>
+              <li> <%='('%><%=@shopping_cart.in_shopping_carts.where(shopping_cart_id: @shopping_cart.id).count%><%=')'%></li>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Mi cuenta <b class="caret"></b>
