@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_path, error: "Inicie sesión, por favor"
+        redirect_to signin_path, notice: "Inicie sesión, por favor"
       end
     end
 

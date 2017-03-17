@@ -32,4 +32,11 @@ module SessionsHelper
 	def store_location
 		session[:return_to] = request.fullpath
 	end
+
+	def signed_in
+		unless signed_in?
+			store_location
+      		redirect_to signin_path, notice: "Inicie sesión, por favor"
+      	end
+    end
 end

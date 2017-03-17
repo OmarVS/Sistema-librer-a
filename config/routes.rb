@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   get "/checkout", to: "payments#checkout"
   get "/carrito", to: "shopping_carts#show"
   get '/add/:product_id', as: :add_to_cart, to: 'in_shopping_carts#create'
+  get "/ok", to: "static_pages#payment_succed"
 
   resources :users, :purchases, :tickets, :sales, :genres, :providers, :books, :products
   resources :in_shopping_carts, only: [:create,:destroy,:show]
+  resources :shopping_carts, only: [:create,:destroy,:show]
 
   post "/pagar", to: "payments#create"
 

@@ -15,15 +15,19 @@ module ApplicationHelper
     producto
   end
 
-  def link_to_remove_fields(name, f)
-    f.hidden_field(:_destroy) + link_to(name, nil, onclick: "remove_fields(this)")
+def permitido?
+    if signed_in?
+      true if current_user.kind == 'Admin'
+    else
+      false
+    end
   end
 
-  def link_to_add_fields(name, f, association)
-    new_object = f.object.class.reflect_on_association(association).klass.new
-    fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
-      render(association.to_s.singularize + "_fields", :f => builder)
+  def Admin
+    unless permitido?
+      store_location
+      redirect_to signin_path, notice: "Sólo permitido a usuarios con autorización"
     end
-    link_to(name, nil, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
+
 end
