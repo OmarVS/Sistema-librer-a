@@ -39,6 +39,8 @@ class Stores::Paypal
 		payment = Payment.find(payment_id)
 		if payment.execute(payer_id: payer_id)
 			yield if block_given?
-		end
+		else
+      redirect_to root, notice: "Something went wrong with Paypal servers, try again later"
+    end
 	end
 end
