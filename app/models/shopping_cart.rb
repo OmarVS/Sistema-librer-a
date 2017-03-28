@@ -31,24 +31,14 @@ class ShoppingCart < ActiveRecord::Base
 	end
 
 	def items
-		self.in_shopping_carts.each do |i_sh|
-			product = Product.find_by_barcode(i_sh.product_barcode)
-				if product.nil?
-					product = Book.find_by_barcode(i_sh.product_barcode)
-				end
-			product.paypal_form
-		end
+		self.in_shopping_carts.map {|i_sh| i_sh.product.paypal_form}
 	end
 
 
 	def total_precio
 		total=0
-		self.in_shopping_carts.each do |i_sh|
-			product = Product.find_by_barcode(i_sh.product_barcode)
-			if product.nil?
-				product = Book.find_by_barcode(i_sh.product_barcode)
-			end
-			total+= product.price
+		self.in_shopping_carts.each do |i_sh|	
+			total+= i_sh.product.price
 		end
 		total
 	end

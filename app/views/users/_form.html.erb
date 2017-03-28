@@ -1,16 +1,4 @@
 <%= bootstrap_form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> evitan crear este usuario:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.text_field :name, label: 'Nombre de usuario' %>
   </div>
@@ -30,11 +18,11 @@
   <% if signed_in? && current_user.kind == "Admin"%>
     <div class="form-inline field">
       <%= f.label :kind, 'Tipo de Usuario' %><br>
-      <%= f.radio_button(:kind, "admin") %>
+      <%= f.radio_button(:kind, "Admin") %>
       <%= f.label(:admin, "Admin") %>
-      <%= f.radio_button(:kind, "cliente") %>
+      <%= f.radio_button(:kind, "Cliente") %>
       <%= f.label(:client, "Cliente") %>
-      <%= f.radio_button(:kind, "vendedor") %>
+      <%= f.radio_button(:kind, "Vendedor") %>
       <%= f.label(:seller, "Vendedor") %>
       </div>
   <% end %>

@@ -11,10 +11,15 @@
 #
 
 class InShoppingCart < ActiveRecord::Base
-  belongs_to :product
-  belongs_to :book
   belongs_to :shopping_cart
+  belongs_to :user
 
-  has_one :user, through: :product
-  has_one :user, through: :book
+  def product
+    product=Product.find_by_barcode(self.product_barcode)
+      if product.nil?
+        product=Book.find_by_barcode(self.product_barcode)
+      end
+    product
+  end
+
 end

@@ -9,6 +9,7 @@ class PaymentsController < ApplicationController
 		else
       Stores::Paypal.checkout(params[:PayerID],params[:paymentId]) do
         @my_payment.pay!
+				
 				redirect_to ok_path, notice:"Se procesó el pago con PayPal"
         return
       end
@@ -19,7 +20,7 @@ class PaymentsController < ApplicationController
   def create
 
    paypal_helper = Stores::Paypal.new(@shopping_cart.total_precio,
-                                      nil,
+                                      @shopping_cart.items,
                                       return_url: checkout_url,
                                       cancel_url: carrito_url )
 

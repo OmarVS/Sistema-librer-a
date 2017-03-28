@@ -5,18 +5,18 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     @purchases = Purchase.all
+    if params[:rut].present?
+      @purchases = Purchase.where('provider_rut = ?',params[:rut])
+    end
+    if params[:barcode].present?
+      @purchases = Purchase.where('product_barcode = ?',params[:barcode])
+    end
     if params[:date].present?
       if params[:mes].present? && params[:mes]=='yes'
         @purchases = Purchase.where('extract(month from created_at) = ? AND extract(year from created_at) = ?', params[:date]['month'], params[:date]['year'])
       else
         @purchases = Purchase.where('extract(year from created_at) = ?',params[:date]['year'])
       end
-    end
-    if params[:rut].present?
-      @purchases = Purchase.where('provider_rut = ?',params[:rut])
-    end
-    if params[:barcode].present?
-      @purchases = Purchase.where('product_barcode = ?',params[:barcode])
     end
   end
 
@@ -29,7 +29,7 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     if params[:product_barcode].present?
-      @purchase.product_barcode = params[:product_barcode]
+      @purchase.product_purchases.build.product_barcode = params[:product_barcode]
     end
     product_purchase = @purchase.product_purchases.build
   end

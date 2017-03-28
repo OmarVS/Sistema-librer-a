@@ -11,6 +11,13 @@ class SalesController < ApplicationController
     if params[:product_barcode].present?
       @sales = @sales.where(product_barcode: params[:product_barcode])
     end
+    if params[:date].present?
+      if params[:mes].present? && params[:mes]=='yes'
+        @sales = @sales.where('extract(month from created_at) = ? AND extract(year from created_at) = ?', params[:date]['month'], params[:date]['year'])
+      else
+        @sales = @sales.where('extract(year from created_at) = ?',params[:date]['year'])
+      end
+    end
   end
 
   # GET /sales/1
@@ -72,7 +79,7 @@ class SalesController < ApplicationController
     end
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Venta eliminada con éxito.' }
+      format.html { redirect_to sales_url, notice: 'Venta anulada con éxito.' }
       format.json { head :no_content }
     end
   end

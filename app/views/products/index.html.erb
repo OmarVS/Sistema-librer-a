@@ -1,11 +1,11 @@
 <h1>Productos</h1>
 <div class="container-fluid row">
-  <div class="col-md-2">
+  <div class="pull-left">
     <% if !current_user.nil? && current_user.kind == 'Admin' %>
       <%= link_to 'Nuevo producto', new_product_path, class: "btn btn-default btn-lg" %><br><br>
     <% end %>
   </div>
-  <div class="col-md-3 col-md-offset-7">
+  <div class="pull-right">
     <%= form_tag products_path, method: :get, class: "form-inline" do %>
       <div class="form-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar nombre" %>
@@ -14,26 +14,31 @@
     <% end %>
   </div>
 </div>
-<div class="container-fluid row">
+<div class="row">
     <% @products.each do |product| %>
       <% if !product.price.nil? || product.stock == 0 %>
         <div class="col-md-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong><center><%= link_to product.name, product %></center></strong>
+            </div>
+            <div class="panel-body">
             <p align="center"><%= link_to image_tag(product.avatar.url(:thumb)), product %></p>
             <div class="container">
-              <b><%= link_to product.name, product %></b><br>
-              Código: <%= product.barcode %><br>
-              Marca: <%= product.trademark %><br>
-              Precio: <b><%= moneda(product.price) %></b><br>
-              <% if !current_user.nil? && current_user.kind == 'Admin' %>
-                Stock: <%= numero(product.stock) %> unidades.<br>
-              <% end %>
+              <div title="Código"><span class="glyphicon glyphicon-barcode"></span> <%= product.barcode %></div>
+              <div title="Marca"><span class="glyphicon glyphicon-registration-mark"></span> <%= product.trademark %></div>
+              <div title="Stock"><span class="glyphicon glyphicon-floppy-disk"></span> <%= numero(product.stock) %> unidades.</div>
+              <div title="Precio" class="lead"><span class="glyphicon glyphicon-usd"></span> <b><%= numero(product.price) %></b></div>
             </div>
-            <p align="center">
-              <% if signed_in? && current_user.kind == 'Admin' %>
-                <%= link_to 'Editar', edit_product_path(product) %> |
-                <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
-              <% end %>
-            </p><br>
+              <%= link_to "Añadir al carrito", add_to_cart_path(product_barcode: product.barcode), class: "btn btn-success btn-block" %>
+          </div>
+          <% if signed_in? && current_user.kind == "Admin" %>
+            <div class="panel-footer text-center">
+              <%= link_to 'Editar', edit_product_path(product) %> |
+              <%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
+            </div>
+          <%end%>
+          </div>
         </div>
       <% end %>
     <% end %>

@@ -13,6 +13,7 @@
 #
 
 class Purchase < ActiveRecord::Base
+  belongs_to :provider
   has_many :product_purchases, :dependent => :destroy
   accepts_nested_attributes_for :product_purchases, :allow_destroy => true
   validate :provider_rut_null

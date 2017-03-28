@@ -20,7 +20,6 @@
 
 class Book < ActiveRecord::Base
 	belongs_to :genre
-	has_many :purchases
 	attr_readonly :barcode, :on => :update
 	validates_uniqueness_of :barcode, :message => 'Ya está registrado'
 	validates :barcode, presence: true, length: {in: 10..15}
@@ -31,13 +30,12 @@ class Book < ActiveRecord::Base
 	validates :writer, length: {in: 6..30}
 	validates :editorial, length: {in: 4..30}
 	validates :genre_id, presence: true
-	# validate :book_not_registered
 
 	has_attached_file :avatar, :styles => { :medium => "300x500#", :thumb => "150x250#" }, :default_url => "/images/books/:style/missing.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def paypal_form
-		{name: name,sku: :item, price: (price),currency:"USD",quantity: 1}
+		{name: name,sku: barcode, price: (price),currency:"USD",quantity: 1}
 	end
 
 def book_not_registered

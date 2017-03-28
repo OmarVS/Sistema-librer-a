@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reports/stock'
+
+  get 'stock', to: "stock#index"
+
   get 'errors/not_found'
 
   get 'errors/internal_server_error'

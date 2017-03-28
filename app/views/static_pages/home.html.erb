@@ -1,79 +1,103 @@
 <h1 align="center">Tienda Online de Libros y Artículos Escolares</h1>
 <% if signed_in? && current_user.kind=='Admin' %>
-<% @products=Product.where("stock < 10") %>
-  <div class="container">
-      <% if !@products.nil? %>
+  <% @products=Product.where("stock < 10") %>
+  <div class="row">
+    <% if @products.count > 0 %>
       <h3>Productos bajos en stock</h3>
       <% @products.each do |product| %>
         <div class="col-md-2">
-            <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
-            <div class="container">
-              <b><%= product.name %></b><br>
-              Código: <%= product.barcode %><br>
-              Stock: <%= product.stock %> unidades.<br><br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong><center><%= product.name %></center></strong>
             </div>
-            <p align="center">
-            <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => product.barcode) %></p>
+            <div class="panel-body">
+              <p align="center"><%= image_tag(product.avatar.url(:thumb)) %></p>
+                <div class="container-fluid">
+                  <div title="Código"><span class="glyphicon glyphicon-barcode"></span> <%= product.barcode %></div>
+                  <div title="Stock"><span class="glyphicon glyphicon-floppy-disk"></span> <%= product.stock %> unidades.</div><br>
+                </div>
+              <p align="center">
+                <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => product.barcode), class: "btn btn-default" %>
+              </p>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
   <% @books=Book.where("stock < 10") %>
-    <div class="container">
-        <% if !@books.nil? %>
-        <h3>Libros bajos en stock</h3>
-        <% @books.each do |book| %>
-          <div class="col-md-3">
+  <div class="row">
+    <% if @books.count > 0 %>
+      <h3>Libros bajos en stock</h3>
+      <% @books.each do |book| %>
+        <div class="col-md-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong><center><%= book.name %></center></strong>
+            </div>
+            <div class="panel-body">
               <p align="center"><%= image_tag(book.avatar.url(:thumb)) %></p>
-              <div class="container">
-                <b><%= book.name %></b><br>
-                Código: <%= book.barcode %><br>
-                Stock: <%= book.stock %> unidades.<br><br>
-              </div>
+                <div class="container-fluid">
+                  <div title="Código"><span class="glyphicon glyphicon-barcode"></span> <%= book.barcode %></div>
+                  <div title="Stock"><span class="glyphicon glyphicon-floppy-disk"></span> <%= book.stock %> unidades.</div><br>
+                </div>
               <p align="center">
-              <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => book.barcode) %></p>
+                <%= link_to 'Registrar compra', new_purchase_path(:product_barcode => book.barcode), class: "btn btn-default" %>
+              </p>
+            </div>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-<% else %>
-  <div class="container">
-    <% @books=Book.all %>
-    <h3>Libros Destacados</h3>
-    <% may1=0 %>
-    <% maybook1=nil %>
-    <% may2=0 %>
-    <% maybook2=nil %>
-    <% @books.each do |book| %>
-      <% if book.price>may1 %>
-        <% may1 = book.price %>
-        <% maybook1 = book %>
-      <% else %>
-        <% if book.price>may2 %>
-          <% may2 = book.price %>
-          <% maybook2 = book %>
-        <% end %>
+        </div>
       <% end %>
     <% end %>
-    <div class="col-md-2">
-      <p align="center"><%= image_tag(maybook1.avatar.url(:thumb)) %></p>
-      <div class="container">
-        <b><%= maybook1.name %></b><br>
-        Código: <%= maybook1.barcode %><br>
-        Precio: <%= may1 %><br>
-        Marca: <%= maybook1.writer %><br>
-        Stock: <%= maybook1.stock %> unidades.<br>
+  </div>
+<% else %>
+  <% @books=Book.all %>
+  <h3>Libros Destacados</h3>
+  <% may1=0 %>
+  <% maybook1=nil %>
+  <% may2=0 %>
+  <% maybook2=nil %>
+  <% @books.each do |book| %>
+    <% if book.price>may1 %>
+      <% may1 = book.price %>
+      <% maybook1 = book %>
+    <% else %>
+      <% if book.price>may2 %>
+        <% may2 = book.price %>
+        <% maybook2 = book %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="col-md-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><center><%= maybook1.name %></center><strong>
       </div>
-      <p align="center">
-      <p align="center"><%= image_tag(maybook2.avatar.url(:thumb)) %></p>
-      <div class="container">
-        <b><%= maybook2.name %></b><br>
-        Código: <%= maybook2.barcode %><br>
-        Precio: <%= may2 %><br>
-        Marca: <%= maybook2.writer %><br>
-        Stock: <%= maybook2.stock %> unidades.<br>
+      <div class="panel-body">
+        <p align="center"><%= image_tag(maybook1.avatar.url(:thumb)) %></p>
+        <div class="container">
+          <div title="Código"><span class="glyphicon glyphicon-barcode"></span> <%= maybook1.barcode %></div>
+          <div title="Autor"><span class="glyphicon glyphicon-user"></span> <%= maybook1.writer %></div>
+          <div title="Stock"><span class="glyphicon glyphicon-floppy-disk"></span> <%= maybook1.stock %> unidades.</div>
+          <div title="Precio" class=""><span class="glyphicon glyphicon-usd"></span> <%= maybook1.price %></div>
+        </div>
       </div>
-      <p align="center">
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><center><%= maybook2.name %></center><strong>
+      </div>
+      <div class="panel-body">
+        <p align="center"><%= image_tag(maybook2.avatar.url(:thumb)) %></p>
+        <div class="container">
+          <div title="Código"><span class="glyphicon glyphicon-barcode"></span> <%= maybook2.barcode %></div>
+          <div title="Autor"><span class="glyphicon glyphicon-user"></span> <%= maybook2.writer %></div>
+          <div title="Stock"><span class="glyphicon glyphicon-floppy-disk"></span> <%= maybook2.stock %> unidades.</div>
+          <div title="Precio" class=""><span class="glyphicon glyphicon-usd"></span> <%= maybook2.price %></div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

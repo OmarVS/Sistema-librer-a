@@ -1,12 +1,12 @@
-<h1>Tu pago ha sido procesado</h1>
-
-<h4>
+<h3>Gracias por preferir nuestros productos, aquí está el detalle de tu compra:</h3>
 	<table class="table table-condensed">
   <thead>
     <tr>
+			<th>Código</th>
       <th>Nombre</th>
-      <th>Precio</th>
-      <th colspan="3"></th>
+      <th>Cantidad</th>
+      <th>Precio unidad</th>
+      <th>Subtotal</th>
     </tr>
   </thead>
 
@@ -14,14 +14,17 @@
     <% @shopping_cart.in_shopping_carts.each do |i_sh| product = i_sh.product %>
       <% if !product.nil? %>
       <tr>
+				<td><%= product.barcode %></td>
         <td><%= product.name %></td>
-        <td><%= '$' %><%= product.price %></td>
+        <td></td>
+        <td><%= moneda(product.price) %></td>
+        <td></td>
       </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
 <p>
- <h2><strong>Total:</strong>  <%= '$' %><%= @shopping_cart.total_precio %></h3>
+ <h2><strong>Total:</strong>  <%= moneda(@shopping_cart.total_precio) %></h3>
 </p>
-</h4>
+<%= link_to 'Imprimir informe', nil, onclick: "printpage()", class: "btn btn-success btn-lg" %>

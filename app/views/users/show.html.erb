@@ -17,3 +17,9 @@
   <strong>Tipo usuario:</strong>
   <%= @user.kind %>
 </p>
+
+<p>
+  <%= link_to 'Editar', edit_user_path(@user) %> |
+  <%= link_to 'Eliminar', @user, method: :delete, data: { confirm: 'También se eliminarán las compras y/o ventas relacionadas. ¿Está seguro?' } %> |
+  <%= link_to 'Volver', users_path %>
+</p>

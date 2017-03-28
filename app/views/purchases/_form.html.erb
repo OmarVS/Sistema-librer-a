@@ -7,7 +7,7 @@
       <%= f.date_select :created_at, label: "Fecha", start_year: Date.current.year - 1, end_year: Date.current.year, order: [:day,:month,:year] %>
     </div>
     <p><%= f.link_to_add "Agregar producto", :product_purchases, "data-target" => ".ps" %></p>
-    <div class="fields row ps">
+    <div class="fields ps">
         <%= f.fields_for :product_purchases do |builder| %>
           <%= render "product_purchase_fields", :f => builder %>
           <% if @purchase.product_purchases.present? %>

@@ -1,7 +1,7 @@
 <h1>Informe de ventas</h1>
-<div class="row">
+<div class="container-fluid row">
   <%= bootstrap_form_tag url: reports_sales_path, method: :get, class: "form-inline" do |f| %>
-    <div class="form-group form-inline col-md-3">
+    <div class="form-group pull-left">
       <%= f.label :date_filter, 'Año:' %>
       <% if Sale.count == 0 %>
         <% año = Date.current.year %>
@@ -11,29 +11,33 @@
       <%= select_year(Date.current, start_year: año, end_year: Date.current.year ) %>
       <%= submit_tag "Mostrar", name: nil, class: "btn btn-primary btn-md" %>
     </div>
-    <div class="col-md-offset-7 col-md-2">
+    <div class="pull-right">
       <%= link_to 'Imprimir informe', nil, onclick: "printpage()", class: "btn btn-success btn-lg" %>
     </div>
   <% end %>
 </div>
-  <% if params[:date].present? %>
-    <% @date_year = params[:date]["year"] %>
-  <% else %>
-    <% @date_year = Date.current.year %>
-  <% end %>
-  <h2 align="center">Año: <%= @date_year %></h2>
-  <% @sales = Sale.where('extract(year from created_at) = ?',@date_year) %>
-  <h3>Productos</h3>
-  <% @total = 0 %>
-  <table class="table">
-    <%= render 'thead' %>
-    <% @products = Product.all %>
-    <%= render 'tbody' %>
-  </table>
-  <h3>Libros</h3>
+<% if params[:date].present? %>
+  <% @date_year = params[:date]["year"] %>
+<% else %>
+  <% @date_year = Date.current.year %>
+<% end %>
+<h2 align="center">Año: <%= @date_year %></h2>
+<% @sales = Sale.where('extract(year from created_at) = ?',@date_year) %>
+  <div class="panel panel-default">
+    <div class="panel-heading lead">Productos</div>
+    <% @total = 0 %>
+    <table class="table">
+      <%= render 'thead' %>
+      <% @products = Product.all %>
+      <%= render 'tbody' %>
+    </table>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading lead">Libros</div>
   <table class="table">
     <%= render 'thead' %>
     <% @products = Book.all %>
     <%= render 'tbody' %>
   </table>
-  <h4 align="center">Total ventas: <%= moneda(@total) %></h4>
+</div>
+<h4 align="center">Total ventas: <%= moneda(@total) %></h4>

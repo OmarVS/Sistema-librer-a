@@ -17,17 +17,15 @@
   <strong>Precio:</strong>
   <%= moneda(@product.price) %>
 </p>
-<% if !current_user.nil? && current_user.kind == 'Admin' %>
-  <p>
-    <strong>Stock:</strong>
-    <%= numero(@product.stock) %> unidades.
-  </p>
-<% end %>
+<p>
+  <strong>Stock:</strong>
+  <%= numero(@product.stock) %> unidades.
+</p>
 <%= stylesheet_link_tag 'print', :media => 'print' %>
-<%= link_to "Imprimir", '#', onclick: "printpage()" %> |
 <%= link_to 'Agregar al carrito', add_to_cart_path(product_barcode: @product.barcode) %> |
 <% if permitido? %>
   <%= link_to 'Editar', edit_product_path(@product) %> |
+  <%= link_to 'Eliminar', @product, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %> |
 <% end %>
 <%= link_to 'Volver', products_path %>
 </div>

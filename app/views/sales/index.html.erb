@@ -1,25 +1,23 @@
 <h1>Registro de ventas</h1>
-<%= javascript_include_tag "productos" %>
-<% if !current_user.nil? && current_user.kind == 'Admin' || current_user.kind == 'Vendedor' %>
-  <div class="col-md-2">
+<div class="container-fluid">
+  <div class="pull-left">
     <%= link_to 'Registrar venta', new_sale_path, class: "btn btn-default btn-lg" %>
   </div>
-<% end %>
-<div class="col-md-offset-8">
-  <%= form_tag sales_path, method: :get, class: "form-inline" do |f| %>
-    <%= label_tag :kind, 'Filtro: ' %>
-    <div class="checkbox">
-      <%= check_box_tag(:mes, 'yes') %>
-      <%= label_tag("Mes") %>
-      <%= select_month(Date.current, use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
-    </div>
-    <%= select_year(Date.current, end_year: Date.current.year ) %>
-    <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
-  <% end %>
+  <div class="pull-right">
+    <%= form_tag sales_path, method: :get, class: "form-inline" do |f| %>
+      <%= label_tag :kind, 'Filtro: ' %>
+      <div class="checkbox">
+        <%= check_box_tag(:mes, 'yes') %>
+        <%= label_tag("Mes") %>
+        <%= select_month(Date.current, use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)) %>
+      </div>
+      <%= select_year(Date.current, end_year: Date.current.year ) %>
+      <%= submit_tag "Filtrar", name: nil, class: "btn btn-primary btn-md" %>
+    <% end %>
+  </div>
 </div>
-<br>
 <% if @sales.count == 0 %>
-  <h4 align="center">No existen compras</h4>
+  <h4 align="center">No existen ventas</h4>
 <% else %>
 <div class="col-md-10 col-md-offset-1">
   <table class="table">
@@ -32,7 +30,6 @@
         <th colspan="2"></th>
       </tr>
     </thead>
-
     <tbody>
       <% @sales.each do |sale| %>
         <tr>
@@ -42,7 +39,7 @@
           <td><%= moneda(total_venta(sale)) %></td>
           <td><%= link_to 'Detalle', sale %></td>
           <% if !current_user.nil? && current_user.kind == "Admin" %>
-          <td><%= link_to 'Eliminar', sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock de los productos.' } %></td>
+          <td><%= link_to 'Anular', sale, method: :delete, data: { confirm: 'Al anular este registro, aumentará también el stock de los productos.' } %></td>
           <% end %>
         </tr>
       <% end %>

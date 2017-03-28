@@ -40,13 +40,13 @@
     </ul>
   </p>
 
-  <p>
+  <p class="lead">
     <strong>Total venta:</strong>
     <%= moneda(total_venta(@sale)) %>
   </p>
 
   <% if !current_user.nil? && current_user.kind == "Admin" %>
-    <td><%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Al eliminar este registro, aumentará también el stock de los productos.' } %></td> |
+    <td><%= link_to 'Anular venta', @sale, method: :delete, data: { confirm: 'Al anular este registro, aumentará también el stock de los productos.' } %></td> |
   <% end %>
   <%= link_to 'Volver', sales_path %>
 </div>

@@ -1,42 +1,47 @@
 <h1>Libros</h1>
 <div class="container-fluid row">
-  <div class="col-md-2">
+  <div class="pull-left">
     <% if !current_user.nil? && current_user.kind == 'Admin' %>
       <%= link_to 'Agregar Libro', new_book_path, class: "btn btn-default btn-lg" %><br><br>
     <% end %>
   </div>
-  <div class="col-md-3 col-md-offset-7">
+  <div class="pull-right">
     <%= form_tag books_path, method: :get, class: "form-inline" do %>
       <div class="form-group">
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar título" %>
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar título", icon: "search" %>
       </div>
         <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
     <% end %>
   </div>
 </div>
 
-<div class="container-fluid row">
+<div class="row">
     <% @books.each do |book| %>
       <% if !book.price.nil? || book.stock == 0 %>
-        <div class="col-md-3">
-          <p align="center"><%= link_to image_tag(book.avatar.url(:thumb)), book %></p>
-          <div class="container-fluid">
-            <b><%= link_to book.name, book %></b><br>
-            Código ISBN: <%= book.barcode %><br>
-            Autor: <%= book.writer %><br>
-            Editorial <%= book.editorial %><br>
-            Género: <%= book.genre.name %><br>
-            Precio: <b><%= moneda(book.price) %></b><br>
-            <% if !current_user.nil? && current_user.kind == 'Admin' %>
-              Stock: <%= numero(book.stock) %> unidades.<br>
-            <% end %>
-          </div>
-          <p align="center">
+        <div class="col-md-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong><center><%= link_to book.name, book %></center></strong>
+            </div>
+            <div class="panel-body">
+              <p align="center"><%= link_to image_tag(book.avatar.url(:thumb)), book %></p>
+              <div class="container-fluid">
+                <div title="Código"><span class="glyphicon glyphicon-barcode"></span> <%= book.barcode %></div>
+                <div title="Autor"><span class="glyphicon glyphicon-user"></span> <%= book.writer %></div>
+                <div title="Editorial"><span class="glyphicon glyphicon-book"></span> <%= book.editorial %></div>
+                <div title="Género"><span class="glyphicon glyphicon-tags"></span> <%= book.genre.name %></div>
+                <div title="Stock"><span class="glyphicon glyphicon-floppy-disk"></span> <%= numero(book.stock) %> unidades.</div>
+                <div title="Precio" class="lead"><span class="glyphicon glyphicon-usd"></span> <b><%= numero(book.price) %></b></div>
+              </div>
+              <%= link_to "Añadir al carrito", add_to_cart_path(product_barcode: book.barcode), class: "btn btn-success btn-block" %>
+            </div>
             <% if signed_in? && current_user.kind == "Admin" %>
-              <%= link_to 'Editar', edit_book_path(book) %> |
-              <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
+              <div class="panel-footer text-center">
+                <%= link_to 'Editar', edit_book_path(book) %> |
+                <%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %>
+              </div>
             <%end%>
-          </p><br>
+          </div>
         </div>
       <% end %>
     <% end %>

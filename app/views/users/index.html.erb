@@ -1,27 +1,29 @@
 <h1>Usuarios</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Avatar</th>
-      <th>Nombre</th>
-      <th>Telefono</th>
-      <th>Email</th>
-      <th>Tipo de usuario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-  		<td><%= image_tag(user.avatar.url(:medium), :size => "80x80") %></td>
-		<td><%= link_to user.name, user %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.email %></td>
-        <td><%= user.kind %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<li><%= link_to "Crear Usuario", new_user_path %></li>
+<div class="panel">
+  <%= link_to "Crear Usuario", new_user_path, class: "btn btn-default btn-lg"  %>
+</div>
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <%= link_to image_tag(user.avatar.url(:medium), :size => "80x80"), user %>
+            </div>
+            <div class="media-body">
+                <div title="Usuario"><span class="glyphicon glyphicon-user"></span> <%= user.name %></div>
+                <div title="Teléfono"><span class="glyphicon glyphicon-earphone"></span> <%= user.phone %></div>
+                <div title="Email"><span class="glyphicon glyphicon-envelope"></span> <%= user.email %></div>
+                <div title="Tipo"><span class="glyphicon glyphicon-cog"></span> <%= user.kind %></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer text-center">
+          <%= link_to "Editar", edit_user_path(user) %> |
+          <%= link_to "Eliminar", user, method: :delete, data: {confirm: "También se eliminarán las compras y/o ventas relacionadas. ¿Está seguro?"} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

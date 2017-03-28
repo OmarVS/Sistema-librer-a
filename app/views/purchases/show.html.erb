@@ -40,13 +40,13 @@
     </ul>
   </p>
 
-  <p>
+  <p class="lead">
     <strong>Total compra:</strong>
     <%= moneda(total_compra(@purchase)) %>
   </p>
 
   <% if !current_user.nil? && current_user.kind == "Admin" %>
-    <%= link_to 'Eliminar', @purchase, method: :delete, data: { confirm: 'Al eliminar este registro, disminuirá también el stock del producto.' } %> |
+    <%= link_to 'Anular', @purchase, method: :delete, data: { confirm: 'Al anular este registro, disminuirá también el stock del producto.' } %> |
   <% end %>
   <%= link_to 'Volver', purchases_path %>
 </div>

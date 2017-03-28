@@ -18,8 +18,6 @@
 
 class Product < ActiveRecord::Base
 	attr_readonly :barcode, :on => :update
-	belongs_to :user
-	belongs_to :product_sale
 	validates_uniqueness_of :barcode, :message => 'Ya está registrado'
 	validates :barcode, presence: true, length: {in: 10..15}
 	validate :barcode_positivo
@@ -32,7 +30,7 @@ class Product < ActiveRecord::Base
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def paypal_form
-		{name: name,sku: :item, price: (price),currency:"USD",quantity: 1}
+		{name: name,sku: barcode, price: (price),currency:"USD",quantity: 1}
 	end
 
 	def barcode_positivo

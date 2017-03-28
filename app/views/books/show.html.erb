@@ -38,6 +38,7 @@
   <%= link_to 'Agregar al carrito', add_to_cart_path(product_barcode: @book.barcode) %> |
   <% if signed_in? && current_user.kind == "Admin" %>
     <%= link_to 'Editar', edit_book_path(@book) %> |
+    <%= link_to 'Eliminar', @book, method: :delete, data: { confirm: 'También se eliminarán las compras y ventas relacionadas. ¿Está seguro?' } %> |
   <% end %>
   <%= link_to 'Volver', books_path %>
 </div>
