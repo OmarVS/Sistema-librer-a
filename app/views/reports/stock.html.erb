@@ -1,0 +1,43 @@
+<h1>Informe de stock</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Productos</h3>
+      </div>
+      <table class="table">
+        <%= render "theadstock" %>
+        <tbody>
+          <% Product.all.each do |p|%>
+          <tr>
+            <td><%= p.barcode %></td>
+            <td><%= p.name %></td>
+            <td><%= p.stock %></td>
+            <td><%= link_to "Registrar compra",new_purchase_path(product_barcode: p.barcode) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Libros</h3>
+      </div>
+      <table class="table">
+        <%= render "theadstock" %>
+        <tbody>
+          <% Book.all.each do |b|%>
+          <tr>
+            <td><%= b.barcode %></td>
+            <td><%= b.name %></td>
+            <td><%= b.stock %></td>
+            <td><%= link_to "Registrar compra",new_purchase_path(product_barcode: b.barcode) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
